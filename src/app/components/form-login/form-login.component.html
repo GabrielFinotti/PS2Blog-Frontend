@@ -1,0 +1,15 @@
+<form [formGroup]="login" (ngSubmit)="getUser()">
+  <div>
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" />
+  </div>
+  <div>
+    <label for="password">Senha</label>
+    <input type="password" id="password" formControlName="password" />
+  </div>
+  <div>
+    <input type="checkbox" id="saveUser" formControlName="saveUser" />
+    <label for="saveUser"> Salvar minhas credênciais </label>
+  </div>
+  <input type="submit" value="Start Game" />
+</form>

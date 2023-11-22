@@ -1,17 +1,11 @@
-$primary-color: linear-gradient(
-    180deg,
-    rgba(20, 10, 86, 0) 0%,
-    rgba(42, 5, 90, 0.2) 0.01%
-  ),
-  linear-gradient(180deg, #03042d 37.5%, rgba(0, 0, 0, 0) 100%);
-$seconday-color: #350770;
-$tertiary-color: #141317;
+$primary-bg-color: linear-gradient(180deg, #01012c 0%, #170128 63.02%);
+$secondary-bg-color: #350770;
+$tertiary-bg-color: #141317;
 
-$text-primary-color: linear-gradient(
+$primary-text-color: linear-gradient(
   180deg,
-  #8346d0 0%,
-  rgba(131, 70, 208, 0.21) 46.88%,
-  rgba(131, 70, 208, 0.67) 100%
+  #6e00fa 0%,
+  rgba(74, 5, 160, 0.79) 100%
 );
-$text-secondary-color: rgba(0, 255, 240, 0.62);
-$text-tertiary-color: rgba(131, 70, 208, 0.67);
+$secondary-text-color: #00fff0;
+$tertiary-text-color: #FFFFFF

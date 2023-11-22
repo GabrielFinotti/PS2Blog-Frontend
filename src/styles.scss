@@ -1,5 +1,12 @@
+@font-face {
+  font-family: Jura;
+  src: url(assets/fonts/Jura-font.woff);
+}
+
 * {
+  border: 0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Jura;
 }
