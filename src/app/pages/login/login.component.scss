@@ -1,3 +1,21 @@
 @import "../../scss/variaveis.scss";
 
+main {
+  background: $primary-bg-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12%;
+  height: 100vh;
 
+  h1 {
+    background: $primary-text-color;
+    background-clip: text;
+    color: transparent;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+  }
+}

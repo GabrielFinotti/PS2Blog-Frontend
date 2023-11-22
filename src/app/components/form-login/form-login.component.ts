@@ -20,10 +20,19 @@ export class FormLoginComponent {
   constructor(private formBuilder: FormBuilder) {
     this.login = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(12),
+        ],
+      ],
       saveUser: [''],
     });
   }
 
-  protected getUser() {}
+  protected getUser() {
+    console.log(this.login.value);
+  }
 }
