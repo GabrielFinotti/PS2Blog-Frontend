@@ -1,10 +1,27 @@
 @import "../../scss/variaveis.scss";
 
+// Animação
+@keyframes showLogin {
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+// Formatação
 form {
   display: flex;
   flex-direction: column;
   max-width: 350px;
   margin: auto;
+  scale: 0;
+
+  animation-name: showLogin;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 
   input[type="submit"] {
     background: $secondary-bg-color;
