@@ -1,5 +1,6 @@
 @import "../../scss/variaveis.scss";
 
+// Formatação
 main {
   background: $primary-bg-color;
   display: flex;
@@ -17,5 +18,21 @@ main {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1.3px;
+  }
+
+  p {
+    color: $tertiary-text-color;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 2.5px;
+
+    margin: 0 auto;
+
+    span {
+      color: $secondary-text-color;
+      text-transform: capitalize;
+
+      cursor: pointer;
+    }
   }
 }

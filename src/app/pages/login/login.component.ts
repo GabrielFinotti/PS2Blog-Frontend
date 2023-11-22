@@ -23,4 +23,12 @@ export class LoginComponent {
   constructor() {
     this.cardForm = true;
   }
+
+  public toggleForm() {
+    if (this.cardForm == true) {
+      this.cardForm = false;
+    } else {
+      this.cardForm = true;
+    }
+  }
 }

@@ -2,8 +2,10 @@
   <h1>ps2 blog</h1>
   @if (cardForm) {
   <app-form-login></app-form-login>
+  <p>Não tem save game: <span (click)="toggleForm()">criar save</span></p>
   } @else {
   <app-form-cadastro></app-form-cadastro>
+  <p>Tem save game: <span (click)="toggleForm()">carregar save</span></p>
   }
 </main>
 <app-footer></app-footer>
