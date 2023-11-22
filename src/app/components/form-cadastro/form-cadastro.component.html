@@ -1,1 +1,19 @@
-<p>form-cadastro works!</p>
+<form [formGroup]="cadastro">
+  <div id="divUser">
+    <input type="text" placeholder="Usuário" formControlName="user" />
+  </div>
+  <div id="divEmail">
+    <input type="email" placeholder="Email" formControlName="email" />
+  </div>
+  <div id="divPassword">
+    <input type="password" placeholder="Senha" formControlName="password" />
+  </div>
+  <div id="divConfPassword">
+    <input
+      type="password"
+      placeholder="Confirme sua Senha"
+      formControlName="confPassword"
+    />
+  </div>
+  <input type="submit" value="Start Save" />
+</form>
