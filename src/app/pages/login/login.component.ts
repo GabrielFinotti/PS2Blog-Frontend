@@ -24,6 +24,7 @@ export class LoginComponent {
     this.cardForm = true;
   }
 
+  // Troca dos formulários
   public toggleForm() {
     if (this.cardForm == true) {
       this.cardForm = false;
