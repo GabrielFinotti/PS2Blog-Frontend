@@ -17,4 +17,10 @@ import { FormCadastroComponent } from '../../components/form-cadastro/form-cadas
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {}
+export class LoginComponent {
+  protected cardForm!: boolean;
+
+  constructor() {
+    this.cardForm = true;
+  }
+}
