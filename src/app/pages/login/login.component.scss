@@ -35,4 +35,44 @@ main {
       cursor: pointer;
     }
   }
+
+  div {
+    border-radius: 50px 0 0 50px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 8%;
+    right: 0;
+
+    width: max-content;
+    padding: 10px;
+
+    &#cardErro {
+      border-top: 1px solid red;
+      border-bottom: 1px solid red;
+
+      p {
+        color: #8B0505;
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: 0;
+
+        padding-left: 10px;
+      }
+    }
+
+    &#cardInvalid {
+      border-top: 1px solid $secondary-text-color;
+      border-bottom: 1px solid $secondary-text-color;
+
+      p {
+        color: $secondary-text-color;
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: 0;
+
+        padding-left: 10px;
+      }
+    }
+  }
 }

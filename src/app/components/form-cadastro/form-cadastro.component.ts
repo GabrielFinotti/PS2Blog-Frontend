@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
@@ -6,9 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+
+// Serviços
 import { FormUserService } from '../../shared/services/form-user.service';
-import { Console } from 'console';
-import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -18,13 +18,18 @@ import { json } from 'stream/consumers';
   styleUrl: './form-cadastro.component.scss',
 })
 export class FormCadastroComponent {
+  // Emissor de evento para o cartão de informação
+  @Output() private info = new EventEmitter();
+
   protected cadastro!: FormGroup;
+  private cardInfo!: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private formUserService: FormUserService
   ) {
-    this.cadastro = formBuilder.group({
+    // Cronstrução do formulário de cadastro
+    this.cadastro = this.formBuilder.group({
       user: [
         '',
         [
@@ -45,9 +50,13 @@ export class FormCadastroComponent {
       confPassword: ['', Validators.required],
     });
   }
-
+  //Método para enviar os dados do formulário para cadastro do usuário
   protected setUser() {
-    if (this.cadastro.valid) {
+    // Validando se o formulário é válido e se a senha está igual em ambos os inputs de senha antes de enviar os dados!
+    if (
+      this.cadastro.valid &&
+      this.cadastro.value['password'] === this.cadastro.value['confPassword']
+    ) {
       this.formUserService
         .setUser(
           this.cadastro.value['user'],
@@ -55,9 +64,22 @@ export class FormCadastroComponent {
           this.cadastro.value['password']
         )
         .subscribe(
-          (res) => console.log(res),
-          (error) => console.error(`Erro ao cadastrar: ${error}`)
+          (res) => {
+            // Emitindo a resposta de sucesso para o cartão de informação
+            this.cardInfo = 'True';
+            this.info.emit(this.cardInfo);
+          },
+          (error) => {
+            console.log(`Falha ao criar o save \n Erro: ${error.message}`);
+            // Emitindo a resposta de erro para o cartão de informação
+            this.cardInfo = 'Erro';
+            this.info.emit(this.cardInfo);
+          }
         );
+    } else {
+      // Se o formulário for invalido, emitindo o aviso para o cartão de informação
+      this.cardInfo = 'Invalid';
+      this.info.emit(this.cardInfo);
     }
   }
 }
