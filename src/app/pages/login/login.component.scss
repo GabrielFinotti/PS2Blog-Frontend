@@ -1,5 +1,26 @@
 @import "../../scss/variaveis.scss";
 
+// Animações
+@keyframes imgShow {
+  0% {
+    scale: 0;
+  }
+
+  50% {
+    scale: 1.3;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes divShow {
+  to {
+    right: 0;
+  }
+}
+
 // Formatação
 main {
   background: $primary-bg-color;
@@ -47,12 +68,18 @@ main {
     width: max-content;
     padding: 10px;
 
+    animation-name: divShow;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+
     &#cardErro {
       border-top: 1px solid red;
       border-bottom: 1px solid red;
+      right: -362px;
 
       p {
-        color: #8B0505;
+        color: #8b0505;
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 0;
@@ -64,6 +91,7 @@ main {
     &#cardInvalid {
       border-top: 1px solid $secondary-text-color;
       border-bottom: 1px solid $secondary-text-color;
+      right: -295px;
 
       p {
         color: $secondary-text-color;
@@ -73,6 +101,15 @@ main {
 
         padding-left: 10px;
       }
+    }
+
+    img {
+      scale: 0;
+
+      animation-name: imgShow;
+      animation-duration: 800ms;
+      animation-delay: 800ms;
+      animation-fill-mode: forwards;
     }
   }
 }
