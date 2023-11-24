@@ -6,6 +6,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { FormUserService } from '../../shared/services/form-user.service';
+import { Console } from 'console';
+import { json } from 'stream/consumers';
 
 @Component({
   selector: 'app-form-cadastro',
@@ -17,7 +20,10 @@ import {
 export class FormCadastroComponent {
   protected cadastro!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private formUserService: FormUserService
+  ) {
     this.cadastro = formBuilder.group({
       user: [
         '',
@@ -42,7 +48,16 @@ export class FormCadastroComponent {
 
   protected setUser() {
     if (this.cadastro.valid) {
-      console.log(this.cadastro.value);
+      this.formUserService
+        .setUser(
+          this.cadastro.value['user'],
+          this.cadastro.value['email'],
+          this.cadastro.value['password']
+        )
+        .subscribe(
+          (res) => console.log(res),
+          (error) => console.error(`Erro ao cadastrar: ${error}`)
+        );
     }
   }
 }
