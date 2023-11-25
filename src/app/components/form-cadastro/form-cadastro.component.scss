@@ -40,7 +40,6 @@ form {
   }
 
   div {
-    position: relative;
     margin: 12px 0;
 
     input {
@@ -54,7 +53,9 @@ form {
       }
 
       &.erro {
-        border: red;
+        border: 1px solid red;
+
+        color: $erro-text-color !important;
 
         &::placeholder {
           color: $erro-text-color;
@@ -82,8 +83,11 @@ form {
     }
 
     p {
-      &.erro {
+      &.erro-text {
+        position: relative;
+
         color: $erro-text-color;
+
         padding-left: 20px;
       }
     }

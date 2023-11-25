@@ -22,7 +22,7 @@ export class FormCadastroComponent {
   @Output() private info = new EventEmitter();
 
   protected cadastro!: FormGroup;
-  private cardInfo!: string;
+  protected cardInfo!: string;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -3,24 +3,24 @@
   <!--
     Troca do formulários
    -->
-  @if (false) {
-  <app-form-login></app-form-login>
+  @if (cardForm) {
+  <app-form-login (info)="getInfoLogin($event)"></app-form-login>
   <p>Não tem save game: <span (click)="toggleForm()">criar save</span></p>
   } @else {
-  <app-form-cadastro (info)="getInfo($event)"></app-form-cadastro>
+  <app-form-cadastro (info)="getInfoCad($event)"></app-form-cadastro>
   <p>Tem save game: <span (click)="toggleForm()">carregar save</span></p>
   <!--
     Cartões de informações
    -->
-  } @if (cardInfo == 'Erro') {
+  } @if (cardInfoCad == 'Erro') {
   <div id="cardErro">
     <img class="img-show" src="../../../assets/imgs/error.svg" alt="Error" />
     <p>Impossível criar o save, execute outra tentativa!</p>
   </div>
-  } @else if (cardInfo == 'Invalid') {
+  } @else if (cardInfoCad == 'Invalid') {
   <div id="cardInvalid">
     <img src="../../../assets/imgs/invalid.svg" alt="invalid" />
-    <p>Verifique se os dados estão corretos</p>
+    <p>Verifique se os dados estão corretos!</p>
   </div>
   }
 </main>

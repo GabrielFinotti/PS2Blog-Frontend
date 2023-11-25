@@ -19,7 +19,8 @@ import { FormCadastroComponent } from '../../components/form-cadastro/form-cadas
 })
 export class LoginComponent {
   protected cardForm!: boolean;
-  protected cardInfo!: string;
+  protected cardInfoCad!: string;
+  protected cardInfoLogin!: string
 
   constructor() {
     // Iniciando com o formulário de login ativo
@@ -34,7 +35,11 @@ export class LoginComponent {
     }
   }
   // Recebendo a resposta do cadastramento do usuário para renderizar no cartão de informação
-  protected getInfo(event: string) {
-    this.cardInfo = event;
+  protected getInfoCad(event: string) {
+    this.cardInfoCad = event;
+  }
+
+  protected getInfoLogin(event: string) {
+    this.cardInfoLogin = event;
   }
 }
