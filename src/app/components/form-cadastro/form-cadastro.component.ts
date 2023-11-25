@@ -66,7 +66,8 @@ export class FormCadastroComponent {
         .subscribe(
           (res) => {
             // Emitindo a resposta de sucesso para o cartão de informação
-            this.cardInfo = 'True';
+            console.log('Cadastro Efetuado!');
+            this.cardInfo = 'Succes';
             this.info.emit(this.cardInfo);
           },
           (error) => {
