@@ -24,10 +24,12 @@
 // Formatação
 main {
   background: $primary-bg-color;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 12%;
+
   height: 100vh;
 
   h1 {
@@ -79,7 +81,7 @@ main {
       right: -362px;
 
       p {
-        color: #8b0505;
+        color: $erro-text-color;
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 0;

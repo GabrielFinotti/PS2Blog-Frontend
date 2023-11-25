@@ -1,12 +1,21 @@
 <form [formGroup]="cadastro" (ngSubmit)="setUser()">
   <div id="divUser">
     <input type="text" placeholder="Usuário" formControlName="user" />
+    @if (cadastro.get('user')?.invalid && cadastro.get('user')?.dirty) {
+    <p class="erro">Insira um nome de usuário válido!</p>
+    }
   </div>
   <div id="divEmail">
     <input type="email" placeholder="Email" formControlName="email" />
+    @if (cadastro.get('email')?.invalid && cadastro.get('email')?.dirty) {
+    <p class="erro">Insira um email válido!</p>
+    }
   </div>
   <div id="divPassword">
     <input type="password" placeholder="Senha" formControlName="password" />
+    @if (cadastro.get('password')?.invalid && cadastro.get('password')?.dirty) {
+    <p class="erro">Insira uma senha válida!</p>
+    }
   </div>
   <div id="divConfPassword">
     <input
@@ -14,6 +23,10 @@
       placeholder="Confirme sua Senha"
       formControlName="confPassword"
     />
+    @if (cadastro.get('confPassword')?.invalid &&
+    cadastro.get('confPassword')?.dirty) {
+    <p class="erro">Por favor, confirme sua senha!</p>
+    }
   </div>
   <input type="submit" value="Start Save" [disabled]="cadastro.invalid" />
 </form>

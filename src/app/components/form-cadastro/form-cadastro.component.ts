@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
@@ -13,7 +13,7 @@ import { FormUserService } from '../../shared/services/form-user.service';
 @Component({
   selector: 'app-form-cadastro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NgClass],
   templateUrl: './form-cadastro.component.html',
   styleUrl: './form-cadastro.component.scss',
 })
