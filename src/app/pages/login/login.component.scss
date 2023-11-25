@@ -49,7 +49,7 @@ main {
     font-weight: 300;
     letter-spacing: 2.5px;
 
-    margin: 0 auto;
+    margin: 15px auto;
 
     span {
       color: $secondary-text-color;
@@ -57,24 +57,31 @@ main {
 
       cursor: pointer;
     }
+    // Formatação dos cartões de informações
   }
 
-  // Formatação dos cartões de informações
   div {
-    border-radius: 50px 0 0 50px;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 8%;
-    right: 0;
+    margin: 0 auto;
+    text-align: center;
 
-    width: max-content;
-    padding: 10px;
+    &#cardErro,
+    &#cardInvalid,
+    &#cardSucces {
+      border-radius: 50px 0 0 50px;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 8%;
+      right: 0;
 
-    animation-name: divShow;
-    animation-duration: 500ms;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+      width: max-content;
+      padding: 10px;
+
+      animation-name: divShow;
+      animation-duration: 500ms;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
 
     &#cardErro {
       border-top: 1px solid red;
@@ -112,7 +119,7 @@ main {
       right: -329px;
 
       p {
-        color: #05E400;
+        color: #05e400;
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 0;

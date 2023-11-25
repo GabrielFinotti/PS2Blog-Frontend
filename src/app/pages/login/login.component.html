@@ -5,10 +5,13 @@
    -->
   @if (cardForm) {
   <app-form-login (info)="getInfoLogin($event)"></app-form-login>
-  <p>Não tem save game: <span (click)="toggleForm()">criar save</span></p>
+  <div>
+    <p>Esqueceu email ou senha: <span>recuperar save!</span></p>
+    <p>Não tem save game: <span (click)="toggleForm()">criar save!</span></p>
+  </div>
   } @else {
   <app-form-cadastro (info)="getInfoCad($event)"></app-form-cadastro>
-  <p>Tem save game: <span (click)="toggleForm()">carregar save</span></p>
+  <p>Tem save game: <span (click)="toggleForm()">carregar save!</span></p>
   <!--
     Cartões de informações
    -->
