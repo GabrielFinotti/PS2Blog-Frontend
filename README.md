@@ -1,27 +1,41 @@
-# PS2Blog
+# PS2 Blog
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+## Descrição do Projeto
 
-## Development server
+O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas do lendário console PlayStation 2. Neste espaço, os usuários terão a oportunidade de baixar isos dos clássicos jogos do PS2, participar da comunidade por meio de postagens na página dedicada e manter-se atualizados sobre os tópicos relacionados ao mundo do PS2.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
 
-## Code scaffolding
+### Frontend
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 17
+- SCSS
 
-## Build
+### Backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- NodeJS com TypeScript para a API
 
-## Running unit tests
+### Bancos de Dados
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- MongoDB para dados de login dos usuários
+- MySQL para dados da comunidade (fotos, vídeos, conteúdo das postagens e comentários)
 
-## Running end-to-end tests
+## Servidor de Arquivos
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para garantir que os usuários possam baixar as isos facilmente, implementamos um servidor utilizando Raspberry Pi. Este servidor estará disponível online, permitindo que os arquivos sejam acessados e baixados diretamente pelo site.
 
-## Further help
+## Contribuição
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Sinta-se à vontade para contribuir para o desenvolvimento deste projeto. Seja na adição de novos recursos, correção de bugs ou sugestões de aprimoramento, sua participação é valiosa.
+
+## Como Contribuir
+
+1. Faça um fork do repositório
+2. Crie uma branch para sua contribuição (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Adicionando nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um pull request
+
+Agradecido pela sua contribuição!
+
+Divirta-se explorando o mundo do PS2 no PS2 Blog!
