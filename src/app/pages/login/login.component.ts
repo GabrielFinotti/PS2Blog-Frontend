@@ -19,13 +19,12 @@ import { FormCadastroComponent } from '../../components/form-cadastro/form-cadas
 })
 export class LoginComponent {
   protected cardForm!: boolean;
-  protected cardInfoCad!: string;
-  protected cardInfoLogin!: string
 
   constructor() {
     // Iniciando com o formulário de login ativo
     this.cardForm = true;
   }
+
   // Troca dos formulários de login e cadastro
   protected toggleForm() {
     if (this.cardForm == true) {
@@ -33,13 +32,5 @@ export class LoginComponent {
     } else {
       this.cardForm = true;
     }
-  }
-  // Recebendo a resposta do cadastramento do usuário para renderizar no cartão de informação
-  protected getInfoCad(event: string) {
-    this.cardInfoCad = event;
-  }
-
-  protected getInfoLogin(event: string) {
-    this.cardInfoLogin = event;
   }
 }

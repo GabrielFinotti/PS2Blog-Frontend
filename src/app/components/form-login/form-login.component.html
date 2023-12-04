@@ -1,38 +1,14 @@
-<form [formGroup]="login" (ngSubmit)="getUser()">
+<form [formGroup]="login">
   <div id="divEmail">
-    <!--
-      Utilizando o ngClass nos inputs para setar a classe de erro quando estabelecida a condição!
-     -->
     <input
-      [ngClass]="{
-        erro: login.get('email')?.invalid && login.get('email')?.dirty
-      }"
       type="email"
-      id="email"
       placeholder="Email"
       formControlName="email"
       autocomplete="off"
     />
-    <!--
-      @If renderiza o texto de erro quando estabelecida a condição para cada input!
-     -->
-    @if (login.get('email')?.invalid && login.get('email')?.dirty) {
-    <p class="erro-text">Insira um email válido!</p>
-    }
   </div>
   <div id="divPassword">
-    <input
-      [ngClass]="{
-        erro: login.get('password')?.invalid && login.get('password')?.dirty
-      }"
-      type="password"
-      id="password"
-      placeholder="Senha"
-      formControlName="password"
-    />
-    @if (login.get('password')?.invalid && login.get('password')?.dirty) {
-    <p class="erro-text">Insira uma senha válida!</p>
-    }
+    <input type="password" placeholder="Senha" formControlName="password" />
   </div>
   <div id="divSaveUser">
     <label for="saveUser">

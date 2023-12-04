@@ -50,37 +50,4 @@ export class FormCadastroComponent {
       confPassword: ['', Validators.required],
     });
   }
-  //Método para enviar os dados do formulário para cadastro do usuário
-  protected setUser() {
-    // Validando se o formulário é válido e se a senha está igual em ambos os inputs de senha antes de enviar os dados!
-    if (
-      this.cadastro.valid &&
-      this.cadastro.value['password'] === this.cadastro.value['confPassword']
-    ) {
-      this.formUserService
-        .setUser(
-          this.cadastro.value['user'],
-          this.cadastro.value['email'],
-          this.cadastro.value['password']
-        )
-        .subscribe(
-          (res) => {
-            // Emitindo a resposta de sucesso para o cartão de informação
-            console.log('Cadastro Efetuado!');
-            this.cardInfo = 'Succes';
-            this.info.emit(this.cardInfo);
-          },
-          (error) => {
-            console.log(`Falha ao criar o save \n Erro: ${error.message}`);
-            // Emitindo a resposta de erro para o cartão de informação
-            this.cardInfo = 'Erro';
-            this.info.emit(this.cardInfo);
-          }
-        );
-    } else {
-      // Se o formulário for invalido, emitindo o aviso para o cartão de informação
-      this.cardInfo = 'Invalid';
-      this.info.emit(this.cardInfo);
-    }
-  }
 }

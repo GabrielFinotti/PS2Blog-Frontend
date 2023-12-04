@@ -4,32 +4,14 @@
     Troca do formulários
    -->
   @if (cardForm) {
-  <app-form-login (info)="getInfoLogin($event)"></app-form-login>
+  <app-form-login></app-form-login>
   <div>
     <p>Esqueceu email ou senha: <span>recuperar save!</span></p>
     <p>Não tem save game: <span (click)="toggleForm()">criar save!</span></p>
   </div>
   } @else {
-  <app-form-cadastro (info)="getInfoCad($event)"></app-form-cadastro>
+  <app-form-cadastro></app-form-cadastro>
   <p>Tem save game: <span (click)="toggleForm()">carregar save!</span></p>
-  <!--
-    Cartões de informações
-   -->
-  } @if (cardInfoCad == 'Erro') {
-  <div id="cardErro">
-    <img class="img-show" src="../../../assets/imgs/error.svg" alt="Error" />
-    <p>Impossível criar o save, execute outra tentativa!</p>
-  </div>
-  } @else if (cardInfoCad == 'Invalid') {
-  <div id="cardInvalid">
-    <img src="../../../assets/imgs/invalid.svg" alt="Invalid" />
-    <p>Verifique se os dados estão corretos!</p>
-  </div>
-  } @else if (cardInfoCad == 'Succes') {
-  <div id="cardSucces">
-    <img src="../../../assets/imgs/Succes.svg" alt="Succes" />
-    <p>Save criado com sucesso, inicie seu save!</p>
-  </div>
   }
 </main>
 <app-footer></app-footer>
