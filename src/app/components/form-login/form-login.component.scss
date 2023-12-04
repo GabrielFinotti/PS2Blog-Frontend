@@ -56,20 +56,6 @@ form {
         outline-style: solid;
       }
 
-      &.erro {
-        border: 1px solid red;
-
-        color: $erro-text-color !important;
-
-        &::placeholder {
-          color: $erro-text-color;
-        }
-
-        &:focus {
-          outline-color: red;
-        }
-      }
-
       &[type="email"],
       &[type="password"] {
         background-color: $secondary-bg-color;
@@ -123,16 +109,6 @@ form {
 
       width: 18px;
       height: 18px;
-    }
-  }
-
-  p {
-    &.erro-text {
-      position: relative;
-
-      color: $erro-text-color;
-
-      padding-left: 20px;
     }
   }
 }

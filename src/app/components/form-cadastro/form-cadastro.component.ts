@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
@@ -7,35 +7,26 @@ import {
   Validators,
 } from '@angular/forms';
 
-// Serviços
-import { FormUserService } from '../../shared/services/form-user.service';
-
 @Component({
   selector: 'app-form-cadastro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, NgClass],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form-cadastro.component.html',
   styleUrl: './form-cadastro.component.scss',
 })
 export class FormCadastroComponent {
-  // Emissor de evento para o cartão de informação
-  @Output() private info = new EventEmitter();
-
+  // Variáveis do componente.
   protected cadastro!: FormGroup;
-  protected cardInfo!: string;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private formUserService: FormUserService
-  ) {
-    // Cronstrução do formulário de cadastro
+  constructor(private formBuilder: FormBuilder) {
+    // Construção do formulário de cadastro e suas validações.
     this.cadastro = this.formBuilder.group({
       user: [
         '',
         [
           Validators.required,
           Validators.minLength(4),
-          Validators.maxLength(10),
+          Validators.maxLength(16),
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
@@ -44,7 +35,7 @@ export class FormCadastroComponent {
         [
           Validators.required,
           Validators.minLength(6),
-          Validators.maxLength(12),
+          Validators.maxLength(16),
         ],
       ],
       confPassword: ['', Validators.required],

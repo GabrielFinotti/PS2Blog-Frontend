@@ -15,12 +15,6 @@
   }
 }
 
-@keyframes divShow {
-  to {
-    right: 0;
-  }
-}
-
 // Formatação
 main {
   background: $primary-bg-color;
@@ -35,8 +29,8 @@ main {
   h1 {
     background: $primary-text-color;
     background-clip: text;
-    color: transparent;
 
+    color: transparent;
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
@@ -57,84 +51,9 @@ main {
 
       cursor: pointer;
     }
-    // Formatação dos cartões de informações
   }
 
   div {
-    margin: 0 auto;
     text-align: center;
-
-    &#cardErro,
-    &#cardInvalid,
-    &#cardSucces {
-      border-radius: 50px 0 0 50px;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: 8%;
-      right: 0;
-
-      width: max-content;
-      padding: 10px;
-
-      animation-name: divShow;
-      animation-duration: 500ms;
-      animation-timing-function: ease-out;
-      animation-fill-mode: forwards;
-    }
-
-    &#cardErro {
-      border-top: 1px solid red;
-      border-bottom: 1px solid red;
-      right: -362px;
-
-      p {
-        color: $erro-text-color;
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0;
-
-        padding-left: 10px;
-      }
-    }
-
-    &#cardInvalid {
-      border-top: 1px solid $secondary-text-color;
-      border-bottom: 1px solid $secondary-text-color;
-      right: -295px;
-
-      p {
-        color: $secondary-text-color;
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0;
-
-        padding-left: 10px;
-      }
-    }
-
-    &#cardSucces {
-      border-top: 1px solid $succes-text-color;
-      border-bottom: 1px solid $succes-text-color;
-      right: -329px;
-
-      p {
-        color: #05e400;
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0;
-
-        padding-left: 10px;
-      }
-    }
-
-    img {
-      scale: 0;
-
-      animation-name: imgShow;
-      animation-duration: 800ms;
-      animation-delay: 800ms;
-      animation-fill-mode: forwards;
-    }
   }
 }

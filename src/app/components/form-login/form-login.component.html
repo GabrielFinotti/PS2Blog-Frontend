@@ -1,16 +1,11 @@
 <form [formGroup]="login">
-  <div id="divEmail">
-    <input
-      type="email"
-      placeholder="Email"
-      formControlName="email"
-      autocomplete="off"
-    />
+  <div>
+    <input type="email" placeholder="Email" formControlName="email" />
   </div>
-  <div id="divPassword">
+  <div>
     <input type="password" placeholder="Senha" formControlName="password" />
   </div>
-  <div id="divSaveUser">
+  <div>
     <label for="saveUser">
       <input type="checkbox" id="saveUser" formControlName="saveUser" />
       <span></span>

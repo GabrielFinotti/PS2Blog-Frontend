@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { FormUserService } from '../../shared/services/form-user.service';
 
 @Component({
   selector: 'app-form-login',
