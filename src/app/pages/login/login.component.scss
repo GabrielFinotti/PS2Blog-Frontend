@@ -1,4 +1,7 @@
-@import "../../scss/variaveis.scss";
+// Importações
+@import "../../../../scss/variaveis.scss";
+
+@import "../../../scss/rem-calc.scss";
 
 // Animações
 @keyframes imgShow {
@@ -15,45 +18,4 @@
   }
 }
 
-// Formatação
-main {
-  background: $primary-bg-color;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12%;
-
-  height: 100vh;
-
-  h1 {
-    background: $primary-text-color;
-    background-clip: text;
-
-    color: transparent;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1.3px;
-  }
-
-  p {
-    color: $tertiary-text-color;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 2.5px;
-
-    margin: 15px auto;
-
-    span {
-      color: $secondary-text-color;
-      text-transform: capitalize;
-
-      cursor: pointer;
-    }
-  }
-
-  div {
-    text-align: center;
-  }
-}
+// Formtações

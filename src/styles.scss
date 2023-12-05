@@ -1,8 +1,14 @@
+// Importações
+@import "scss/rem-calc.scss";
+
+@import "scss/variaveis.scss";
+
 @font-face {
   font-family: Jura;
   src: url(assets/fonts/Jura-font.woff);
 }
 
+// Formtações
 * {
   border: 0;
   margin: 0;
