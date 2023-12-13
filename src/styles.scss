@@ -1,7 +1,5 @@
 // Importações
-@import "scss/rem-calc.scss";
-
-@import "scss/variaveis.scss";
+@import "scss/index.scss";
 
 @font-face {
   font-family: Jura;
@@ -10,7 +8,6 @@
 
 // Formtações
 * {
-  border: 0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
