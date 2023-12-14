@@ -1,6 +1,32 @@
+@import "../../../scss/index.scss";
+
+// Formatação
 main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 8%;
+
   height: 100vh;
+
+  section {
+    &#logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        background: $primary-text-color;
+        background-clip: text;
+
+        color: transparent;
+        text-transform: uppercase;
+        font-size: rem-calc(32);
+        font-weight: 700;
+        letter-spacing: rem-calc(2);
+
+        margin-right: rem-calc(18);
+      }
+    }
+  }
 }
