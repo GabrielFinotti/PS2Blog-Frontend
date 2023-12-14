@@ -1,1 +1,43 @@
-<p>form-cadastro works!</p>
+<form [formGroup]="formCadastro">
+  <div>
+    <input
+      #input
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+      id="user"
+      type="text"
+    />
+    <label #label for="user">Usuário</label>
+  </div>
+  <div>
+    <input
+      #input
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+      id="email"
+      type="email"
+    />
+    <label #label for="email">Email</label>
+  </div>
+  <div>
+    <input
+      #input
+      (focus)="onFocus(2)"
+      (blur)="onBlur(2)"
+      id="password"
+      type="password"
+    />
+    <label #label for="password">Senha</label>
+  </div>
+  <div>
+    <input
+      #input
+      (focus)="onFocus(3)"
+      (blur)="onBlur(3)"
+      id="confPassword"
+      type="password"
+    />
+    <label #label for="confPassword">Confirme sua senha</label>
+  </div>
+  <input type="submit" value="start save" [disabled]="formCadastro.invalid" />
+</form>
