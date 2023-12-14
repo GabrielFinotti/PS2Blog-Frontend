@@ -1,4 +1,117 @@
 @import "../../../scss/index.scss";
 
 // Formtações
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  max-width: rem-calc(290);
+  margin: auto;
+
+  input[type="submit"] {
+    background: rgba($secondary-bg-color, 0.1);
+    border: 0;
+    border-bottom: rem-calc(1) solid $secondary-text-color;
+    border-radius: rem-calc(50);
+
+    color: $secondary-text-color;
+    font-size: rem-calc(16);
+    text-transform: capitalize;
+    letter-spacing: rem-calc(3);
+
+    padding: rem-calc(10);
+    margin-bottom: rem-calc(16);
+
+    cursor: pointer;
+
+    &[disabled] {
+      opacity: 0.2;
+
+      cursor: not-allowed;
+    }
+  }
+
+  div {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: rem-calc(16);
+    label {
+      &[for="password"],
+      &[for="email"] {
+        position: absolute;
+        top: 25%;
+        left: rem-calc(20);
+
+        color: $secondary-text-color;
+        font-size: rem-calc(14);
+
+        transition: 400ms ease;
+      }
+
+      &[for="userSave"] {
+        color: $tertiary-text-color;
+        font-size: rem-calc(12);
+        font-weight: 300;
+        letter-spacing: rem-calc(0.48);
+
+        margin-left: rem-calc(26);
+        padding-left: rem-calc(18);
+      }
+    }
+
+    input {
+      &[type="email"],
+      &[type="password"] {
+        border: 0;
+        background: rgba($secondary-bg-color, 0.1);
+        border-radius: rem-calc(50);
+
+        color: $secondary-text-color;
+        font-size: rem-calc(12);
+
+        width: 100%;
+        height: rem-calc(40);
+        padding-left: rem-calc(20);
+      }
+
+      &[type="checkbox"] {
+        position: absolute;
+        top: rem-calc(2);
+        left: rem-calc(16);
+
+        width: rem-calc(18);
+        height: rem-calc(18);
+        opacity: 0;
+
+        z-index: 1;
+      }
+
+      &[type="checkbox"]:checked + span {
+        background: $secondary-text-color;
+        border-color: $tertiary-text-color;
+      }
+
+      &:focus {
+        outline: none;
+        border: 1px solid $secondary-text-color;
+      }
+    }
+
+    span {
+      background: rgba($secondary-bg-color, 0.1);
+      border: 1px solid $secondary-text-color;
+      border-radius: rem-calc(15);
+
+      position: absolute;
+      top: rem-calc(2);
+      left: rem-calc(16);
+
+      width: rem-calc(18);
+      height: rem-calc(18);
+    }
+  }
+}

@@ -2,32 +2,46 @@
   <!--
     Input de email.
    -->
-  <label for="email">
-    Email
-    <input type="email" id="email" formControlName="email" />
-  </label>
+  <div>
+    <input
+      #input
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+      type="email"
+      id="email"
+      formControlName="email"
+    />
+    <label #label for="email"> Email </label>
+  </div>
   <!--
     Input da senha.
    -->
-  <label for="password">
-    Senha
-    <input type="password" id="password" formControlName="password" />
-  </label>
+  <div>
+    <input
+      #input
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+      type="password"
+      id="password"
+      formControlName="password"
+    />
+    <label #label for="password"> Senha </label>
+  </div>
   <!--
     Input para salvar crendências.
    -->
-  <label for="userSave">
-    <span></span>
+  <div>
     <input
       type="checkbox"
       id="userSave"
       value="cookies"
       formControlName="userSave"
     />
-    Carregar meu save automaticamente.
-  </label>
+    <span></span>
+    <label for="userSave"> Carregar meu save automaticamente. </label>
+  </div>
   <!--
     Input de envio do formulário.
    -->
-  <input type="submit" value="start game" />
+  <input type="submit" value="start game" [disabled]="formLogin.invalid" />
 </form>
