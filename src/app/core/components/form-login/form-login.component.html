@@ -1,1 +1,33 @@
-<p>form-login works!</p>
+<form [formGroup]="formLogin">
+  <!--
+    Input de email.
+   -->
+  <label for="email">
+    Email
+    <input type="email" id="email" formControlName="email" />
+  </label>
+  <!--
+    Input da senha.
+   -->
+  <label for="password">
+    Senha
+    <input type="password" id="password" formControlName="password" />
+  </label>
+  <!--
+    Input para salvar crendências.
+   -->
+  <label for="userSave">
+    <span></span>
+    <input
+      type="checkbox"
+      id="userSave"
+      value="cookies"
+      formControlName="userSave"
+    />
+    Carregar meu save automaticamente.
+  </label>
+  <!--
+    Input de envio do formulário.
+   -->
+  <input type="submit" value="start game" />
+</form>
