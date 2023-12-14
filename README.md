@@ -22,7 +22,7 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 
 ## Servidor de Arquivos
 
-Para garantir que os usuários possam baixar as isos facilmente, implementamos um servidor utilizando Raspberry Pi. Este servidor estará disponível online, permitindo que os arquivos sejam acessados e baixados diretamente pelo site.
+Para garantir que os usuários possam baixar as isos facilmente, implementamos um servidor utilizando Raspberry Pi 4. Este servidor estará disponível online, permitindo que os arquivos sejam acessados e baixados diretamente pelo site.
 
 ## Contribuição
 
