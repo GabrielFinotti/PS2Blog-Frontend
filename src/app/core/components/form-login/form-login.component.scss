@@ -60,6 +60,8 @@ form {
 
         margin-left: rem-calc(26);
         padding-left: rem-calc(18);
+
+        cursor: pointer;
       }
     }
 
@@ -87,6 +89,7 @@ form {
         height: rem-calc(18);
         opacity: 0;
 
+        cursor: pointer;
         z-index: 1;
       }
 
