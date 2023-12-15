@@ -4,11 +4,17 @@ import { CommonModule } from '@angular/common';
 // Componentes
 import { FormLoginComponent } from '../../components/form-login/form-login.component';
 import { FormCadastroComponent } from '../../components/form-cadastro/form-cadastro.component';
+import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormLoginComponent, FormCadastroComponent],
+  imports: [
+    CommonModule,
+    FormLoginComponent,
+    FormCadastroComponent,
+    FooterComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

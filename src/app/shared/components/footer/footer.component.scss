@@ -1,0 +1,15 @@
+@import "../../../scss/index.scss";
+
+// Formtação
+footer {
+  background: $tertiary-bg-color;
+
+  padding: rem-calc(32) rem-calc(10);
+
+  p {
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
