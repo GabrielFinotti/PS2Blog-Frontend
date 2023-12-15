@@ -1,5 +1,24 @@
 @import "../../../scss/index.scss";
 
+// Animação
+@keyframes showForm {
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+.showForm {
+  animation-name: showForm;
+  animation-duration: 800ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+// Formatação
 form {
   display: flex;
   flex-direction: column;
@@ -8,6 +27,7 @@ form {
 
   max-width: rem-calc(290);
   margin: auto;
+  scale: 0;
 
   input[type="submit"] {
     background: rgba($secondary-bg-color, 0.1);

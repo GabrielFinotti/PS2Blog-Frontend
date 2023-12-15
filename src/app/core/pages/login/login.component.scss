@@ -28,5 +28,21 @@ main {
         margin-right: rem-calc(18);
       }
     }
+
+    &#forms {
+      p {
+        color: $tertiary-text-color;
+        font-size: rem-calc(12);
+        text-align: center;
+
+        margin-top: rem-calc(20);
+
+        span {
+          color: $secondary-text-color;
+
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

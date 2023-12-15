@@ -1,10 +1,32 @@
 <main>
+  <!--
+    Sessão do logo.
+   -->
   <section id="logo">
     <h1>ps2 blog</h1>
     <img src="../../../../assets/imgs/ps2-logo.svg" alt="Logo" />
   </section>
+  <!--
+    Sessão dos formulários.
+   -->
   <section id="forms">
+    <!--
+      Troca dos formulários.
+     -->
+    @if (toggleForm) {
+    <app-form-login></app-form-login>
+    } @else {
     <app-form-cadastro></app-form-cadastro>
+    }
+    <!--
+      Componente responsavel pela troca dos formulários
+     -->
+    <p>
+      {{ toggleForm == true ? "Não tem save game:" : "Tem save game:" }}
+      <span (click)="onToggleForm()">
+        {{ toggleForm == true ? "Criar save" : "Carregar save" }}
+      </span>
+    </p>
   </section>
 </main>
 <app-footer></app-footer>

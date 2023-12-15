@@ -18,4 +18,20 @@ import { FooterComponent } from '../../../shared/components/footer/footer.compon
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {}
+export class LoginComponent {
+  // Variáveis do componente
+  public toggleForm!: boolean;
+
+  constructor() {
+    this.toggleForm = true;
+  }
+
+  // Função para troca de formulários.
+  public onToggleForm() {
+    if (this.toggleForm) {
+      this.toggleForm = false;
+    } else {
+      this.toggleForm = true;
+    }
+  }
+}
