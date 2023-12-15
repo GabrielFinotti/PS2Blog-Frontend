@@ -1,29 +1,32 @@
 <header>
-  <button type="menu">
+  <button type="menu" (click)="onShowNav()">
     <img src="../../../../assets/icons/open.svg" alt="Menu" />
   </button>
   <h1>ps2 blog</h1>
   <img src="../../../../assets/imgs/ps2-logo.svg" alt="Logo" />
-  <nav>
+  <nav [ngClass]="activeNav ? 'showNav' : ''">
+    <button (click)="onShowNav()">
+      <img src="../../../../assets/icons/close.svg" alt="" />
+    </button>
     <div>
       <a>Postagens</a>
-      <img src="" alt="Postagens" />
+      <img src="../../../../assets/icons/post-icon.svg" alt="Postagens" />
     </div>
     <div>
       <a>Comunidade</a>
-      <img src="" alt="Comunidade" />
+      <img src="../../../../assets/icons/comunit-icon.svg" alt="Comunidade" />
     </div>
     <div>
       <a>Downloads</a>
-      <img src="" alt="Downloads" />
+      <img src="../../../../assets/icons/downloads-icon.svg" alt="Downloads" />
     </div>
     <div>
       <a>Membros</a>
-      <img src="" alt="Membros" />
+      <img src="../../../../assets/icons/member-icon.svg" alt="Membros" />
     </div>
     <div>
       <a>Conta</a>
-      <img src="" alt="Conta" />
+      <img src="../../../../assets/icons/conta-icon.svg" alt="Conta" />
     </div>
   </nav>
 </header>

@@ -9,5 +9,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
+  // Variáveis do componente
+  protected activeNav!: boolean
+  protected showNav!: string;
+  protected closeNav!: string;
+
+  constructor() {
+    this.activeNav = false
+  }
+
+  protected onShowNav() {
+    if(this.activeNav) {
+      this.activeNav = false
+    } else {
+      this.activeNav = true
+    }
+  }
 
 }
