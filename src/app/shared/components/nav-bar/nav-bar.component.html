@@ -1,31 +1,46 @@
 <header>
+  <!--
+    Botão para abertura da navbar
+   -->
   <button type="menu" (click)="onShowNav(nav)">
     <img src="../../../../assets/icons/open.svg" alt="Menu" />
   </button>
+  <!--
+    Logo.
+   -->
   <h1>ps2 blog</h1>
   <img src="../../../../assets/imgs/ps2-logo.svg" alt="Logo" />
+  <!--
+    Navbar
+   -->
   <nav #nav>
+    <!--
+      Botão para fechamento da navbar
+     -->
     <button (click)="onShowNav(nav)">
       <img src="../../../../assets/icons/close.svg" alt="" />
     </button>
+    <!--
+      Links de navegação
+     -->
     <div>
-      <a>Postagens</a>
+      <a [routerLink]="['/postagem']">Postagens</a>
       <img src="../../../../assets/icons/post-icon.svg" alt="Postagens" />
     </div>
     <div>
-      <a>Comunidade</a>
+      <a [routerLink]="['/comunidade']">Comunidade</a>
       <img src="../../../../assets/icons/comunit-icon.svg" alt="Comunidade" />
     </div>
     <div>
-      <a>Downloads</a>
+      <a [routerLink]="['/downloads']">Downloads</a>
       <img src="../../../../assets/icons/downloads-icon.svg" alt="Downloads" />
     </div>
     <div>
-      <a>Membros</a>
+      <a routerLink="/membros">Membros</a>
       <img src="../../../../assets/icons/member-icon.svg" alt="Membros" />
     </div>
     <div>
-      <a>Conta</a>
+      <a [routerLink]="['/conta']">Conta</a>
       <img src="../../../../assets/icons/conta-icon.svg" alt="Conta" />
     </div>
   </nav>

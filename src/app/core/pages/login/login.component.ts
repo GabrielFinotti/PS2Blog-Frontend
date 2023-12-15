@@ -22,6 +22,7 @@ export class LoginComponent {
   // Variáveis do componente
   public toggleForm!: boolean;
 
+  // Começando com o formulário de login ativo.
   constructor() {
     this.toggleForm = true;
   }

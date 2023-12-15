@@ -51,7 +51,7 @@ export class FormCadastroComponent {
     });
   }
 
-  // Função para modificar o valor do label quando o input estiver focado.
+  // Função para modificar a posição do label quando o input estiver focado.
   protected onFocus(index: number) {
     this.render.setStyle(
       this.labels.toArray()[index].nativeElement,
@@ -60,7 +60,7 @@ export class FormCadastroComponent {
     );
   }
 
-  // Função para modificar o valor do label quando o input perder o foco.
+  // Função para modificar a posição do label quando o input perder o foco.
   protected onBlur(index: number) {
     // Verificando se o input está vazio antes de retornar o label para a posição inicial.
     if (this.inputs.toArray()[index].nativeElement.value.length == 0) {

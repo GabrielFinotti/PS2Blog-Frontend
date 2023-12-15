@@ -1,6 +1,6 @@
 @import "../../../scss/index.scss";
 
-// Formtação
+// Formatação
 header {
   border-bottom: 1px solid $secondary-text-color;
   border-radius: 0 0 rem-calc(20) rem-calc(20);
@@ -67,6 +67,7 @@ header {
       a {
         color: $primary-link-color;
         font-weight: 400;
+        text-decoration: none;
       }
     }
   }

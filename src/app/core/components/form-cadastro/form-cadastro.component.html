@@ -1,5 +1,8 @@
 <form [formGroup]="formCadastro" class="showForm">
   <div>
+    <!--
+      Input de usuário
+     -->
     <input
       #input
       (focus)="onFocus(0)"
@@ -10,6 +13,9 @@
     <label #label for="user">Usuário</label>
   </div>
   <div>
+    <!--
+      Input de email
+     -->
     <input
       #input
       (focus)="onFocus(1)"
@@ -20,6 +26,9 @@
     <label #label for="email">Email</label>
   </div>
   <div>
+    <!--
+      Input de senha
+     -->
     <input
       #input
       (focus)="onFocus(2)"
@@ -30,6 +39,9 @@
     <label #label for="password">Senha</label>
   </div>
   <div>
+    <!--
+      Input de confirmaçao da senha
+     -->
     <input
       #input
       (focus)="onFocus(3)"
@@ -39,5 +51,8 @@
     />
     <label #label for="confPassword">Confirme sua senha</label>
   </div>
+  <!--
+      Input de envio do formulário
+     -->
   <input type="submit" value="start save" [disabled]="formCadastro.invalid" />
 </form>
