@@ -1,27 +1,5 @@
 @import "../../../scss/index.scss";
 
-// Animation
-@keyframes showNav {
-  to {
-    left: 0;
-
-    width: 55%;
-  }
-}
-
-.showNav {
-  animation-name: showNav;
-  animation-duration: 800ms;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
-}
-
-.closeNav {
-  animation-name: showNav;
-  animation-duration: 800ms;
-  animation-timing-function: ease;
-  animation-direction: reverse;
-}
 // Formtação
 header {
   border-bottom: 1px solid $secondary-text-color;
@@ -65,6 +43,7 @@ header {
     padding: rem-calc(5) 0;
 
     overflow: hidden;
+    transition: 800ms ease;
 
     button {
       border-bottom: rem-calc(1) solid $secondary-text-color;

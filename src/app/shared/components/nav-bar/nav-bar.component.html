@@ -1,11 +1,11 @@
 <header>
-  <button type="menu" (click)="onShowNav()">
+  <button type="menu" (click)="onShowNav(nav)">
     <img src="../../../../assets/icons/open.svg" alt="Menu" />
   </button>
   <h1>ps2 blog</h1>
   <img src="../../../../assets/imgs/ps2-logo.svg" alt="Logo" />
-  <nav [ngClass]="activeNav ? 'showNav' : ''">
-    <button (click)="onShowNav()">
+  <nav #nav>
+    <button (click)="onShowNav(nav)">
       <img src="../../../../assets/icons/close.svg" alt="" />
     </button>
     <div>
