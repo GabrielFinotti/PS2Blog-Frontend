@@ -2,4 +2,48 @@
 
 main {
   min-height: calc(100vh - rem-calc(143));
+
+  #post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 rem-calc(32);
+    margin-top: rem-calc(30);
+
+    #startPost {
+      width: 100%;
+      margin-bottom: rem-calc(30);
+
+      p {
+        color: $secondary-text-color;
+        font-size: rem-calc(20);
+        font-weight: 700;
+        text-indent: rem-calc(20);
+        letter-spacing: rem-calc(1);
+        text-transform: capitalize;
+      }
+
+      #line {
+        border: 1px solid $primary-link-color;
+
+        position: relative;
+
+        margin-top: rem-calc(4);
+
+        span {
+          background-color: $primary-link-color;
+          border-radius: 50%;
+
+          position: absolute;
+          top: rem-calc(-7);
+          left: rem-calc(-1);
+
+          width: rem-calc(15);
+          height: rem-calc(15);
+        }
+      }
+    }
+  }
 }

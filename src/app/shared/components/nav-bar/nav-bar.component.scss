@@ -44,6 +44,7 @@ header {
 
     overflow: hidden;
     transition: 800ms ease;
+    z-index: 10000000000;
 
     button {
       border-bottom: rem-calc(1) solid $secondary-text-color;
