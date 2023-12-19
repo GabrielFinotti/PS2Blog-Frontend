@@ -1,59 +1,59 @@
 @import "../../../../scss/index.scss";
 
 // Formatação
-:host {
-  :last-child {
-    margin-bottom: 0;
+.card {
+  margin-bottom: rem-calc(30);
+
+  img {
+    width: 100%;
   }
 
-  .card {
+  .card-data {
+    color: $secondary-text-color;
+    font-size: rem-calc(14);
+    font-weight: 300;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: rem-calc(5);
+    letter-spacing: rem-calc(1);
+
+    margin: rem-calc(5) auto rem-calc(14) auto;
+  }
+
+  .card-description {
+    color: $secondary-text-color;
+    font-weight: bolder;
+    letter-spacing: rem-calc(1.2);
+
+    width: 100%;
+    max-height: rem-calc(200);
+
+    overflow: auto;
+
     margin-bottom: rem-calc(30);
+  }
 
-    img {
-      width: 100%;
-    }
+  .card-link {
+    border: 1px solid $primary-link-color;
+    border-radius: rem-calc(20);
 
-    .card-data {
-      color: $secondary-text-color;
-      font-size: rem-calc(14);
-      font-weight: 300;
-      text-decoration-line: underline;
-      text-decoration-style: dashed;
-      text-underline-offset: rem-calc(5);
-      letter-spacing: rem-calc(1);
+    display: block;
 
-      margin: rem-calc(5) auto rem-calc(14) auto;
-    }
+    color: $secondary-text-color;
+    font-size: rem-calc(20);
+    font-weight: bold;
+    text-align: center;
 
-    .card-description {
-      color: $secondary-text-color;
-      font-weight: bolder;
-      letter-spacing: rem-calc(1.2);
+    width: 35%;
+    min-width: rem-calc(108);
+    margin: auto;
+    margin-bottom: rem-calc(30);
+    padding: rem-calc(15) 0;
 
-      width: 100%;
-      max-height: rem-calc(200);
+    cursor: pointer;
+  }
 
-      overflow: auto;
-
-      margin-bottom: rem-calc(30);
-    }
-
-    .card-link {
-      border: 1px solid $primary-link-color;
-      border-radius: rem-calc(20);
-
-      display: block;
-
-      color: $secondary-text-color;
-      font-size: rem-calc(20);
-      font-weight: bold;
-      text-align: center;
-
-      width: 48%;
-      margin: auto;
-      padding: rem-calc(20) 0;
-
-      cursor: pointer;
-    }
+  .line-card {
+    border: 1px solid $primary-link-color;
   }
 }
