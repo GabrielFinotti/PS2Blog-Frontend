@@ -1,0 +1,39 @@
+@import "../../../scss/index.scss";
+
+// Formtação
+main {
+  min-height: calc(100vh - rem-calc(143));
+
+  form {
+    background: rgba($secondary-bg-color, 0.1);
+    border-radius: rem-calc(50);
+    display: flex;
+
+    height: rem-calc(43);
+    margin: rem-calc(30) rem-calc(20);
+
+    input {
+      background: none;
+      border: none;
+
+      color: $secondary-text-color;
+      font-size: rem-calc(14);
+      font-weight: 300;
+      letter-spacing: rem-calc(1);
+
+      width: calc(100% - rem-calc(45));
+      padding-left: rem-calc(18);
+
+      outline: none;
+
+      &::placeholder {
+        color: $secondary-text-color;
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+  }
+}

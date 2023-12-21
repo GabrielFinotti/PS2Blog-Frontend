@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Componentes
-import { FormLoginComponent } from '../../components/Forms/form-login/form-login.component';
-import { FormCadastroComponent } from '../../components/Forms/form-cadastro/form-cadastro.component';
+import { FormLoginComponent } from '../../components/forms/form-login/form-login.component';
+import { FormCadastroComponent } from '../../components/forms/form-cadastro/form-cadastro.component';
 import { FooterComponent } from '../../../shared/components/footer/footer.component';
 
 @Component({
