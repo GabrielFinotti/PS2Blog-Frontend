@@ -1,0 +1,69 @@
+@import "../../../../scss/index.scss";
+
+// Formatação
+.card {
+  img {
+    width: 100%;
+  }
+
+  .card-name {
+    color: $secondary-text-color;
+    font-size: rem-calc(20);
+    font-weight: bold;
+    letter-spacing: rem-calc(1);
+
+    margin: rem-calc(5) auto rem-calc(10) auto;
+  }
+
+  .card-category {
+    color: $secondary-text-color;
+    font-size: rem-calc(14);
+    letter-spacing: rem-calc(0.60);
+
+    margin-bottom: rem-calc(10);
+  }
+
+  .card-description {
+    color: $secondary-text-color;
+    letter-spacing: rem-calc(0.70);
+
+    max-height: rem-calc(200);
+    margin-bottom: rem-calc(30);
+
+    overflow: scroll;
+  }
+
+  .card-download {
+    background: none;
+    border: 1px solid $primary-link-color;
+    border-radius: rem-calc(20);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48%;
+    margin: auto;
+    margin-bottom: rem-calc(30);
+    padding: rem-calc(15) 0;
+
+    span {
+      color: $secondary-text-color;
+      font-size: rem-calc(20);
+      font-weight: bold;
+      letter-spacing: rem-calc(1);
+
+      margin-right: rem-calc(10);
+    }
+
+    img {
+      width: rem-calc(28);
+    }
+  }
+
+  .line-card {
+    border: 1px solid $primary-link-color;
+
+    margin-bottom: rem-calc(30);
+  }
+}
