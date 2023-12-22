@@ -12,6 +12,10 @@ main {
     height: rem-calc(43);
     margin: rem-calc(30) rem-calc(20);
 
+    &.focus {
+      border: 1px solid $secondary-text-color;
+    }
+
     input {
       background: none;
       border: none;
@@ -34,6 +38,12 @@ main {
     button {
       background: none;
       border: none;
+
+      cursor: pointer;
     }
+  }
+
+  section {
+    margin: rem-calc(30) rem-calc(20);
   }
 }

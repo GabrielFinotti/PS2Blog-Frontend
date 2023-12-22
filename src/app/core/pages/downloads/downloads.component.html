@@ -1,15 +1,30 @@
 <app-nav-bar></app-nav-bar>
 <main>
-  <form>
+  <!--
+    Formulário de pesquisa
+   -->
+  <form
+    [formGroup]="searchGame"
+    (ngSubmit)="getGame()"
+    [ngClass]="inputFocus ? 'focus' : ''"
+  >
     <input
       type="search"
       name="game"
       placeholder="Pesquise pelo título ou insira as iniciais..."
-      autofocus
+      formControlName="game"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
     />
     <button type="submit">
       <img src="../../../../assets/icons/search-icon.svg" alt="Pesquisar" />
     </button>
   </form>
+  <!--
+    Sessão da listagem dos games
+   -->
+  <section id="gameList">
+    <app-card-game></app-card-game>
+  </section>
 </main>
 <app-footer></app-footer>
