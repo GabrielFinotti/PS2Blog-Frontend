@@ -33,6 +33,10 @@ main {
       &::placeholder {
         color: $secondary-text-color;
       }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
     }
 
     button {
