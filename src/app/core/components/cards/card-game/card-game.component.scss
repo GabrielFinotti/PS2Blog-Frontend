@@ -3,6 +3,7 @@
 // Formatação
 .card {
   img {
+    border: 1px solid $secondary-text-color;
     border-radius: rem-calc(10);
 
     width: 100%;
@@ -20,14 +21,17 @@
   .card-category {
     color: $secondary-text-color;
     font-size: rem-calc(14);
-    letter-spacing: rem-calc(0.60);
+    letter-spacing: rem-calc(0.6);
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: rem-calc(5);
 
     margin-bottom: rem-calc(10);
   }
 
   .card-description {
     color: $secondary-text-color;
-    letter-spacing: rem-calc(0.70);
+    letter-spacing: rem-calc(0.7);
 
     max-height: rem-calc(200);
     margin-bottom: rem-calc(30);
@@ -60,6 +64,7 @@
 
     img {
       width: rem-calc(28);
+      border: none;
     }
   }
 
