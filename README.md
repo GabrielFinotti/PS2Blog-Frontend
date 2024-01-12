@@ -20,10 +20,6 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 - MongoDB para dados de login dos usuários
 - MySQL para dados da comunidade (fotos, vídeos, conteúdo das postagens e comentários)
 
-## Servidor de Arquivos
-
-Para garantir que os usuários possam baixar as isos facilmente, implementamos um servidor utilizando Raspberry Pi 4. Este servidor estará disponível online, permitindo que os arquivos sejam acessados e baixados diretamente pelo site.
-
 ## Contribuição
 
 Sinta-se à vontade para contribuir para o desenvolvimento deste projeto. Seja na adição de novos recursos, correção de bugs ou sugestões de aprimoramento, sua participação é valiosa.
