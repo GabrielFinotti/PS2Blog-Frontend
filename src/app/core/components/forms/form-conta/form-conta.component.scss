@@ -1,6 +1,6 @@
 @import "../../../../scss/index.scss";
 
-// Formtação
+// Formatação
 form {
   border: 1px solid $secondary-text-color;
   border-radius: rem-calc(20);
@@ -38,6 +38,7 @@ form {
 
   div {
     border: 1px solid $primary-link-color;
+    border-radius: rem-calc(10);
 
     margin-bottom: rem-calc(20);
     padding: rem-calc(15) rem-calc(10);
@@ -60,8 +61,7 @@ form {
       &.edit {
         border-left: 1px solid $secondary-text-color;
         border-bottom: 1px solid $secondary-text-color;
-        border-top-left-radius: rem-calc(15);
-        border-bottom-left-radius: rem-calc(15);
+        border-bottom-left-radius: rem-calc(10);
       }
     }
   }
