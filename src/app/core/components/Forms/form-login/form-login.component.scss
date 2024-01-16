@@ -87,8 +87,8 @@ form {
     input {
       &[type="email"],
       &[type="password"] {
-        border: 0;
         background: rgba($secondary-bg-color, 0.1);
+        border: 0;
         border-radius: rem-calc(50);
 
         color: $secondary-text-color;
