@@ -29,6 +29,7 @@ export class FormCadastroComponent {
   protected formCadastro!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private render: Renderer2) {
+    // Criando o formulário
     this.formCadastro = this.formBuilder.group({
       user: [
         '',
@@ -69,6 +70,12 @@ export class FormCadastroComponent {
         'top',
         '25%'
       );
+    }
+  }
+  // Função de cadastramento do usuário
+  protected cadastro() {
+    // Verificando se o formulário é válido
+    if (this.formCadastro.valid) {
     }
   }
 }
