@@ -51,6 +51,7 @@ export class FormLoginComponent implements OnInit {
       const password = localStorage.getItem('password');
       // Se os valores não forem nulos, redirecionar automaticamente para a página de downloads e setar os valores para a session
       if (email != null && password != null) {
+        // Salvando dados na session storage
         sessionStorage.setItem('email', email);
         sessionStorage.setItem('password', password);
         this.router.navigate(['downloads']);
@@ -84,15 +85,20 @@ export class FormLoginComponent implements OnInit {
     if (this.formLogin.valid) {
       // Script executado se o usuário quiser salvar seus dados de login
       if (this.formLogin.value.userSave) {
+        // Salvando dados no local storage
         localStorage.setItem('email', this.formLogin.value.email);
         localStorage.setItem('password', this.formLogin.value.password);
+        // Salvando dados na session storage
         sessionStorage.setItem('email', this.formLogin.value.email);
         sessionStorage.setItem('password', this.formLogin.value.password);
+        // Redirecionando para a página
         this.router.navigate(['downloads']);
       } else {
         // Script executado se o usuário não quiser salvar seus dados de login
+        // Salvando dados somente na session storage
         sessionStorage.setItem('email', this.formLogin.value.email);
         sessionStorage.setItem('password', this.formLogin.value.password);
+        // Redirecionando para a página
         this.router.navigate(['downloads']);
       }
     }
