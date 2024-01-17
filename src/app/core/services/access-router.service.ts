@@ -8,13 +8,14 @@ export class AccessRouterService {
   // Função para pegar os dados da session
   public getData() {
     // Recuperando os dados
-    const email = sessionStorage.getItem('email');
-    const password = sessionStorage.getItem('password');
-    // Verificando se os dados existem, se sim, retorna verdadiero, se não, retorna falso
-    if (email != (null || undefined) && password != (null || undefined)) {
-      return true;
-    } else {
-      return false;
+    if (typeof window !== 'undefined') {
+      const email = sessionStorage.getItem('email');
+      const password = sessionStorage.getItem('password');
+      // Verificando se os dados existem, se sim, retorna verdadiero, se não, retorna falso
+      if (email != (null || undefined) && password != (null || undefined)) {
+        return true;
+      }
     }
+    return false;
   }
 }

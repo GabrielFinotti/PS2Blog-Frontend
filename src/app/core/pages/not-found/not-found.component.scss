@@ -1,0 +1,42 @@
+@import "../../../scss/index.scss";
+
+// Animação
+@keyframes scale {
+  50% {
+    scale: 1.5;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+// Formatação
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100vh;
+
+  img {
+    scale: 0;
+
+    animation-name: scale;
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+
+  p {
+    color: $tertiary-text-color;
+    font-size: rem-calc(18);
+    font-weight: bold;
+    letter-spacing: rem-calc(1);
+
+    span {
+      color: $secondary-text-color;
+    }
+  }
+}
