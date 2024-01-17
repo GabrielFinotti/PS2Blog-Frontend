@@ -53,6 +53,8 @@
     margin-bottom: rem-calc(30);
     padding: rem-calc(15) 0;
 
+    cursor: pointer;
+
     span {
       color: $secondary-text-color;
       font-size: rem-calc(20);

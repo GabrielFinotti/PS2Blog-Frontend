@@ -11,7 +11,7 @@ export class AccessRouterService {
     if (typeof window !== 'undefined') {
       const email = sessionStorage.getItem('email');
       const password = sessionStorage.getItem('password');
-      // Verificando se os dados existem, se sim, retorna verdadiero, se não, retorna falso
+      // Verificando se os dados existem, se sim, retorna verdadeiro, se não, retorna falso
       if (email != (null || undefined) && password != (null || undefined)) {
         return true;
       }
