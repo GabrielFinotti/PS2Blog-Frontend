@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -13,7 +13,7 @@ import {
   templateUrl: './form-conta.component.html',
   styleUrl: './form-conta.component.scss',
 })
-export class FormContaComponent {
+export class FormContaComponent implements OnInit {
   // Variáveis do componente
   protected formProfile!: FormGroup;
   protected formEditor!: boolean;
@@ -25,15 +25,21 @@ export class FormContaComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
-    // Inicializando o editor como false
+  }
+  // Função de inicialização
+  ngOnInit(): void {
+    // Inicializando o editor como falso e o formulário como desativado
     this.formEditor = false;
+    this.formProfile.disable();
   }
   // Função para ativar o editor
   protected activeEditor() {
     if (this.formEditor) {
       this.formEditor = false;
+      this.formProfile.disable();
     } else {
       this.formEditor = true;
+      this.formProfile.enable();
     }
   }
 }
