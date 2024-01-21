@@ -8,7 +8,7 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 
 ### Frontend
 
-- Angular 17
+- Angular
 - SCSS
 
 ### Backend
