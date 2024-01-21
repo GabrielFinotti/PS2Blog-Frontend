@@ -13,7 +13,7 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 
 ### Backend
 
-- NodeJS com TypeScript para a API
+- NodeJS
 
 ### Bancos de Dados
 
