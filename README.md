@@ -18,7 +18,7 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 ### Bancos de Dados
 
 - MongoDB para dados de login dos usuários
-- MySQL para dados da comunidade (fotos, vídeos, conteúdo das postagens e comentários)
+- PostgreSQL para dados da comunidade (fotos, vídeos, conteúdo das postagens e comentários)
 
 ## Contribuição
 
