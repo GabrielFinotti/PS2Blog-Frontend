@@ -1,0 +1,54 @@
+<!--
+  Formulário da conta
+ -->
+<form [formGroup]="formProfile" [className]="formEditor ? 'edit' : ''">
+  <!--
+    Botão para ativar ou desativar o modo de edição
+   -->
+  <button type="button">
+    <img
+      [src]="
+        formEditor
+          ? '../../../../../assets/icons/cancel-icon.svg'
+          : '../../../../../assets/icons/editor-icon.svg'
+      "
+      alt="Editar"
+      (click)="activeEditor()"
+    />
+  </button>
+  <!--
+    Caixas dos inputs da conta
+   -->
+  <div>
+    <input
+      #input
+      type="text"
+      formControlName="user"
+      [className]="formEditor ? 'edit' : ''"
+    />
+  </div>
+  <div>
+    <input
+      #input
+      type="email"
+      formControlName="email"
+      [className]="formEditor ? 'edit' : ''"
+    />
+  </div>
+  <div>
+    <input
+      #input
+      type="password"
+      formControlName="password"
+      [className]="formEditor ? 'edit' : ''"
+    />
+  </div>
+  <!--
+    Botão para envio dos dados atualizados. So é renderizado quando o editor é ativo
+   -->
+  @if (formEditor) {
+  <button type="submit" [disabled]="formProfile.invalid">
+    <img src="../../../../../assets/icons/verificar-icon.svg" alt="Confirmar" />
+  </button>
+  }
+</form>

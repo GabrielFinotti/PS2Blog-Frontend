@@ -1,0 +1,68 @@
+@import "../../../../scss/index.scss";
+
+// Formatação
+form {
+  border: 1px solid $secondary-text-color;
+  border-radius: rem-calc(20);
+
+  position: relative;
+
+  margin-top: rem-calc(30);
+  padding: rem-calc(40) rem-calc(15);
+
+  &.edit {
+    border: 1px dashed $secondary-text-color;
+  }
+
+  button {
+    background: none;
+    border: 0;
+
+    position: absolute;
+    top: rem-calc(-7.5);
+    right: rem-calc(-5);
+
+    &[type="submit"] {
+      background: none;
+      border: 1px solid $primary-link-color;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      margin: auto;
+      padding: rem-calc(10);
+    }
+  }
+
+  div {
+    border: 1px solid $primary-link-color;
+    border-radius: rem-calc(10);
+
+    margin-bottom: rem-calc(20);
+    padding: rem-calc(15) rem-calc(10);
+
+    input {
+      background: rgba($secondary-bg-color, 0.1);
+      border: 0;
+
+      color: $secondary-text-color;
+      font-size: rem-calc(12);
+
+      width: 100%;
+      height: rem-calc(40);
+      padding-left: rem-calc(10);
+
+      &:focus {
+        outline: none;
+      }
+
+      &.edit {
+        border-left: 1px solid $secondary-text-color;
+        border-bottom: 1px solid $secondary-text-color;
+        border-bottom-left-radius: rem-calc(10);
+      }
+    }
+  }
+}

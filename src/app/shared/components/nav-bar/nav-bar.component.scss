@@ -1,0 +1,75 @@
+@import "../../../scss/index.scss";
+
+// Formatação
+header {
+  border-bottom: 1px solid $secondary-text-color;
+  border-radius: 0 0 rem-calc(20) rem-calc(20);
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  height: rem-calc(64);
+  padding: rem-calc(5) rem-calc(12) 0 rem-calc(12);
+
+  button {
+    background: none;
+    border: 0;
+  }
+
+  h1 {
+    background: $primary-text-color;
+    background-clip: text;
+
+    color: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: rem-calc(2);
+  }
+
+  nav {
+    background: $primary-bg-color;
+    border: rem-calc(1) solid $secondary-text-color;
+    border-top: 0;
+    border-left: 0;
+    border-radius: 0 rem-calc(20) rem-calc(20) 0;
+
+    position: absolute;
+    top: 0;
+    left: rem-calc(-1);
+
+    width: 0;
+    padding: rem-calc(5) 0;
+
+    overflow: hidden;
+    transition: 800ms ease;
+    z-index: 10000000000;
+
+    button {
+      border-bottom: rem-calc(1) solid $secondary-text-color;
+      border-bottom-left-radius: rem-calc(20);
+
+      display: flex;
+      align-items: start;
+
+      width: 100%;
+      height: rem-calc(59);
+      padding-left: rem-calc(12);
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: rem-calc(16) rem-calc(12);
+
+      a {
+        color: $primary-link-color;
+        font-weight: 400;
+        text-decoration: none;
+      }
+    }
+  }
+}
