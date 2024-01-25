@@ -5,7 +5,6 @@
   src: url("assets/fonts/Jura-font.woff");
 }
 
-// Formtações
 * {
   font-family: Jura;
 
@@ -27,7 +26,4 @@
 
 body {
   background: $primary-bg-color;
-
-  max-width: 1920px;
-  margin: auto;
 }
