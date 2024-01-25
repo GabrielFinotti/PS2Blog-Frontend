@@ -5,9 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ListGamesService {
-  // Variáveis do serviço
   private url!: string;
+
   constructor(private http: HttpClient) {}
 
-  public requestData() {}
 }
