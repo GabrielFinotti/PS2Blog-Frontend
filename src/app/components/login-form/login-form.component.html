@@ -1,1 +1,30 @@
-<p>login-form works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="sendForm()">
+  <div class="input-group">
+    <label for="email" #label>Email</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+      #input
+    />
+  </div>
+  <div class="input-group">
+    <label for="password" #label>Senha</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+      #input
+    />
+  </div>
+  <div id="checkboxGroup">
+    <input id="checkbox" type="checkbox" formControlName="userSave" />
+    <span></span>
+    <label for="checkbox">Salvar minhas credênciais</label>
+  </div>
+  <input type="submit" value="Carregar Save" />
+</form>
