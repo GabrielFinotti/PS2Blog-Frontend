@@ -1,0 +1,10 @@
+@import "../../../scss/index.scss";
+
+p {
+  background: $tertiary-bg-color;
+
+  color: white;
+  font-size: rem-calc(12);
+
+  padding: 30px 10px;
+}
