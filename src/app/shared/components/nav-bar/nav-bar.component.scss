@@ -1,0 +1,79 @@
+@import "../../../scss/index.scss";
+
+nav {
+  border-bottom: 1px solid $secondary-text-color;
+  border-radius: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1920px;
+  margin: auto;
+  padding: 5px 12px 15px 12px;
+
+  #openNavbar,
+  #closeNavbar {
+    background: none;
+    border: 0;
+
+    cursor: pointer;
+  }
+
+  #logoText {
+    background: $primary-text-color;
+    background-clip: text;
+
+    color: transparent;
+    font-size: rem-calc(32);
+    font-weight: 700;
+    letter-spacing: 1.28px;
+
+    cursor: pointer;
+  }
+
+  #navbar {
+    background: $primary-bg-color;
+    border-right: 1px solid $secondary-text-color;
+    border-bottom: 1px solid $secondary-text-color;
+    border-radius: 0 20px 20px 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 0;
+    opacity: 0;
+
+    transition: 800ms ease;
+    overflow: hidden;
+    #navbarHead {
+      border-bottom: 1px solid $secondary-text-color;
+      border-radius: 0 20px 0 20px;
+
+      width: 100%;
+      padding: 5px 0 15px 12px;
+    }
+
+    #navLinkGroup {
+      display: flex;
+      flex-direction: column;
+
+      padding-left: 12px;
+
+      .navLink {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: $primary-link-color;
+        font-size: rem-calc(16);
+        font-weight: 400;
+        text-decoration-line: none;
+        letter-spacing: 0.65px;
+
+        padding: 15px 15px 15px 0;
+      }
+    }
+  }
+}
