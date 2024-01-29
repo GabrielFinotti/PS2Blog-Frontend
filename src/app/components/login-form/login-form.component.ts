@@ -11,6 +11,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { UserFormService } from '../../shared/services/user-form.service';
 
 @Component({
   selector: 'app-login-form',
@@ -24,7 +25,11 @@ export class LoginFormComponent {
   @ViewChildren('label') private label!: QueryList<ElementRef>;
   protected loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private render: Renderer2) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private render: Renderer2,
+    private userForm: UserFormService
+  ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', Validators.required],
@@ -34,6 +39,14 @@ export class LoginFormComponent {
 
   protected sendForm() {
     if (this.loginForm.valid) {
+      this.userForm.userLogin(this.loginForm).subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err.error);
+        }
+      );
     } else {
     }
   }
@@ -43,7 +56,7 @@ export class LoginFormComponent {
       this.render.setStyle(
         this.label.toArray()[index].nativeElement,
         'top',
-        '-20px'
+        '-17px'
       );
     }
   }
