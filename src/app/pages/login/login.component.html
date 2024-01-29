@@ -3,11 +3,16 @@
   <img src="../../../assets/imgs/ps2-logo.svg" alt="PS2 Logo" />
 </section>
 <section id="form">
-  @if (false) {
+  @if (formToggle) {
   <app-login-form></app-login-form>
   } @else {
   <app-register-form></app-register-form>
   }
 </section>
-<p>Não tem save game: <span>Criar save</span></p>
+<p>
+  {{ formToggle ? "Não tem save game:" : "Tem save game:"
+  }}<span (click)="toggleForm()">{{
+    formToggle ? "Criar save" : "Carregar save"
+  }}</span>
+</p>
 <app-footer></app-footer>
