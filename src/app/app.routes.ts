@@ -6,5 +6,5 @@ import { AccountComponent } from './pages/account/account.component';
 export const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'downloads', component: DownloadComponent },
-  { path: 'conta', component: AccountComponent },
+  { path: 'conta/user/:id', component: AccountComponent },
 ];

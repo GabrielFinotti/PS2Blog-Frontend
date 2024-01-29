@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,7 +8,13 @@ import { RouterModule } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.scss',
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
+  protected id!: string;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
   protected showNav(navbar: HTMLElement) {
     navbar.style.width = '55%';
     navbar.style.opacity = '1';

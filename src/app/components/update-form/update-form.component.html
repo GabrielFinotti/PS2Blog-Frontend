@@ -1,4 +1,4 @@
-<form [formGroup]="updateForm">
+<form [formGroup]="updateForm" (ngSubmit)="updateUser()">
   <div class="input-group">
     <label for="userName">Usuário:</label>
     <input id="userName" type="text" formControlName="userName" />

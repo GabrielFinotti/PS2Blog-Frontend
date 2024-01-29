@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-form',
@@ -16,10 +17,12 @@ import { UserFormService } from '../../shared/services/user-form.service';
 })
 export class UpdateFormComponent implements OnInit {
   protected updateForm!: FormGroup;
+  private userId!: string;
 
   constructor(
     private formBuilder: FormBuilder,
-    private userFormService: UserFormService
+    private userFormService: UserFormService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.updateForm = this.formBuilder.group({
       userName: [
@@ -44,13 +47,22 @@ export class UpdateFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  protected updateUser(id: string) {
+  protected updateUser() {
+    this.activatedRoute.params.subscribe((params) => {
+      this.userId = params['id'];
+    });
+
     const userData = this.updateForm;
 
-    if (userData.invalid) {
-      this.userFormService.userUpdate(userData, id);
+    if (userData.valid) {
+      this.userFormService.userUpdate(userData, this.userId).subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err.error);
+        }
+      );
     }
   }
-
-  protected getUserData() {}
 }
