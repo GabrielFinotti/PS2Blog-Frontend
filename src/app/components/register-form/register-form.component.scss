@@ -41,6 +41,8 @@ form {
       height: 40px;
       padding-left: 15px;
 
+      cursor: auto;
+
       &:focus {
         border: 1px solid$secondary-text-color;
         outline: none;
