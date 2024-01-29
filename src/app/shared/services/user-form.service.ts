@@ -27,4 +27,12 @@ export class UserFormService {
       password: userData.value['password'],
     });
   }
+
+  public userUpdate(userData: FormGroup, id: string): Observable<Object> {
+    return this.http.put(`${this.url}/update/${id}`, {
+      username: userData.value['userName'],
+      email: userData.value['email'],
+      password: userData.value['password'],
+    });
+  }
 }

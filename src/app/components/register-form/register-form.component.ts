@@ -31,10 +31,31 @@ export class RegisterFormComponent {
     private userFormService: UserFormService
   ) {
     this.registerForm = this.formBuilder.group({
-      userName: ['', [Validators.required]],
+      userName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(16),
+        ],
+      ],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-      passwordConf: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
+      passwordConf: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
     });
   }
 
