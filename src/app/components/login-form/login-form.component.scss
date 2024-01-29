@@ -1,8 +1,26 @@
 @import "../../scss/index.scss";
 
+@keyframes showForm {
+  0% {
+    scale: 0;
+  }
+
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
 form {
   max-width: 292px;
   margin: auto;
+
+  scale: 0;
+
+  animation: showForm 1s ease forwards;
 
   .input-group {
     position: relative;
