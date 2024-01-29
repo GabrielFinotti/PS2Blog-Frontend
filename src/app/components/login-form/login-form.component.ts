@@ -28,7 +28,7 @@ export class LoginFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userForm: UserFormService
+    private userFormService: UserFormService
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
@@ -39,7 +39,7 @@ export class LoginFormComponent {
 
   protected sendForm() {
     if (this.loginForm.valid) {
-      this.userForm.userLogin(this.loginForm).subscribe(
+      this.userFormService.userLogin(this.loginForm).subscribe(
         (res) => {
           console.log(res);
         },
