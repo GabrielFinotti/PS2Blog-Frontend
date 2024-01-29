@@ -13,7 +13,8 @@ O PS2 Blog é um site dedicado ao público gamer, especialmente aos entusiastas 
 
 ### Backend
 
-- NodeJS
+- NodeJS com Express
+- TypeScript
 
 ### Bancos de Dados
 
@@ -35,3 +36,7 @@ Sinta-se à vontade para contribuir para o desenvolvimento deste projeto. Seja n
 Agradecido pela sua contribuição!
 
 Divirta-se explorando o mundo do PS2 no PS2 Blog!
+
+## Documentação
+
+A documentação completa do projeto pode ser acessada na [Notion](https://www.notion.so/finottidev/PS2-Blog-e1099c07d6f74ae39b30959887907e48?pvs=4) ou na [Wiki do GitHub](link_para_a_wiki_do_github).
