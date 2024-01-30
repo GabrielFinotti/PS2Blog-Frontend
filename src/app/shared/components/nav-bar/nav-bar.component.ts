@@ -13,7 +13,12 @@ export class NavBarComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const userId = sessionStorage.getItem('id');
+    if (userId !== null) {
+      this.id = userId;
+    }
+  }
 
   protected showNav(navbar: HTMLElement) {
     navbar.style.width = '55%';

@@ -12,6 +12,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
+import { LoginResponse } from '../../interfaces/login-response';
 
 @Component({
   selector: 'app-login-form',
@@ -41,7 +42,9 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       this.userFormService.userLogin(this.loginForm).subscribe(
         (res) => {
-          console.log(res);
+          if (res.user?._id) {
+            this.setUserId(res.user._id);
+          }
         },
         (err) => {
           console.log(err.error);
@@ -49,6 +52,10 @@ export class LoginFormComponent {
       );
     } else {
     }
+  }
+
+  private setUserId(id: string) {
+    sessionStorage.setItem('id', id);
   }
 
   protected onFocus(index: number) {

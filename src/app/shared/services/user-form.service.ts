@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { LoginResponse } from '../../interfaces/login-response';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,8 @@ export class UserFormService {
     this.url = 'http://localhost:3000/user';
   }
 
-  public userLogin(userData: FormGroup): Observable<Object> {
-    return this.http.post(`${this.url}/login`, {
+  public userLogin(userData: FormGroup): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.url}/login`, {
       email: userData.value['email'],
       password: userData.value['password'],
     });
