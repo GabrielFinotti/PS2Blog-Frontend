@@ -5,12 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class UserRouteService {
   public getUserId() {
-    const userId = sessionStorage.getItem('id');
+    if (typeof window !== 'undefined') {
+      const userId = sessionStorage.getItem('id');
 
-    if (userId !== null) {
-      return true;
-    } else {
-      return false;
+      if (userId !== null) {
+        return true;
+      } else {
+        return false;
+      }
     }
+    return false;
   }
 }

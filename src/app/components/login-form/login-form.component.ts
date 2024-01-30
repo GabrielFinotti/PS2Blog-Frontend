@@ -12,7 +12,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
-import { LoginResponse } from '../../interfaces/login-response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -29,7 +29,8 @@ export class LoginFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userFormService: UserFormService
+    private userFormService: UserFormService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
@@ -55,7 +56,12 @@ export class LoginFormComponent {
   }
 
   private setUserId(id: string) {
-    sessionStorage.setItem('id', id);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('id', id);
+      if (sessionStorage.getItem('id') !== null) {
+        this.router.navigate(['downloads']);
+      }
+    }
   }
 
   protected onFocus(index: number) {
