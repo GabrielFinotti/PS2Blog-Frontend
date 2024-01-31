@@ -59,7 +59,7 @@ export class LoginFormComponent {
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('id', id);
       if (sessionStorage.getItem('id') !== null) {
-        this.router.navigate(['downloads']);
+        this.router.navigateByUrl('downloads');
       }
     }
   }

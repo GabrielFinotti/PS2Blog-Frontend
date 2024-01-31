@@ -1,6 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <main>
-  <h1>Seus Dados:</h1>
+  @if (userName) {
+  <h1>Player {{ userName.user?.username }}</h1>
+  } @else {
+  <h1>Caregando...</h1>
+  }
   <section>
     <app-update-form></app-update-form>
   </section>
