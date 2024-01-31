@@ -1,0 +1,30 @@
+@if (userData) {
+<form>
+  <div class="input-group">
+    <label for="userNameData">Usuário:</label>
+    <input
+      id="userNameData"
+      type="text"
+      disabled
+      [value]="
+        userData.user?.username !== undefined
+          ? userData.user?.username
+          : 'Não foi possível recuperar o Usuário'
+      "
+    />
+  </div>
+  <div class="input-group">
+    <label for="emailData">Email:</label>
+    <input
+      id="emailData"
+      type="email"
+      disabled
+      [value]="
+        userData.user?.email !== undefined
+          ? userData.user?.email
+          : 'Não foi possível recuperar o email'
+      "
+    />
+  </div>
+</form>
+}

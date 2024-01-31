@@ -1,5 +1,11 @@
 @import "../../scss/index.scss";
 
+@keyframes showSpan {
+  to {
+    width: 50px;
+  }
+}
+
 main {
   min-height: calc(100vh - 139px);
 
@@ -7,11 +13,67 @@ main {
 
   h1 {
     color: $tertiary-text-color;
-    font-size: rem-calc(20);
+    font-size: rem-calc(30);
     font-weight: bold;
     text-align: center;
+    text-decoration-line: underline;
+    text-decoration-color: $secondary-text-color;
+    text-underline-offset: 4px;
     letter-spacing: 1px;
 
     margin-bottom: 80px;
+  }
+
+  #formGroup {
+    h2 {
+      color: $secondary-text-color;
+      font-size: rem-calc(22);
+      font-weight: lighter;
+      text-indent: 15px;
+
+      max-width: 350px;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    #dataUser {
+      height: 129px;
+
+      overflow: hidden;
+      transition: height 600ms ease;
+    }
+
+    #updateForm {
+      height: 0;
+
+      overflow: hidden;
+      transition: height 600ms ease;
+    }
+  }
+
+  #saveEdit {
+    border: 1px solid $secondary-text-color;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: max-content;
+    margin: auto;
+    margin-top: 40px;
+    padding: 10px;
+
+    span {
+      color: $secondary-text-color;
+      font-size: rem-calc(16);
+      font-weight: 700;
+      text-transform: uppercase;
+
+      width: 0;
+
+      overflow: hidden;
+      animation: showSpan 2s alternate infinite ease 800ms;
+    }
   }
 }

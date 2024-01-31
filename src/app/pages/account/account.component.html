@@ -5,8 +5,18 @@
   } @else {
   <h1>Caregando...</h1>
   }
-  <section>
-    <app-update-form></app-update-form>
+  <section id="formGroup">
+    <h2>Save data:</h2>
+    <div #div id="dataUser">
+      <app-user-data-form></app-user-data-form>
+    </div>
+    <div #div id="updateForm">
+      <app-update-form></app-update-form>
+    </div>
   </section>
+  <div id="saveEdit" (click)="editFormData()">
+    <span>Editar</span>
+    <img src="../../../assets/icons/editor-icon.svg" alt="Editar save" />
+  </div>
 </main>
 <app-footer></app-footer>
