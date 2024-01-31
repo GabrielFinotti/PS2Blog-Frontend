@@ -1,7 +1,7 @@
 @import "../../scss/index.scss";
 
 form {
-  border: 1px solid $secondary-text-color;
+  border: 1px dashed $secondary-text-color;
   border-radius: 10px;
 
   max-width: 350px;
@@ -44,6 +44,22 @@ form {
 
     label {
       color: $secondary-text-color;
+    }
+  }
+
+  button {
+    background: none;
+    border: 1px dashed $primary-link-color;
+    border-radius: 50%;
+
+    display: block;
+
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 15px;
+
+    &:focus {
+      outline: none;
     }
   }
 }
