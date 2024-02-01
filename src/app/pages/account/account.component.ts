@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { UpdateFormComponent } from '../../components/update-form/update-form.component';
-import { UserDataResponse } from '../../interfaces/user-name-response';
+import { UserDataResponse } from '../../interfaces/user-data-response';
 import { UserDataFormComponent } from '../../components/user-data-form/user-data-form.component';
 
 @Component({
@@ -47,7 +47,7 @@ export class AccountComponent implements OnInit {
         this.userName = res;
       },
       (err) => {
-        console.log(err.message);
+        console.error(err.message);
       }
     );
   }

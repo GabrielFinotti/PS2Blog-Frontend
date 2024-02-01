@@ -7,8 +7,8 @@
       type="text"
       disabled
       [value]="
-        userData.user?.username !== undefined
-          ? userData.user?.username
+        userData.user.username !== undefined
+          ? userData.user.username
           : 'Não foi possível recuperar o Usuário'
       "
     />
@@ -20,11 +20,16 @@
       type="email"
       disabled
       [value]="
-        userData.user?.email !== undefined
-          ? userData.user?.email
+        userData.user.email !== undefined
+          ? userData.user.email
           : 'Não foi possível recuperar o email'
       "
     />
   </div>
 </form>
+} @else {
+<div id="dataError">
+  <img src="../../../assets/imgs/not-found.svg" alt="Error" />
+  <p>Não foi possível recuperar os dados!</p>
+</div>
 }

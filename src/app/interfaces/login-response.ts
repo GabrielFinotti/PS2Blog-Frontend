@@ -1,6 +1,6 @@
 export interface LoginResponse {
   message: string;
-  user?: {
+  user: {
     _id: string;
   };
 }

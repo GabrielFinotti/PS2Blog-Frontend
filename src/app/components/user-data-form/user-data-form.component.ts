@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDataResponse } from '../../interfaces/user-name-response';
+import { UserDataResponse } from '../../interfaces/user-data-response';
 import { UserDataService } from '../../shared/services/user-data.service';
 import { ActivatedRoute } from '@angular/router';
 

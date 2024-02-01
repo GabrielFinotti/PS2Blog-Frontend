@@ -43,9 +43,7 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       this.userFormService.userLogin(this.loginForm).subscribe(
         (res) => {
-          if (res.user?._id) {
-            this.setUserId(res.user._id);
-          }
+          this.setUserId(res.user._id);
         },
         (err) => {
           console.log(err.error);

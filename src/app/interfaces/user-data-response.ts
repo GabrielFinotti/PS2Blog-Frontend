@@ -1,6 +1,5 @@
 export interface UserDataResponse {
-  message?: string;
-  user?: {
+  user: {
     username: string;
     email: string
   };

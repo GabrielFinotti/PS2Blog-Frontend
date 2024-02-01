@@ -50,3 +50,20 @@ form {
     }
   }
 }
+
+#dataError {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    color: $tertiary-text-color;
+    font-size: rem-calc(16);
+    font-weight: 700;
+    letter-spacing: 0.6px;
+  }
+
+  img {
+    width: 100px;
+  }
+}
