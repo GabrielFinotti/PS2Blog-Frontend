@@ -22,8 +22,8 @@ import { ErrorMessage } from '../../interfaces/error-message';
   styleUrl: './register-form.component.scss',
 })
 export class RegisterFormComponent {
-  @ViewChildren('input') private input!: QueryList<ElementRef>;
-  @ViewChildren('label') private label!: QueryList<ElementRef>;
+  @ViewChildren('input') private input!: QueryList<ElementRef<HTMLInputElement>>;
+  @ViewChildren('label') private label!: QueryList<ElementRef<HTMLLabelElement>>;
   protected registerForm!: FormGroup;
 
   constructor(

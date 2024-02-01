@@ -23,8 +23,8 @@ import { ErrorMessage } from '../../interfaces/error-message';
   styleUrl: './login-form.component.scss',
 })
 export class LoginFormComponent {
-  @ViewChildren('input') private input!: QueryList<ElementRef>;
-  @ViewChildren('label') private label!: QueryList<ElementRef>;
+  @ViewChildren('input') private input!: QueryList<ElementRef<HTMLInputElement>>;
+  @ViewChildren('label') private label!: QueryList<ElementRef<HTMLLabelElement>>;
   protected loginForm!: FormGroup;
 
   constructor(
