@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserDataResponse } from '../../interfaces/user-data-response';
 import { UserDataService } from '../../shared/services/user-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorMessage } from '../../interfaces/error-message';
 
 @Component({
   selector: 'app-user-data-form',
@@ -25,8 +26,8 @@ export class UserDataFormComponent implements OnInit {
       (res) => {
         this.userData = res;
       },
-      (err) => {
-        console.error(err.message);
+      (err: ErrorMessage) => {
+        console.error(err.error.message);
       }
     );
   }

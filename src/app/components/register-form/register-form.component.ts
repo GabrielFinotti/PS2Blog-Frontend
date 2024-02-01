@@ -12,6 +12,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
+import { ErrorMessage } from '../../interfaces/error-message';
 
 @Component({
   selector: 'app-register-form',
@@ -70,8 +71,8 @@ export class RegisterFormComponent {
         (res) => {
           console.log(res);
         },
-        (err) => {
-          console.error(err.error);
+        (err: ErrorMessage) => {
+          console.error(err.error.message);
         }
       );
     }

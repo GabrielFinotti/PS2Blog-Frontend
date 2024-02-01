@@ -13,6 +13,7 @@ import {
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
 import { Router } from '@angular/router';
+import { ErrorMessage } from '../../interfaces/error-message';
 
 @Component({
   selector: 'app-login-form',
@@ -45,8 +46,8 @@ export class LoginFormComponent {
         (res) => {
           this.setUserId(res.user._id);
         },
-        (err) => {
-          console.log(err.error);
+        (err: ErrorMessage) => {
+          console.log(err.error.message);
         }
       );
     } else {

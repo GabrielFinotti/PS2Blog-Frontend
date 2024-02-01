@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { UserFormService } from '../../shared/services/user-form.service';
 import { ActivatedRoute } from '@angular/router';
+import { ErrorMessage } from '../../interfaces/error-message';
 
 @Component({
   selector: 'app-update-form',
@@ -59,8 +60,8 @@ export class UpdateFormComponent implements OnInit {
         (res) => {
           console.log(res);
         },
-        (err) => {
-          console.log(err.error);
+        (err: ErrorMessage) => {
+          console.log(err.error.message);
         }
       );
     }

@@ -13,6 +13,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
 import { UpdateFormComponent } from '../../components/update-form/update-form.component';
 import { UserDataResponse } from '../../interfaces/user-data-response';
 import { UserDataFormComponent } from '../../components/user-data-form/user-data-form.component';
+import { ErrorMessage } from '../../interfaces/error-message';
 
 @Component({
   selector: 'app-account',
@@ -46,8 +47,8 @@ export class AccountComponent implements OnInit {
       (res) => {
         this.userName = res;
       },
-      (err) => {
-        console.error(err.message);
+      (err: ErrorMessage) => {
+        console.error(err.error.message);
       }
     );
   }
