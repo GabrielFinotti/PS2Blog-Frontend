@@ -15,9 +15,14 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
-      const userId = sessionStorage.getItem('id');
-      if (userId !== null) {
-        this.id = userId;
+      const sessionId = sessionStorage.getItem('id');
+      const localId = localStorage.getItem('id');
+
+      if (sessionId !== null) {
+        this.id = sessionId;
+      }
+      if (localId !== null) {
+        this.id = localId;
       }
     }
   }

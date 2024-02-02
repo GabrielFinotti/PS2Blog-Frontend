@@ -53,6 +53,12 @@ export class LoginFormComponent {
         (res) => {
           this.infoMessage.emit(res.message);
           this.setUserId(res.user._id);
+
+          if (this.loginForm.value['userSave']) {
+            if (typeof window !== 'undefined') {
+              localStorage.setItem('id', res.user._id);
+            }
+          }
         },
         (err: ErrorMessage) => {
           this.infoMessage.emit(err.error.message);

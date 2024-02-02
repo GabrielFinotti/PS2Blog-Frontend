@@ -6,9 +6,10 @@ import { Injectable } from '@angular/core';
 export class UserRouteService {
   public getUserId() {
     if (typeof window !== 'undefined') {
-      const userId = sessionStorage.getItem('id');
+      const sessionId = sessionStorage.getItem('id');
+      const localId = localStorage.getItem('id')
 
-      if (userId !== null) {
+      if (sessionId !== null || localId !== null) {
         return true;
       } else {
         return false;
