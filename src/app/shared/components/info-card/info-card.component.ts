@@ -3,7 +3,9 @@ import {
   Component,
   ElementRef,
   Input,
+  OnChanges,
   Renderer2,
+  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 
@@ -14,7 +16,7 @@ import {
   templateUrl: './info-card.component.html',
   styleUrl: './info-card.component.scss',
 })
-export class InfoCardComponent implements AfterViewInit {
+export class InfoCardComponent implements AfterViewInit, OnChanges {
   @ViewChild('text') private p!: ElementRef<HTMLParagraphElement>;
   @ViewChild('div') private div!: ElementRef<HTMLDivElement>;
   @Input() public infoMessage!: string;
@@ -24,7 +26,17 @@ export class InfoCardComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initWidth = this.div.nativeElement.offsetWidth;
-    this.calcWidth();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    setTimeout(() => {
+      if (
+        changes['infoMessage'].currentValue !==
+        changes['infoMessage'].previousValue
+      ) {
+        this.calcWidth();
+      }
+    }, 0);
   }
 
   private calcWidth() {
@@ -35,7 +47,7 @@ export class InfoCardComponent implements AfterViewInit {
         this.render.setStyle(
           this.div.nativeElement,
           'width',
-          `${this.initWidth + pWidth + 12}px`
+          `${this.initWidth + pWidth + 22}px`
         );
       }, 1200);
     }

@@ -36,5 +36,10 @@ export class LoginComponent implements OnInit {
 
   protected getInfoMessage(message: string) {
     this.infoMessage = message;
+
+    setTimeout(() => {
+      this.infoMessage = '';
+      console.log(this.infoMessage);
+    }, 4000);
   }
 }

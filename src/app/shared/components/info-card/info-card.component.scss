@@ -10,15 +10,25 @@
   }
 }
 
+@keyframes showBorder {
+  to {
+    border: 1px solid yellow;
+  }
+}
+
 div {
+  border-radius: 15px;
   display: flex;
   align-items: center;
   gap: 10px;
 
-  width: 40px;
+  width: 60px;
+  padding: 15px;
 
   overflow: hidden;
   transition: 800ms ease;
+
+  animation: showBorder 1s 1s forwards ease;
 
   p {
     color: yellow;
