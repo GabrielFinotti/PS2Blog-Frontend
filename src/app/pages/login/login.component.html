@@ -2,9 +2,14 @@
   <h1>PS2 BLOG</h1>
   <img src="../../../assets/imgs/ps2-logo.svg" alt="PS2 Logo" />
 </section>
+@if (infoMessage) {
+<div id="infoCard">
+  <app-info-card [infoMessage]="this.infoMessage"></app-info-card>
+</div>
+}
 <section id="form">
   @if (formToggle) {
-  <app-login-form></app-login-form>
+  <app-login-form (infoMessage)="getInfoMessage($event)"></app-login-form>
   } @else {
   <app-register-form></app-register-form>
   }

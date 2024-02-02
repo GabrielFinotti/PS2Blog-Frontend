@@ -1,0 +1,35 @@
+@import "../../../scss/index.scss";
+
+@keyframes showCard {
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 40px;
+
+  overflow: hidden;
+  transition: 800ms ease;
+
+  p {
+    color: yellow;
+    font-size: rem-calc(16);
+    letter-spacing: 0.6px;
+    text-wrap: nowrap;
+  }
+
+  img {
+    scale: 0;
+
+    animation: showCard 1s forwards ease;
+  }
+}

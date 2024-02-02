@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { RegisterFormComponent } from '../../components/register-form/register-form.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { InfoCardComponent } from '../../shared/components/info-card/info-card.component';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,14 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
     LoginFormComponent,
     RegisterFormComponent,
     FooterComponent,
+    InfoCardComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   public formToggle!: boolean;
+  protected infoMessage!: string;
 
   ngOnInit(): void {
     this.formToggle = true;
@@ -29,5 +32,9 @@ export class LoginComponent implements OnInit {
     } else {
       this.formToggle = true;
     }
+  }
+
+  protected getInfoMessage(message: string) {
+    this.infoMessage = message;
   }
 }

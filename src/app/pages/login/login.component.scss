@@ -25,6 +25,12 @@
     }
   }
 
+  #infoCard {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
   p {
     color: $tertiary-text-color;
     font-size: rem-calc(12);

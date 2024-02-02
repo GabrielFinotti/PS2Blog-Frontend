@@ -1,6 +1,8 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
+  Output,
   QueryList,
   Renderer2,
   ViewChildren,
@@ -23,8 +25,13 @@ import { ErrorMessage } from '../../interfaces/error-message';
   styleUrl: './login-form.component.scss',
 })
 export class LoginFormComponent {
-  @ViewChildren('input') private input!: QueryList<ElementRef<HTMLInputElement>>;
-  @ViewChildren('label') private label!: QueryList<ElementRef<HTMLLabelElement>>;
+  @ViewChildren('input') private input!: QueryList<
+    ElementRef<HTMLInputElement>
+  >;
+  @ViewChildren('label') private label!: QueryList<
+    ElementRef<HTMLLabelElement>
+  >;
+  @Output() private infoMessage = new EventEmitter<string>();
   protected loginForm!: FormGroup;
 
   constructor(
@@ -44,10 +51,11 @@ export class LoginFormComponent {
     if (this.loginForm.valid) {
       this.userFormService.userLogin(this.loginForm).subscribe(
         (res) => {
+          this.infoMessage.emit(res.message);
           this.setUserId(res.user._id);
         },
         (err: ErrorMessage) => {
-          console.log(err.error.message);
+          this.infoMessage.emit(err.error.message);
         }
       );
     } else {
