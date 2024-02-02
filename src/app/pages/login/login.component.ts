@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
 
     setTimeout(() => {
       this.infoMessage = '';
-      console.log(this.infoMessage);
-    }, 4000);
+    }, 3500);
   }
 }
