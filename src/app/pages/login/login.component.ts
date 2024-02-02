@@ -4,6 +4,7 @@ import { LoginFormComponent } from '../../components/login-form/login-form.compo
 import { RegisterFormComponent } from '../../components/register-form/register-form.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { InfoCardComponent } from '../../shared/components/info-card/info-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,18 @@ export class LoginComponent implements OnInit {
   public formToggle!: boolean;
   protected infoMessage!: string;
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
+    if (typeof window !== 'undefined') {
+      if (
+        sessionStorage.getItem('id') !== null ||
+        localStorage.getItem('id') !== null
+      ) {
+        this.router.navigateByUrl('downloads');
+      }
+    }
+
     this.formToggle = true;
   }
 
