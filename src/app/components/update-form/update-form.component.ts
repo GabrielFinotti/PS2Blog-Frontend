@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -8,6 +8,7 @@ import {
 import { UserFormService } from '../../shared/services/user-form.service';
 import { ActivatedRoute } from '@angular/router';
 import { ErrorMessage } from '../../interfaces/error-message';
+import { ResponseMessage } from '../../interfaces/response-message';
 
 @Component({
   selector: 'app-update-form',
@@ -17,6 +18,7 @@ import { ErrorMessage } from '../../interfaces/error-message';
   styleUrl: './update-form.component.scss',
 })
 export class UpdateFormComponent implements OnInit {
+  @Output() private infoMessage = new EventEmitter<string>();
   protected updateForm!: FormGroup;
   private userId!: string;
 
@@ -26,23 +28,9 @@ export class UpdateFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.updateForm = this.formBuilder.group({
-      userName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(16),
-        ],
-      ],
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(20),
-        ],
-      ],
+      userName: ['', [Validators.minLength(4), Validators.maxLength(16)]],
+      email: ['', [Validators.email]],
+      password: ['', [Validators.minLength(6), Validators.maxLength(20)]],
     });
   }
 
@@ -57,11 +45,11 @@ export class UpdateFormComponent implements OnInit {
 
     if (userData.valid) {
       this.userFormService.userUpdate(userData, this.userId).subscribe(
-        (res) => {
-          console.log(res);
+        (res: ResponseMessage) => {
+          this.infoMessage.emit(res.message);
         },
         (err: ErrorMessage) => {
-          console.log(err.error.message);
+          this.infoMessage.emit(err.error.message);
         }
       );
     }

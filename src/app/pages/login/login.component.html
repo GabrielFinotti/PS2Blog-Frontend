@@ -11,7 +11,7 @@
   @if (formToggle) {
   <app-login-form (infoMessage)="getInfoMessage($event)"></app-login-form>
   } @else {
-  <app-register-form></app-register-form>
+  <app-register-form (infoMessage)="getInfoMessage($event)"></app-register-form>
   }
 </section>
 <p>

@@ -76,4 +76,10 @@ main {
       animation: showSpan 2s alternate infinite ease 800ms;
     }
   }
+
+  #infoCard {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
 }

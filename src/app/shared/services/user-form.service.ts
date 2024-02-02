@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { LoginResponse } from '../../interfaces/login-response';
+import { ResponseMessage } from '../../interfaces/response-message';
 
 @Injectable({
   providedIn: 'root',
@@ -21,16 +22,19 @@ export class UserFormService {
     });
   }
 
-  public userRegister(userData: FormGroup): Observable<Object> {
-    return this.http.post(`${this.url}/register`, {
+  public userRegister(userData: FormGroup): Observable<ResponseMessage> {
+    return this.http.post<ResponseMessage>(`${this.url}/register`, {
       username: userData.value['userName'],
       email: userData.value['email'],
       password: userData.value['password'],
     });
   }
 
-  public userUpdate(userData: FormGroup, id: string): Observable<Object> {
-    return this.http.put(`${this.url}/update/${id}`, {
+  public userUpdate(
+    userData: FormGroup,
+    id: string
+  ): Observable<ResponseMessage> {
+    return this.http.put<ResponseMessage>(`${this.url}/update/${id}`, {
       username: userData.value['userName'],
       email: userData.value['email'],
       password: userData.value['password'],

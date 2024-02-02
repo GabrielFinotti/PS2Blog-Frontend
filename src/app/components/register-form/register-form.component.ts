@@ -4,6 +4,8 @@ import {
   QueryList,
   ElementRef,
   Renderer2,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -22,8 +24,13 @@ import { ErrorMessage } from '../../interfaces/error-message';
   styleUrl: './register-form.component.scss',
 })
 export class RegisterFormComponent {
-  @ViewChildren('input') private input!: QueryList<ElementRef<HTMLInputElement>>;
-  @ViewChildren('label') private label!: QueryList<ElementRef<HTMLLabelElement>>;
+  @ViewChildren('input') private input!: QueryList<
+    ElementRef<HTMLInputElement>
+  >;
+  @ViewChildren('label') private label!: QueryList<
+    ElementRef<HTMLLabelElement>
+  >;
+  @Output() private infoMessage = new EventEmitter<string>();
   protected registerForm!: FormGroup;
 
   constructor(
@@ -69,10 +76,10 @@ export class RegisterFormComponent {
     ) {
       this.userFormService.userRegister(userData).subscribe(
         (res) => {
-          console.log(res);
+          this.infoMessage.emit(res.message);
         },
         (err: ErrorMessage) => {
-          console.error(err.error.message);
+          this.infoMessage.emit(err.error.message);
         }
       );
     }
