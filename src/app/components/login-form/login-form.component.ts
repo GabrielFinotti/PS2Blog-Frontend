@@ -13,9 +13,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { UserFormService } from '../../shared/services/user-form.service';
 import { Router } from '@angular/router';
 import { ErrorMessage } from '../../interfaces/error-message';
+import { UserFormService } from '../../shared/services/user-form.service';
 
 @Component({
   selector: 'app-login-form',
@@ -64,13 +64,13 @@ export class LoginFormComponent {
           this.infoMessage.emit(err.error.message);
         }
       );
-    } else {
     }
   }
 
   private setUserId(id: string) {
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('id', id);
+      
       if (sessionStorage.getItem('id') !== null) {
         this.router.navigateByUrl('downloads');
       }

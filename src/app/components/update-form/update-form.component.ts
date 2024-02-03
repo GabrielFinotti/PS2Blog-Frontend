@@ -1,14 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { UserFormService } from '../../shared/services/user-form.service';
 import { ActivatedRoute } from '@angular/router';
 import { ErrorMessage } from '../../interfaces/error-message';
 import { ResponseMessage } from '../../interfaces/response-message';
+import { UserFormService } from '../../shared/services/user-form.service';
 
 @Component({
   selector: 'app-update-form',
@@ -17,10 +17,10 @@ import { ResponseMessage } from '../../interfaces/response-message';
   templateUrl: './update-form.component.html',
   styleUrl: './update-form.component.scss',
 })
-export class UpdateFormComponent implements OnInit {
+export class UpdateFormComponent {
   @Output() private infoMessage = new EventEmitter<string>();
-  protected updateForm!: FormGroup;
   private userId!: string;
+  protected updateForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,8 +33,6 @@ export class UpdateFormComponent implements OnInit {
       password: ['', [Validators.minLength(6), Validators.maxLength(20)]],
     });
   }
-
-  ngOnInit(): void {}
 
   protected updateUser() {
     this.activatedRoute.params.subscribe((params) => {

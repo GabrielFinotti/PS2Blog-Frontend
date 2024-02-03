@@ -1,10 +1,6 @@
 @import "../../scss/index.scss";
 
 @keyframes showForm {
-  0% {
-    scale: 0;
-  }
-
   50% {
     scale: 1.2;
   }
@@ -71,7 +67,7 @@ form {
     font-size: rem-calc(18);
 
     margin: auto;
-    padding: 15px 20px 15px 20px;
+    padding: 15px 20px;
 
     cursor: pointer;
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { UserDataResponse } from '../../interfaces/user-data-response';
 import { UserDataService } from '../../shared/services/user-data.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-data-form',
@@ -11,8 +11,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './user-data-form.component.scss',
 })
 export class UserDataFormComponent implements OnInit {
-  protected userData!: UserDataResponse;
   private userId!: string;
+  protected userData!: UserDataResponse;
 
   constructor(
     private userDataService: UserDataService,

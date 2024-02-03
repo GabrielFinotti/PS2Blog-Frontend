@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { RegisterFormComponent } from '../../components/register-form/register-form.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { InfoCardComponent } from '../../shared/components/info-card/info-card.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

@@ -13,8 +13,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { UserFormService } from '../../shared/services/user-form.service';
 import { ErrorMessage } from '../../interfaces/error-message';
+import { UserFormService } from '../../shared/services/user-form.service';
 
 @Component({
   selector: 'app-register-form',
