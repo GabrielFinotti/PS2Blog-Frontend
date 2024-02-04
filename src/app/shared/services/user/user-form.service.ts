@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { LoginResponse } from '../../interfaces/login-response';
-import { ResponseMessage } from '../../interfaces/response-message';
+import { LoginResponse } from '../../../interfaces/login-response';
+import { ResponseMessage } from '../../../interfaces/response-message';
 
 @Injectable({
   providedIn: 'root',

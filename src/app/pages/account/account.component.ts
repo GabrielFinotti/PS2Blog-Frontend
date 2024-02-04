@@ -7,7 +7,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserDataService } from './../../shared/services/user-data.service';
+import { UserDataService } from '../../shared/services/user/user-data.service';
 import { UserDataResponse } from '../../interfaces/user-data-response';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';

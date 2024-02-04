@@ -14,7 +14,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ErrorMessage } from '../../../interfaces/error-message';
-import { UserFormService } from '../../../shared/services/user-form.service';
+import { UserFormService } from '../../../shared/services/user/user-form.service';
 
 @Component({
   selector: 'app-register-form',

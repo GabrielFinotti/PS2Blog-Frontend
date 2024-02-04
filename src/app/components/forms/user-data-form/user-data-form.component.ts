@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataResponse } from '../../../interfaces/user-data-response';
-import { UserDataService } from '../../../shared/services/user-data.service';
+import { UserDataService } from '../../../shared/services/user/user-data.service';
 
 @Component({
   selector: 'app-user-data-form',

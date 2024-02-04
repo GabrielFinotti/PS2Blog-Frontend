@@ -1,17 +1,23 @@
 @import "../../../scss/index.scss";
 
-#gameCard {
+.gameCard {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   img {
-    border: 1px solid $secondary-text-color;
+    border: 2px solid $primary-link-color;
     border-radius: 25px;
 
     width: 100%;
   }
 
-  #gameInfo {
-    margin: 20px 0;
+  .gameInfo {
+    margin: 15px 0;
 
-    #gameName {
+    .gameName {
       color: $secondary-text-color;
       font-size: rem-calc(20);
       letter-spacing: 1px;
@@ -19,7 +25,7 @@
       margin-bottom: 10px;
     }
 
-    #gameSize {
+    .gameSize {
       color: $secondary-text-color;
       font-size: rem-calc(16);
       text-decoration-line: underline;
@@ -30,7 +36,7 @@
   }
 
   a {
-    border: 1px solid $primary-link-color;
+    border: 2px solid $primary-link-color;
     border-radius: 18px;
 
     display: flex;
@@ -40,8 +46,7 @@
     text-decoration-line: none;
 
     width: max-content;
-    margin: auto;
-    margin-bottom: 20px;
+    margin: 30px auto;
     padding: 20px 15px;
 
     span {
@@ -60,11 +65,10 @@
     }
   }
 
-  #border {
+  .border {
     background: $primary-link-color;
     border-radius: 50px;
 
     height: 4px;
-    margin-bottom: 30px;
   }
 }

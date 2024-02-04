@@ -8,7 +8,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { ErrorMessage } from '../../../interfaces/error-message';
 import { ResponseMessage } from '../../../interfaces/response-message';
-import { UserFormService } from '../../../shared/services/user-form.service';
+import { UserFormService } from '../../../shared/services/user/user-form.service';
 
 @Component({
   selector: 'app-update-form',

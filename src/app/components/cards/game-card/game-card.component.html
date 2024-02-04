@@ -1,10 +1,11 @@
-<div id="gameCard">
-  <img src="../../../../assets/imgs/game-card.png" alt="Game Name" />
-  <div id="gameInfo">
-    <p id="gameName">Nome do game</p>
-    <p id="gameSize">1.5G</p>
+@if (gameList) { @for (game of gameList.gameList.games; track $index) {
+<div class="gameCard">
+  <img src="../../../../assets/imgs/game-card.png" [alt]="game.gameName" />
+  <div class="gameInfo">
+    <p class="gameName">{{ game.gameName }}</p>
+    <p class="gameSize">Tamanho: {{ game.size }}</p>
   </div>
-  <a href="">
+  <a [href]="game.href">
     <span>Baixar ISO</span>
     <button type="button">
       <img
@@ -13,5 +14,6 @@
       />
     </button>
   </a>
-  <div id="border"></div>
+  <div class="border"></div>
 </div>
+} }
