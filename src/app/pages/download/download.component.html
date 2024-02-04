@@ -1,3 +1,16 @@
 <app-nav-bar></app-nav-bar>
-<main></main>
+<main>
+  <form id="gameSearch">
+    <input
+      type="search"
+      placeholder="Pesquise pelo título ou insira inciais..."
+    />
+    <button type="submit">
+      <img src="../../../assets/icons/search-icon.svg" alt="Pesquisar" />
+    </button>
+  </form>
+  <section id="gameCard">
+    <app-game-card></app-game-card>
+  </section>
+</main>
 <app-footer></app-footer>
