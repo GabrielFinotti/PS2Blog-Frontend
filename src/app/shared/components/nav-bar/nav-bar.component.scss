@@ -43,6 +43,7 @@ nav {
     left: 0;
 
     width: 0;
+    height: calc(100vh - 75px);
     opacity: 0;
 
     transition: 800ms ease;

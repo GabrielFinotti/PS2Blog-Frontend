@@ -1,0 +1,70 @@
+@import "../../../scss/index.scss";
+
+#gameCard {
+  img {
+    border: 1px solid $secondary-text-color;
+    border-radius: 25px;
+
+    width: 100%;
+  }
+
+  #gameInfo {
+    margin: 20px 0;
+
+    #gameName {
+      color: $secondary-text-color;
+      font-size: rem-calc(20);
+      letter-spacing: 1px;
+
+      margin-bottom: 10px;
+    }
+
+    #gameSize {
+      color: $secondary-text-color;
+      font-size: rem-calc(16);
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+      letter-spacing: 0.8px;
+    }
+  }
+
+  a {
+    border: 1px solid $primary-link-color;
+    border-radius: 18px;
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    text-decoration-line: none;
+
+    width: max-content;
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 20px 15px;
+
+    span {
+      color: $secondary-text-color;
+      font-size: rem-calc(24);
+      font-weight: 700;
+    }
+
+    button {
+      background: none;
+      border: none;
+
+      img {
+        border: none;
+      }
+    }
+  }
+
+  #border {
+    background: $primary-link-color;
+    border-radius: 50px;
+
+    height: 4px;
+    margin-bottom: 30px;
+  }
+}
