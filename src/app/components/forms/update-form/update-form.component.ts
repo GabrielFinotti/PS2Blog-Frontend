@@ -6,9 +6,9 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ErrorMessage } from '../../interfaces/error-message';
-import { ResponseMessage } from '../../interfaces/response-message';
-import { UserFormService } from '../../shared/services/user-form.service';
+import { ErrorMessage } from '../../../interfaces/error-message';
+import { ResponseMessage } from '../../../interfaces/response-message';
+import { UserFormService } from '../../../shared/services/user-form.service';
 
 @Component({
   selector: 'app-update-form',

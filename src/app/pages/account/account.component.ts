@@ -12,8 +12,8 @@ import { UserDataResponse } from '../../interfaces/user-data-response';
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { InfoCardComponent } from '../../shared/components/info-card/info-card.component';
-import { UpdateFormComponent } from '../../components/update-form/update-form.component';
-import { UserDataFormComponent } from '../../components/user-data-form/user-data-form.component';
+import { UpdateFormComponent } from '../../components/forms/update-form/update-form.component';
+import { UserDataFormComponent } from '../../components/forms/user-data-form/user-data-form.component';
 
 @Component({
   selector: 'app-account',

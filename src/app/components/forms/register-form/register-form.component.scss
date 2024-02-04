@@ -1,4 +1,4 @@
-@import "../../scss/index.scss";
+@import "../../../scss/index.scss";
 
 @keyframes showForm {
   50% {
@@ -53,57 +53,6 @@ form {
       color: $secondary-text-color;
 
       transition: 300ms ease;
-    }
-  }
-
-  #checkboxGroup {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: relative;
-
-    width: max-content;
-    margin-bottom: 20px;
-
-    input {
-      position: absolute;
-      left: 4px;
-
-      opacity: 0;
-      z-index: 2;
-
-      cursor: pointer;
-
-      &:checked ~ span {
-        background: $secondary-text-color;
-        border: 1px solid $primary-link-color;
-      }
-    }
-
-    span {
-      background: rgba($secondary-bg-color, 0.2);
-      border: 1px solid $secondary-text-color;
-      border-radius: 50%;
-
-      position: absolute;
-      left: 0;
-
-      width: 20px;
-      height: 20px;
-
-      cursor: pointer;
-    }
-
-    label {
-      color: $tertiary-text-color;
-      font-size: rem-calc(12);
-      font-weight: 300;
-      letter-spacing: 0.5px;
-
-      padding-left: 30px;
-
-      cursor: pointer;
     }
   }
 

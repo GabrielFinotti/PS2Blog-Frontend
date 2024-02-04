@@ -1,11 +1,11 @@
 import {
   Component,
-  ElementRef,
-  EventEmitter,
-  Output,
-  QueryList,
-  Renderer2,
   ViewChildren,
+  QueryList,
+  ElementRef,
+  Renderer2,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {
   FormBuilder,
@@ -13,18 +13,17 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ErrorMessage } from '../../interfaces/error-message';
-import { UserFormService } from '../../shared/services/user-form.service';
+import { ErrorMessage } from '../../../interfaces/error-message';
+import { UserFormService } from '../../../shared/services/user-form.service';
 
 @Component({
-  selector: 'app-login-form',
+  selector: 'app-register-form',
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.scss',
+  templateUrl: './register-form.component.html',
+  styleUrl: './register-form.component.scss',
 })
-export class LoginFormComponent {
+export class RegisterFormComponent {
   @ViewChildren('input') private input!: QueryList<
     ElementRef<HTMLInputElement>
   >;
@@ -32,48 +31,57 @@ export class LoginFormComponent {
     ElementRef<HTMLLabelElement>
   >;
   @Output() private infoMessage = new EventEmitter<string>();
-  protected loginForm!: FormGroup;
+  protected registerForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userFormService: UserFormService,
-    private router: Router
+    private userFormService: UserFormService
   ) {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.email, Validators.required]],
-      password: ['', Validators.required],
-      userSave: [''],
+    this.registerForm = this.formBuilder.group({
+      userName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(16),
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
+      passwordConf: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(20),
+        ],
+      ],
     });
   }
 
   protected sendForm() {
-    if (this.loginForm.valid) {
-      this.userFormService.userLogin(this.loginForm).subscribe(
+    const userData = this.registerForm;
+
+    if (
+      userData.valid &&
+      userData.value['password'] === userData.value['passwordConf']
+    ) {
+      this.userFormService.userRegister(userData).subscribe(
         (res) => {
           this.infoMessage.emit(res.message);
-          this.setUserId(res.user._id);
-
-          if (this.loginForm.value['userSave']) {
-            if (typeof window !== 'undefined') {
-              localStorage.setItem('id', res.user._id);
-            }
-          }
         },
         (err: ErrorMessage) => {
           this.infoMessage.emit(err.error.message);
         }
       );
-    }
-  }
-
-  private setUserId(id: string) {
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('id', id);
-      
-      if (sessionStorage.getItem('id') !== null) {
-        this.router.navigateByUrl('downloads');
-      }
     }
   }
 
