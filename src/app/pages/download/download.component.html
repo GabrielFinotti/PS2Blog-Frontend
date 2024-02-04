@@ -9,6 +9,20 @@
       <img src="../../../assets/icons/search-icon.svg" alt="Pesquisar" />
     </button>
   </form>
+  <section id="gameListData" (click)="showResults(img, data)">
+    <div id="showData">
+      <p>Resultados</p>
+      <img #img src="../../../assets/icons/dropdown.svg" alt="Exibir" />
+    </div>
+    <div #data id="data">
+      <p>
+        Games: <span>{{ totalDocs }}.</span>
+      </p>
+      <p>
+        Páginas: <span>{{ totalPages }}.</span>
+      </p>
+    </div>
+  </section>
   <section id="gameCard">
     <app-game-card></app-game-card>
   </section>
