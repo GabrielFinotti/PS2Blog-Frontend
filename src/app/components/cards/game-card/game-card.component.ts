@@ -16,8 +16,8 @@ import { GameListService } from '../../../shared/services/gameList/game-list.ser
   styleUrl: './game-card.component.scss',
 })
 export class GameCardComponent implements OnInit, OnChanges {
-  protected gameList!: GameList;
   @Input() public query!: string;
+  protected gameList!: GameList;
 
   constructor(private gameListService: GameListService) {}
 
@@ -27,6 +27,7 @@ export class GameCardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['query'].currentValue !== changes['query'].previousValue) {
+      console.log(`Card Game:\n Query - ${this.query}`);
       this.getGameList();
     }
   }

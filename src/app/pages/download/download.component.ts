@@ -5,6 +5,7 @@ import { GameCardComponent } from '../../components/cards/game-card/game-card.co
 import { GameListService } from '../../shared/services/gameList/game-list.service';
 import { GameList } from '../../interfaces/game-list';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { GameCardPaginationComponent } from '../../components/pagination/game-card-pagination/game-card-pagination.component';
 
 @Component({
   selector: 'app-download',
@@ -14,6 +15,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
     NavBarComponent,
     FooterComponent,
     GameCardComponent,
+    GameCardPaginationComponent,
   ],
   templateUrl: './download.component.html',
   styleUrl: './download.component.scss',
@@ -22,7 +24,8 @@ export class DownloadComponent implements OnInit {
   protected searchGame!: FormGroup;
   protected gameListData!: GameList;
   protected activeResults!: boolean;
-  public query!: string;
+  protected query!: string;
+  protected gameName!: string;
   public currentPage!: number;
 
   constructor(
@@ -33,8 +36,8 @@ export class DownloadComponent implements OnInit {
       name: [''],
     });
 
-    this.activeResults = false;
     this.currentPage = 1;
+    this.activeResults = false;
   }
 
   ngOnInit(): void {
@@ -42,48 +45,16 @@ export class DownloadComponent implements OnInit {
   }
 
   protected getGameListData() {
-    this.query = `?page=${this.currentPage}&name=${this.searchGame.value['name']}`;
+    this.gameName = this.searchGame.value['name'];
+    this.query = `?page=${this.currentPage}&name=${this.gameName}`;
 
     this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
       this.gameListData = res;
     });
   }
 
-  public nextPage() {
-    if (this.currentPage < this.gameListData.gameList.totalPages) {
-      this.currentPage++;
-      this.query = this.gameListData.gameList.nextPage;
-      this.getGameListData();
-    }
-  }
-
-  public prevPage() {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-      this.query = this.gameListData.gameList.prevPage;
-      this.getGameListData();
-    }
-  }
-
-  public goToPage(page: number) {
-    this.query = `?page=${page}&name=${this.searchGame.value['name']}`;
-    this.currentPage = page;
-    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
-      this.gameListData = res;
-    });
-  }
-
-  public visiblePages() {
-    const startPage = Math.max(this.currentPage - 2, 1);
-    const endPage = Math.min(
-      startPage + 3,
-      this.gameListData.gameList.totalPages
-    );
-
-    return Array.from(
-      { length: endPage - startPage + 1 },
-      (_, i) => startPage + i
-    );
+  protected sendQuery(query: string) {
+    this.query = query;
   }
 
   protected showResults(img: HTMLImageElement, data: HTMLDivElement) {
