@@ -32,25 +32,31 @@
     <app-game-card [query]="query"></app-game-card>
   </section>
   <div id="pagenation">
-    <button type="button" (click)="prevPage()">
+    @if (gameListData) {
+    <button type="button" (click)="prevPage()" [disabled]="currentPage === 1">
       <img
         src="../../../assets/icons/arrow-left-icon 1.svg"
         alt="Voltar página"
       />
     </button>
-    @for (page of visibledPage; track $index) {
-    <button type="button">
+    @for (page of visiblePages(); track $index) {
+    <button type="button" (click)="goToPage(page)">
       <span>
         {{ page }}
       </span>
     </button>
     }
-    <button type="button" (click)="nextPage()">
+    <button
+      type="button"
+      (click)="nextPage()"
+      [disabled]="currentPage > gameListData.gameList.totalPages"
+    >
       <img
         src="../../../assets/icons/arrow-right-icon 1.svg"
         alt="Próxima página"
       />
     </button>
+    }
   </div>
 </main>
 <app-footer></app-footer>

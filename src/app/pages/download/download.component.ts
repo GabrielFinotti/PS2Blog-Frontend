@@ -25,7 +25,6 @@ export class DownloadComponent implements OnInit {
   protected activeResults!: boolean;
   public query!: string;
   public currentPage!: number;
-  public visibledPage!: number[]
 
   constructor(
     private gameListService: GameListService,
@@ -37,7 +36,6 @@ export class DownloadComponent implements OnInit {
 
     this.activeResults = false;
     this.currentPage = 1;
-    this.visibledPage = [1,2,3,4]
   }
 
   ngOnInit(): void {
@@ -71,6 +69,32 @@ export class DownloadComponent implements OnInit {
       this.query = this.gameListData.gameList.prevPage;
       this.getGameListData();
     }
+  }
+
+  public goToPage(page: number) {
+    this.query = `?page=${page}&name=${this.searchGame.value['name']}`;
+    this.currentPage = page;
+    this.gameListService.getGameList(this.query).subscribe(
+      (res: GameList) => {
+        this.gameListData = res;
+      },
+      (err: ErrorMessage) => {
+        console.log(err.error.message);
+      }
+    );
+  }
+
+  public visiblePages() {
+    const startPage = Math.max(this.currentPage - 2, 1);
+    const endPage = Math.min(
+      startPage + 3,
+      this.gameListData.gameList.totalPages
+    );
+
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i
+    );
   }
 
   protected showResults(img: HTMLImageElement, data: HTMLDivElement) {
