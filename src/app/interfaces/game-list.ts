@@ -5,8 +5,8 @@ export interface GameList {
       href: string;
       size: string;
     }[];
-    prevPage?: string;
-    nextPage?: string;
+    prevPage: string;
+    nextPage: string;
     totalPages: number;
     totalDocs: number;
   };

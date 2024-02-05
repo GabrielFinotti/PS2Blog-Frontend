@@ -1,9 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <main>
-  <form id="gameSearch">
+  <form id="gameSearch" [formGroup]="searchGame" (ngSubmit)="getGameListData()">
     <input
       type="search"
       placeholder="Pesquise pelo título ou insira inciais..."
+      formControlName="name"
     />
     <button type="submit">
       <img src="../../../assets/icons/search-icon.svg" alt="Pesquisar" />
@@ -15,16 +16,41 @@
       <img #img src="../../../assets/icons/dropdown.svg" alt="Exibir" />
     </div>
     <div #data id="data">
+      @if (gameListData) {
       <p>
-        Games: <span>{{ totalDocs }}.</span>
+        Games: <span>{{ gameListData.gameList.totalDocs }}.</span>
       </p>
       <p>
-        Páginas: <span>{{ totalPages }}.</span>
+        Páginas: <span>{{ gameListData.gameList.totalPages }}.</span>
       </p>
+      } @else {
+      <img src="" alt="Erro de dados!" />
+      }
     </div>
   </section>
   <section id="gameCard">
-    <app-game-card></app-game-card>
+    <app-game-card [query]="query"></app-game-card>
   </section>
+  <div id="pagenation">
+    <button type="button" (click)="prevPage()">
+      <img
+        src="../../../assets/icons/arrow-left-icon 1.svg"
+        alt="Voltar página"
+      />
+    </button>
+    @for (page of visibledPage; track $index) {
+    <button type="button">
+      <span>
+        {{ page }}
+      </span>
+    </button>
+    }
+    <button type="button" (click)="nextPage()">
+      <img
+        src="../../../assets/icons/arrow-right-icon 1.svg"
+        alt="Próxima página"
+      />
+    </button>
+  </div>
 </main>
 <app-footer></app-footer>

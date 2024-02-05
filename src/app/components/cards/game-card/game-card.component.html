@@ -1,4 +1,5 @@
-@if (gameList) { @for (game of gameList.gameList.games; track $index) {
+@if (gameList && gameList.gameList.games.length !== 0) { @for (game of
+gameList.gameList.games; track $index) {
 <div class="gameCard">
   <img src="../../../../assets/imgs/game-card.png" [alt]="game.gameName" />
   <div class="gameInfo">
@@ -16,4 +17,4 @@
   </a>
   <div class="border"></div>
 </div>
-} }
+} }@else { }

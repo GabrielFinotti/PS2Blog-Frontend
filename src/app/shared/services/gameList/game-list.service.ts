@@ -13,7 +13,7 @@ export class GameListService {
     this.url = 'http://localhost:3000/games';
   }
 
-  public getGameList(): Observable<GameList> {
-    return this.http.get<GameList>(`${this.url}`);
+  public getGameList(query: string): Observable<GameList> {
+    return this.http.get<GameList>(`${this.url}${query}`);
   }
 }
