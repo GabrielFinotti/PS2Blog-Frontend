@@ -23,9 +23,15 @@ export class LoginComponent implements OnInit {
   public formToggle!: boolean;
   protected infoMessage!: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.formToggle = true;
+  }
 
   ngOnInit(): void {
+    this.verifySave();
+  }
+
+  private verifySave() {
     if (typeof window !== 'undefined') {
       if (
         sessionStorage.getItem('id') !== null ||
@@ -34,8 +40,6 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('downloads');
       }
     }
-
-    this.formToggle = true;
   }
 
   public toggleForm() {

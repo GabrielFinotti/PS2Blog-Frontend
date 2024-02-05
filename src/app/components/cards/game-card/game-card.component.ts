@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { GameList } from '../../../interfaces/game-list';
 import { GameListService } from '../../../shared/services/gameList/game-list.service';
-import { ErrorMessage } from '../../../interfaces/error-message';
 
 @Component({
   selector: 'app-game-card',
@@ -33,13 +32,8 @@ export class GameCardComponent implements OnInit, OnChanges {
   }
 
   private getGameList() {
-    this.gameListService.getGameList(this.query).subscribe(
-      (res: GameList) => {
-        this.gameList = res;
-      },
-      (err: ErrorMessage) => {
-        console.log(err.error.message);
-      }
-    );
+    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
+      this.gameList = res;
+    });
   }
 }

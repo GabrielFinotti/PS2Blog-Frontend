@@ -44,6 +44,10 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUserData();
+  }
+
+  private getUserData() {
     this.userId = this.activatedRoute.snapshot.params['id'];
     this.userDataService.getUserName(this.userId).subscribe((res) => {
       this.userName = res;

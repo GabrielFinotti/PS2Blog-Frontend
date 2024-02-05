@@ -3,7 +3,6 @@ import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.compone
 import { FooterComponent } from '../../shared/components/footer/footer.component';
 import { GameCardComponent } from '../../components/cards/game-card/game-card.component';
 import { GameListService } from '../../shared/services/gameList/game-list.service';
-import { ErrorMessage } from '../../interfaces/error-message';
 import { GameList } from '../../interfaces/game-list';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -45,14 +44,9 @@ export class DownloadComponent implements OnInit {
   protected getGameListData() {
     this.query = `?page=${this.currentPage}&name=${this.searchGame.value['name']}`;
 
-    this.gameListService.getGameList(this.query).subscribe(
-      (res: GameList) => {
-        this.gameListData = res;
-      },
-      (err: ErrorMessage) => {
-        console.log(err.error.message);
-      }
-    );
+    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
+      this.gameListData = res;
+    });
   }
 
   public nextPage() {
@@ -74,14 +68,9 @@ export class DownloadComponent implements OnInit {
   public goToPage(page: number) {
     this.query = `?page=${page}&name=${this.searchGame.value['name']}`;
     this.currentPage = page;
-    this.gameListService.getGameList(this.query).subscribe(
-      (res: GameList) => {
-        this.gameListData = res;
-      },
-      (err: ErrorMessage) => {
-        console.log(err.error.message);
-      }
-    );
+    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
+      this.gameListData = res;
+    });
   }
 
   public visiblePages() {
