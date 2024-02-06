@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { GameList } from '../../../interfaces/game-list';
 
 @Injectable({
@@ -14,6 +14,21 @@ export class GameListService {
   }
 
   public getGameList(query: string): Observable<GameList> {
-    return this.http.get<GameList>(`${this.url}${query}`);
+    return this.http
+      .get<GameList>(`${this.url}${query}`)
+      .pipe(map(this.filterData));
+  }
+
+  private filterData(data: GameList): GameList {
+    return {
+      ...data,
+      gameList: {
+        ...data.gameList,
+        games: data.gameList.games.map((game) => ({
+          ...game,
+          gameName: game.gameName.split('.')[0],
+        })),
+      },
+    };
   }
 }
