@@ -47,6 +47,7 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
     this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
       this.gameListData = res;
     });
+
     this.sendQuery.emit(this.query);
   }
 
@@ -56,6 +57,11 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
       this.query = this.gameListData.gameList.nextPage;
       this.getGameListData();
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   protected prevPage() {
@@ -64,6 +70,11 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
       this.query = this.gameListData.gameList.prevPage;
       this.getGameListData();
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   protected visiblePages() {
@@ -86,6 +97,12 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
     this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
       this.gameListData = res;
     });
+
     this.sendQuery.emit(this.query);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }
