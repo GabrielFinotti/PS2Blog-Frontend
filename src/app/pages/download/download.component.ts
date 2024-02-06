@@ -24,9 +24,8 @@ export class DownloadComponent implements OnInit {
   protected searchGame!: FormGroup;
   protected gameListData!: GameList;
   protected activeResults!: boolean;
-  protected query!: string;
   protected gameName!: string;
-  public currentPage!: number;
+  protected query!: string;
 
   constructor(
     private gameListService: GameListService,
@@ -36,7 +35,6 @@ export class DownloadComponent implements OnInit {
       name: [''],
     });
 
-    this.currentPage = 1;
     this.activeResults = false;
   }
 
@@ -46,14 +44,15 @@ export class DownloadComponent implements OnInit {
 
   protected getGameListData() {
     this.gameName = this.searchGame.value['name'];
-    this.query = `?page=${this.currentPage}&name=${this.gameName}`;
 
-    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
-      this.gameListData = res;
-    });
+    this.gameListService
+      .getGameList(`?name=${this.gameName}`)
+      .subscribe((res: GameList) => {
+        this.gameListData = res;
+      });
   }
 
-  protected sendQuery(query: string) {
+  protected sendQuey(query: string) {
     this.query = query;
   }
 

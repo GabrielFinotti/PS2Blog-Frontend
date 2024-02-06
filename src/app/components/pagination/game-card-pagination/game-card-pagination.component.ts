@@ -20,11 +20,13 @@ import { GameList } from '../../../interfaces/game-list';
 export class GameCardPaginationComponent implements OnInit, OnChanges {
   @Output() private sendQuery = new EventEmitter<string>();
   @Input() public gameName!: string;
-  @Input() public currentPage!: number;
+  public currentPage!: number;
   protected gameListData!: GameList;
   public query!: string;
 
-  constructor(private gameListService: GameListService) {}
+  constructor(private gameListService: GameListService) {
+    this.currentPage = 1;
+  }
 
   ngOnInit(): void {
     this.getGameListData();
@@ -34,9 +36,7 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
     if (
       changes['gameName'].currentValue !== changes['gameName'].previousValue
     ) {
-      console.log(
-        `Paginação:\nGameName - ${this.gameName}\nPage - ${this.currentPage}\nQuery - ${this.query}`
-      );
+      this.currentPage = 1;
       this.getGameListData();
     }
   }
@@ -47,7 +47,6 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
     this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
       this.gameListData = res;
     });
-    console.log(this.query)
     this.sendQuery.emit(this.query);
   }
 
@@ -70,7 +69,7 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
   protected visiblePages() {
     const startPage = Math.max(this.currentPage - 2, 1);
     const endPage = Math.min(
-      startPage + 3,
+      startPage + 2,
       this.gameListData.gameList.totalPages
     );
 
@@ -87,7 +86,6 @@ export class GameCardPaginationComponent implements OnInit, OnChanges {
     this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
       this.gameListData = res;
     });
-
     this.sendQuery.emit(this.query);
   }
 }

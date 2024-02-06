@@ -27,14 +27,17 @@ export class GameCardComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['query'].currentValue !== changes['query'].previousValue) {
-      console.log(`Card Game:\n Query - ${this.query}`);
       this.getGameList();
     }
   }
 
   private getGameList() {
-    this.gameListService.getGameList(this.query).subscribe((res: GameList) => {
-      this.gameList = res;
-    });
+    if (this.query) {
+      this.gameListService
+        .getGameList(this.query)
+        .subscribe((res: GameList) => {
+          this.gameList = res;
+        });
+    }
   }
 }
