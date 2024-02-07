@@ -20,6 +20,8 @@
 
     padding: 2px 20px;
 
+    cursor: pointer;
+
     &:first-child {
       border-right: 2px solid $primary-link-color;
     }

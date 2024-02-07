@@ -32,8 +32,13 @@ export class NavBarComponent implements OnInit {
   }
 
   protected showNav(navbar: HTMLElement) {
-    navbar.style.width = '55%';
-    navbar.style.opacity = '1';
+    if (window.innerWidth < 480) {
+      navbar.style.width = '55%';
+      navbar.style.opacity = '1';
+    } else {
+      navbar.style.width = '287px';
+      navbar.style.opacity = '1';
+    }
   }
 
   protected closeNav(navbar: HTMLElement) {
