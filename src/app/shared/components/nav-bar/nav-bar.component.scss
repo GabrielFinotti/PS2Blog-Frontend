@@ -78,3 +78,78 @@ nav {
     }
   }
 }
+
+@media (min-width: 480px) {
+  nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    max-height: 64px;
+
+    #openNavbar {
+      text-align: start;
+    }
+
+    #logoText {
+      text-align: center;
+    }
+
+    #logo {
+      margin-left: auto;
+    }
+
+    #navbar {
+      // background: none;
+      border-left: 1px solid $secondary-text-color;
+      border-radius: 0 0 20px 20px;
+
+      position: relative;
+      top: 15px;
+
+      display: flex;
+      align-items: center;
+      grid-column: span 3;
+
+      width: auto;
+      height: 0;
+      margin: auto;
+      opacity: 0;
+
+      #navbarHead {
+        border: none;
+        border-radius: 0;
+
+        width: auto;
+        padding: 2px 10px;
+
+        #closeNavbar {
+          img {
+            width: 30px;
+          }
+        }
+      }
+
+      #navLinkGroup {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        padding: 2px 10px;
+
+        .nav-link {
+          border: none;
+
+          display: flex;
+
+          color: $secondary-text-color;
+
+          padding: 0;
+
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
