@@ -51,8 +51,6 @@ main {
     width: max-content;
     margin: 10px 30px;
 
-    cursor: pointer;
-
     #showData {
       display: flex;
       gap: 5px;
@@ -69,6 +67,7 @@ main {
         rotate: -90deg;
 
         transition: 300ms ease;
+        cursor: pointer;
       }
     }
 

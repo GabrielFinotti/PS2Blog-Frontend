@@ -10,10 +10,10 @@
       <img src="../../../assets/icons/search-icon.svg" alt="Pesquisar" />
     </button>
   </form>
-  <section id="gameListData" (click)="showResults(img, data)">
+  <section id="gameListData">
     <div id="showData">
       <p>Resultados</p>
-      <img #img src="../../../assets/icons/dropdown.svg" alt="Exibir" />
+      <img #img src="../../../assets/icons/dropdown.svg" alt="Exibir" (click)="showResults(img, data)" />
     </div>
     <div #data id="data">
       @if (gameListData) {
