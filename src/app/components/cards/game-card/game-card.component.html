@@ -17,4 +17,15 @@ gameList.gameList.games; track $index) {
   </a>
   <div class="border"></div>
 </div>
-} }@else { }
+} }@else {
+<div id="notFound">
+  <img src="../../../../assets/imgs/not-found.svg" alt="Erro de dados" />
+  @if (gameList && gameList.gameList.games.length === 0) {
+  <p>Nenhum jogo encontrado!</p>
+  <p>Verifique o nome ou as iniciais e tente novamente!</p>
+  } @else {
+  <p>Não foi possível recuperar a lista!</p>
+  <p>Tente novamente mais tarde!</p>
+  }
+</div>
+}

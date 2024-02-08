@@ -52,7 +52,7 @@ export class DownloadComponent implements OnInit {
         this.gameListData = res;
       },
       () => {
-        this.sendInfoCard('Não é aceito caracteres especiais na consulta!');
+        this.sendInfoCard('Parâmetros incorretos!');
       }
     );
   }

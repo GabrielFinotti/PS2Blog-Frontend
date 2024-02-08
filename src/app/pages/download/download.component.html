@@ -3,7 +3,7 @@
   <form id="gameSearch" [formGroup]="searchGame" (ngSubmit)="getGameListData()">
     <input
       type="search"
-      placeholder="Pesquise pelo título ou insira inciais..."
+      placeholder="Pesquise pelo título ou insira iniciais..."
       formControlName="name"
     />
     <button type="submit">
@@ -34,7 +34,7 @@
         Páginas: <span>{{ gameListData.gameList.totalPages }}.</span>
       </p>
       } @else {
-      <img src="" alt="Erro de dados!" />
+      <img src="../../../assets/imgs/not-found.svg" alt="Erro de dados!" />
       }
     </div>
   </section>
