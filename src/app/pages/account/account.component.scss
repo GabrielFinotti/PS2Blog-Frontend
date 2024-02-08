@@ -64,6 +64,8 @@ main {
     margin-top: 40px;
     padding: 10px;
 
+    cursor: pointer;
+
     span {
       color: $secondary-text-color;
       font-size: rem-calc(16);

@@ -6,7 +6,7 @@ import { GameListService } from '../../shared/services/gameList/game-list.servic
 import { GameList } from '../../interfaces/game-list';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { GameCardPaginationComponent } from '../../components/pagination/game-card-pagination/game-card-pagination.component';
-
+import { InfoCardComponent } from '../../shared/components/info-card/info-card.component';
 @Component({
   selector: 'app-download',
   standalone: true,
@@ -16,6 +16,7 @@ import { GameCardPaginationComponent } from '../../components/pagination/game-ca
     FooterComponent,
     GameCardComponent,
     GameCardPaginationComponent,
+    InfoCardComponent,
   ],
   templateUrl: './download.component.html',
   styleUrl: './download.component.scss',
@@ -26,6 +27,7 @@ export class DownloadComponent implements OnInit {
   protected activeResults!: boolean;
   protected gameName!: string;
   protected query!: string;
+  protected info!: string;
 
   constructor(
     private gameListService: GameListService,
@@ -45,15 +47,26 @@ export class DownloadComponent implements OnInit {
   protected getGameListData() {
     this.gameName = this.searchGame.value['name'];
 
-    this.gameListService
-      .getGameList(`?name=${this.gameName}`)
-      .subscribe((res: GameList) => {
+    this.gameListService.getGameList(`?name=${this.gameName}`).subscribe(
+      (res: GameList) => {
         this.gameListData = res;
-      });
+      },
+      () => {
+        this.sendInfoCard('Não é aceito caracteres especiais na consulta!');
+      }
+    );
   }
 
   protected sendQuey(query: string) {
     this.query = query;
+  }
+
+  private sendInfoCard(info: string) {
+    this.info = info;
+
+    setTimeout(() => {
+      this.info = '';
+    }, 3500);
   }
 
   protected showResults(img: HTMLImageElement, data: HTMLDivElement) {

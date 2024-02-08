@@ -10,10 +10,20 @@
       <img src="../../../assets/icons/search-icon.svg" alt="Pesquisar" />
     </button>
   </form>
+  @if (info) {
+  <section id="infoCard">
+    <app-info-card [infoMessage]="info"></app-info-card>
+  </section>
+  }
   <section id="gameListData">
     <div id="showData">
       <p>Resultados</p>
-      <img #img src="../../../assets/icons/dropdown.svg" alt="Exibir" (click)="showResults(img, data)" />
+      <img
+        #img
+        src="../../../assets/icons/dropdown.svg"
+        alt="Exibir"
+        (click)="showResults(img, data)"
+      />
     </div>
     <div #data id="data">
       @if (gameListData) {
