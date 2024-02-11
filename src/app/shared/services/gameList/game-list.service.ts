@@ -14,6 +14,25 @@ export class GameListService {
     this.url = 'http://localhost:3000/games';
   }
 
+  public getGameList(query: string): Observable<GameList> {
+    return this.http
+    .get<GameList>(`${this.url}${query}`, { headers: this.getUserId() })
+    .pipe(map(this.filterData));
+  }
+
+  private filterData(data: GameList): GameList {
+    return {
+      ...data,
+      gameList: {
+        ...data.gameList,
+        games: data.gameList.games.map((game) => ({
+          ...game,
+          gameName: game.gameName.split('.')[0],
+        })),
+      },
+    };
+  }
+  
   private getUserId() {
     let header: HttpHeaders | undefined;
 
@@ -33,24 +52,5 @@ export class GameListService {
     }
 
     return header;
-  }
-
-  public getGameList(query: string): Observable<GameList> {
-    return this.http
-      .get<GameList>(`${this.url}${query}`, { headers: this.getUserId() })
-      .pipe(map(this.filterData));
-  }
-
-  private filterData(data: GameList): GameList {
-    return {
-      ...data,
-      gameList: {
-        ...data.gameList,
-        games: data.gameList.games.map((game) => ({
-          ...game,
-          gameName: game.gameName.split('.')[0],
-        })),
-      },
-    };
   }
 }
