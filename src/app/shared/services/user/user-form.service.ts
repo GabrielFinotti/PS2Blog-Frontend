@@ -12,7 +12,7 @@ export class UserFormService {
   private url!: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:3000/user';
+    this.url = 'https://ps2-blog-api.up.railway.app/user';
   }
 
   public userLogin(userData: FormGroup): Observable<LoginResponse> {

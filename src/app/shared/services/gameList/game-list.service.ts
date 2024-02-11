@@ -11,7 +11,7 @@ export class GameListService {
   private id!: string | null;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:3000/games';
+    this.url = 'https://ps2-blog-api.up.railway.app/games';
   }
 
   public getGameList(query: string): Observable<GameList> {
@@ -32,7 +32,7 @@ export class GameListService {
       },
     };
   }
-  
+
   private getUserId() {
     let header: HttpHeaders | undefined;
 
