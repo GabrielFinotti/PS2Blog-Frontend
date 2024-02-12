@@ -23,6 +23,22 @@ form {
 
     margin-bottom: 15px;
 
+    &.invalid {
+      input {
+        border: 1px solid red;
+
+        color: red;
+
+        &:focus {
+          border: 1px solid red;
+        }
+      }
+
+      label {
+        color: red;
+      }
+    }
+
     input {
       background: rgba($secondary-bg-color, 0.1);
       border: 0;
@@ -121,5 +137,11 @@ form {
     padding: 15px 20px;
 
     cursor: pointer;
+
+    &.disabled {
+      opacity: 0.2;
+
+      cursor: not-allowed;
+    }
   }
 }

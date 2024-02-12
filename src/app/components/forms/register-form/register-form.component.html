@@ -43,5 +43,10 @@
       (blur)="onBlur(3)"
     />
   </div>
-  <input type="submit" value="Criar Save" [disabled]="registerForm.invalid" />
+  <input
+    type="submit"
+    value="Criar Save"
+    [ngClass]="registerForm.invalid ? 'disabled' : ''"
+    [disabled]="registerForm.invalid"
+  />
 </form>

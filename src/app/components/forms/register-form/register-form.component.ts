@@ -13,13 +13,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { ErrorMessage } from '../../../interfaces/error-message';
 import { UserFormService } from '../../../shared/services/user/user-form.service';
 
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })

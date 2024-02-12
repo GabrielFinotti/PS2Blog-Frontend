@@ -1,5 +1,5 @@
 <form [formGroup]="loginForm" (ngSubmit)="sendForm()">
-  <div class="input-group">
+  <div class="input-group" [ngClass]="setInvalid ? 'invalid' : ''">
     <label for="email" #label>Email</label>
     <input
       id="email"
@@ -10,7 +10,7 @@
       #input
     />
   </div>
-  <div class="input-group">
+  <div class="input-group" [ngClass]="setInvalid ? 'invalid' : ''">
     <label for="password" #label>Senha</label>
     <input
       id="password"
@@ -26,5 +26,10 @@
     <span></span>
     <label for="checkbox">Salvar minhas credênciais</label>
   </div>
-  <input type="submit" value="Carregar Save" />
+  <input
+    type="submit"
+    value="Carregar Save"
+    [ngClass]="loginForm.invalid ? 'disabled' : ''"
+    [disabled]="loginForm.invalid"
+  />
 </form>

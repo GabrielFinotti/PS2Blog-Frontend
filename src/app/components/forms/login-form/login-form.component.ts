@@ -14,13 +14,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { ErrorMessage } from '../../../interfaces/error-message';
 import { UserFormService } from '../../../shared/services/user/user-form.service';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
 })
@@ -33,6 +34,7 @@ export class LoginFormComponent {
   >;
   @Output() private infoMessage = new EventEmitter<string>();
   protected loginForm!: FormGroup;
+  protected setInvalid!: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,13 +47,14 @@ export class LoginFormComponent {
       password: ['', Validators.required],
       userSave: [''],
     });
+
+    this.setInvalid = false;
   }
 
   protected sendForm() {
     if (this.loginForm.valid) {
       this.userFormService.userLogin(this.loginForm).subscribe(
         (res) => {
-          this.infoMessage.emit(res.message);
           this.setUserId(res.user._id);
 
           if (this.loginForm.value['userSave']) {
@@ -62,6 +65,7 @@ export class LoginFormComponent {
         },
         (err: ErrorMessage) => {
           this.infoMessage.emit(err.error.message);
+          this.isInvalid();
         }
       );
     }
@@ -95,5 +99,9 @@ export class LoginFormComponent {
         '25%'
       );
     }
+  }
+
+  private isInvalid() {
+    this.setInvalid = true;
   }
 }
