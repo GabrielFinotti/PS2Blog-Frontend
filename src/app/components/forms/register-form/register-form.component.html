@@ -1,5 +1,5 @@
 <form [formGroup]="registerForm">
-  <div class="input-group">
+  <div #div class="input-group hidden">
     <label #label for="user">User</label>
     <input
       #input
@@ -10,7 +10,7 @@
       (blur)="onBlur(0)"
     />
   </div>
-  <div class="input-group">
+  <div #div class="input-group">
     <label #label for="email">Email</label>
     <input
       #input
@@ -21,7 +21,7 @@
       (blur)="onBlur(1)"
     />
   </div>
-  <div class="input-group">
+  <div #div class="input-group">
     <label #label for="password">Password</label>
     <input
       #input
@@ -33,7 +33,7 @@
     />
     <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
   </div>
-  <div class="input-group">
+  <div #div class="input-group hidden">
     <label #label for="confPassword">Confirm password</label>
     <input
       #input

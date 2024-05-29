@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  OnInit,
   QueryList,
   Renderer2,
   ViewChildren,
@@ -21,13 +22,14 @@ import { NgClass } from '@angular/common';
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit {
   @ViewChildren('input') private inputs!: QueryList<
     ElementRef<HTMLInputElement>
   >;
   @ViewChildren('label') private labels!: QueryList<
     ElementRef<HTMLLabelElement>
   >;
+  @ViewChildren('div') private divs!: QueryList<ElementRef<HTMLDivElement>>;
 
   protected showPassUrl!: string;
   protected registerForm!: FormGroup;
@@ -41,6 +43,14 @@ export class RegisterFormComponent {
     });
 
     this.showPassUrl = ShowPassword.show;
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.divs.forEach((div) => {
+        this.render.removeClass(div.nativeElement, 'hidden');
+      });
+    }, 2200);
   }
 
   protected onFocus(index: number) {

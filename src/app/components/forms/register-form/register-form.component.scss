@@ -1,5 +1,21 @@
 @import "../../../scss/index.scss";
 
+@keyframes showInputs {
+  to {
+    left: 0;
+  }
+}
+
+@keyframes showLabels {
+  to {
+    top: 25%;
+    left: 10px;
+
+    opacity: 1;
+    rotate: 0deg;
+  }
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -10,6 +26,22 @@ form {
     align-self: normal;
 
     position: relative;
+
+    &.hidden {
+      left: -300px;
+
+      animation: showInputs 1000ms 200ms ease forwards;
+
+      label {
+        top: -55%;
+        left: -30px;
+
+        opacity: 0;
+        rotate: -30deg;
+
+        animation: showLabels 500ms 1205ms ease forwards;
+      }
+    }
 
     label {
       position: absolute;
