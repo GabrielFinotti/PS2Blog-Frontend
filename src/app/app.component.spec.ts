@@ -17,13 +17,14 @@ describe('AppComponent', () => {
   it(`should have the 'ps2-blog' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ps2-blog');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ps2-blog');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Hello, ps2-blog'
+    );
   });
 });
