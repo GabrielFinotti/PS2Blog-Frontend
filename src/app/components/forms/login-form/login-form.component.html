@@ -1,0 +1,31 @@
+<form [formGroup]="loginForm" (ngSubmit)="(undefined)">
+  <div class="input-group">
+    <label #label for="email">Email</label>
+    <input
+      #input
+      id="email"
+      type="email"
+      formControlName="email"
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+    />
+  </div>
+  <div class="input-group">
+    <label #label for="password">Password</label>
+    <input
+      #input
+      id="password"
+      type="password"
+      formControlName="password"
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+    />
+    <img src="../../../../assets/icons/eye-icon.svg" alt="" />
+  </div>
+  <input
+    [ngClass]="{ disabled: loginForm.invalid }"
+    class="submitForm"
+    type="submit"
+    value="Load save"
+  />
+</form>

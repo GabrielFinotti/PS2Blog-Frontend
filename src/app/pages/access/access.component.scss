@@ -1,0 +1,15 @@
+@import "../../scss/index.scss";
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  height: 100vh;
+  padding: 20px;
+
+  p {
+    text-align: center;
+  }
+}
