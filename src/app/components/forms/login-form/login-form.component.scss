@@ -6,6 +6,9 @@ form {
   align-items: center;
   gap: 20px;
 
+  max-width: 400px;
+  margin: auto;
+
   .input-group {
     align-self: normal;
 
@@ -56,12 +59,15 @@ form {
     padding: 12px 0;
 
     overflow: hidden;
+    cursor: pointer;
 
     transition: all ease 1000ms;
 
     &.disabled {
       width: 0;
       padding: 12px 0;
+
+      cursor: not-allowed;
     }
   }
 }

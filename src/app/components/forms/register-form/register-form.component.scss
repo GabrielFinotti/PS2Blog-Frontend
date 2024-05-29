@@ -3,6 +3,8 @@
 @keyframes showInputs {
   to {
     left: 0;
+
+    opacity: 1;
   }
 }
 
@@ -22,6 +24,9 @@ form {
   align-items: center;
   gap: 20px;
 
+  max-width: 400px;
+  margin: auto;
+
   .input-group {
     align-self: normal;
 
@@ -29,6 +34,8 @@ form {
 
     &.hidden {
       left: -300px;
+
+      opacity: 0;
 
       animation: showInputs 1000ms 200ms ease forwards;
 
@@ -88,12 +95,15 @@ form {
     padding: 12px 0;
 
     overflow: hidden;
+    cursor: pointer;
 
     transition: all ease 1000ms;
 
     &.disabled {
       width: 0;
       padding: 12px 0;
+
+      cursor: not-allowed;
     }
   }
 }
