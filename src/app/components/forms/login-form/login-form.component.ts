@@ -12,7 +12,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ShowPassword } from '../../../enum/show-password';
+import { ShowPassword } from '../../../enums/show-password';
 
 @Component({
   selector: 'app-login-form',

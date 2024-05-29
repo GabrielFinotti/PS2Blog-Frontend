@@ -1,1 +1,54 @@
-<p>register-form works!</p>
+<form [formGroup]="registerForm">
+  <div class="input-group">
+    <label #label for="user">User</label>
+    <input
+      #input
+      id="user"
+      type="text"
+      formControlName="user"
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+    />
+  </div>
+  <div class="input-group">
+    <label #label for="email">Email</label>
+    <input
+      #input
+      id="email"
+      type="email"
+      formControlName="email"
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+    />
+  </div>
+  <div class="input-group">
+    <label #label for="password">Password</label>
+    <input
+      #input
+      id="password"
+      type="password"
+      formControlName="password"
+      (focus)="onFocus(2)"
+      (blur)="onBlur(2)"
+    />
+    <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
+  </div>
+  <div class="input-group">
+    <label #label for="confPassword">Confirm password</label>
+    <input
+      #input
+      id="confPassword"
+      type="password"
+      formControlName="confPassword"
+      (focus)="onFocus(3)"
+      (blur)="onBlur(3)"
+    />
+  </div>
+  <input
+    [ngClass]="{ disabled: registerForm.invalid }"
+    class="submit-form"
+    type="submit"
+    value="Create Save"
+    [disabled]="registerForm.invalid"
+  />
+</form>

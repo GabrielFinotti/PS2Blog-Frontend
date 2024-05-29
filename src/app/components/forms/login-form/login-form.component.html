@@ -24,8 +24,9 @@
   </div>
   <input
     [ngClass]="{ disabled: loginForm.invalid }"
-    class="submitForm"
+    class="submit-form"
     type="submit"
     value="Load save"
+    [disabled]="loginForm.invalid"
   />
 </form>

@@ -1,5 +1,12 @@
 <main>
   <h1>PS2 BLOG</h1>
+  @if(isFormLogin) {
   <app-login-form></app-login-form>
-  <p>Don't have a save game? <span>Create Save!</span></p>
+  } @else {
+  <app-register-form></app-register-form>
+  }
+  <p>
+    {{ typeForm }}
+    <span (click)="toggleForm()">{{ spanForm }}</span>
+  </p>
 </main>
