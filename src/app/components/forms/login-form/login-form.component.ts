@@ -12,6 +12,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ShowPassword } from '../../../enum/show-password';
 
 @Component({
   selector: 'app-login-form',
@@ -28,6 +29,7 @@ export class LoginFormComponent {
     ElementRef<HTMLLabelElement>
   >;
 
+  protected showPassUrl!: string;
   protected loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private render: Renderer2) {
@@ -35,6 +37,8 @@ export class LoginFormComponent {
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required]],
     });
+
+    this.showPassUrl = ShowPassword.show;
   }
 
   protected onFocus(index: number) {
@@ -54,6 +58,16 @@ export class LoginFormComponent {
         'top',
         '25%'
       );
+    }
+  }
+
+  protected isShowPassword() {
+    if (this.showPassUrl === ShowPassword.show) {
+      this.showPassUrl = ShowPassword.hidden;
+      this.inputs.toArray()[1].nativeElement.type = 'text';
+    } else {
+      this.showPassUrl = ShowPassword.show;
+      this.inputs.toArray()[1].nativeElement.type = 'password';
     }
   }
 }

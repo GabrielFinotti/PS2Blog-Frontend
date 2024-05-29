@@ -20,7 +20,7 @@
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
     />
-    <img src="../../../../assets/icons/eye-icon.svg" alt="" />
+    <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
   </div>
   <input
     [ngClass]="{ disabled: loginForm.invalid }"
