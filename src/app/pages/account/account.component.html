@@ -1,3 +1,26 @@
 <app-navbar></app-navbar>
-<main>account</main>
-<app-footer></app-footer>
+<main>
+  <section id="user">
+    <div id="profile">
+      <img src="../../../assets/imgs/user-logo.svg" alt="Profile" />
+      <p>Username</p>
+    </div>
+    <p id="bio">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet vitae
+      iure hic blanditiis nulla odit velit nisi esse! Iste officia totam maxime
+      tempora vitae animi mollitia deleniti magni quia, earum repellendus
+      reprehenderit quisquam eligendi suscipit corporis perferendis eveniet!
+      Pariatur dolores, tempore magnam omnis mollitia nostrum explicabo
+      voluptate exercitationem? Ipsam, molestias?
+    </p>
+  </section>
+  <section id="dataManager">
+    <div id="toggleManager">
+      <span routerLink="profile" >Account Manager</span>
+      <span></span>
+      <span routerLink="favorite" >Favorite games</span>
+    </div>
+    <router-outlet></router-outlet>
+  </section>
+</main>
+<!-- <app-footer></app-footer> -->

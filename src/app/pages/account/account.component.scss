@@ -1,0 +1,67 @@
+@import "../../scss/index.scss";
+
+main {
+  #user {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    #profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 10px;
+
+      img {
+        border: 1px solid red;
+        border-radius: 50%;
+
+        width: 50%;
+
+        object-fit: cover;
+        aspect-ratio: 1/1;
+      }
+
+      p {
+        font-size: rem-calc(20);
+      }
+    }
+
+    #bio {
+      font-size: rem-calc(16);
+
+      max-height: 100px;
+
+      overflow-y: auto;
+    }
+  }
+
+  #dataManager {
+    padding: 20px 0;
+
+    #toggleManager {
+      display: flex;
+      justify-content: space-around;
+
+      span {
+        font-size: rem-calc(14);
+
+        padding: 5px;
+
+        cursor: pointer;
+
+        &:nth-child(2) {
+          background-color: black;
+
+          display: block;
+
+          width: 1px;
+          padding: 0;
+
+          cursor: none;
+        }
+      }
+    }
+  }
+}
