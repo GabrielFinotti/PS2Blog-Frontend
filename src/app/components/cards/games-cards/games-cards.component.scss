@@ -7,7 +7,7 @@
 
   .cards {
     border: 1px solid;
-    border-radius: 20px;
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -48,6 +48,12 @@
       min-width: 110px;
       padding: 10px 0;
       margin: auto;
+
+      transition: transform 200ms ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
