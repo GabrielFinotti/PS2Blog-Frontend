@@ -1,0 +1,63 @@
+@import "../../scss/index.scss";
+
+header {
+  padding: 20px;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    max-width: 1024px;
+    margin: auto;
+
+    h1 {
+      font-size: rem-calc(22);
+    }
+
+    button {
+      border-radius: 4px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+
+      padding: 5px;
+
+      transition: padding 200ms ease;
+
+      &.active-nav {
+        padding: 5px 2px 5px 1px;
+
+        .line {
+          &:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 5px);
+          }
+
+          &:nth-child(2) {
+            background-color: transparent;
+          }
+
+          &:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -7px);
+          }
+        }
+      }
+
+      .line {
+        background-color: black;
+        border-radius: 50px;
+
+        display: block;
+
+        width: 30px;
+        height: 4px;
+
+        transition: all 200ms ease;
+      }
+    }
+  }
+}
