@@ -1,12 +1,12 @@
 <header>
   <nav>
-    <h1>PS2 BLOG</h1>
+    <h1 routerLink="/">PS2 BLOG</h1>
     <button [ngClass]="{ 'active-nav': isToggle }" (click)="onClick()">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </button>
-    <div>
+    <div [ngClass]="{ activated: isToggle }" id="navLinks">
       <a routerLink="/">Home</a>
       <a [routerLink]="['/account/user', 1]">Acount</a>
     </div>

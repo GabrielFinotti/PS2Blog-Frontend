@@ -1,14 +1,14 @@
 @import "../../scss/index.scss";
 
 header {
+  position: relative;
+
   padding: 20px;
 
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    position: relative;
 
     max-width: 1024px;
     margin: auto;
@@ -58,6 +58,46 @@ header {
 
         transition: all 200ms ease;
       }
+    }
+
+    #navLinks {
+      position: absolute;
+      top: 100%;
+      right: 0;
+
+      width: 0;
+      height: calc(100vh - 72px);
+
+      overflow: hidden;
+
+      transition: width 500ms ease;
+
+      &.activated {
+        width: 50%;
+
+        a {
+          opacity: 1;
+        }
+      }
+
+      a {
+        border-bottom: 1px solid;
+
+        display: block;
+
+        color: black;
+        font-size: rem-calc(18);
+        text-indent: 10px;
+        text-decoration-line: none;
+
+        padding: 10px 0;
+
+        opacity: 0;
+
+        transition: opacity 700ms ease;
+      }
+
+      z-index: 100000000;
     }
   }
 }
