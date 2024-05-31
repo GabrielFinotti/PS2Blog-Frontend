@@ -1,7 +1,10 @@
 <form [formGroup]="updateProfile" (ngSubmit)="submitProfile()">
   <div class="input-group">
-    <label for="username">User:</label>
+    <label [ngClass]="{ 'hidden-label': isEditProfile }" for="username"
+      >User:</label
+    >
     <input
+      [ngClass]="{ 'edit-input': isEditProfile }"
       type="text"
       id="username"
       formControlName="user"
@@ -9,8 +12,11 @@
     />
   </div>
   <div class="input-group">
-    <label for="email">Email:</label>
+    <label [ngClass]="{ 'hidden-label': isEditProfile }" for="email"
+      >Email:</label
+    >
     <input
+      [ngClass]="{ 'edit-input': isEditProfile }"
       type="email"
       id="email"
       formControlName="email"
@@ -18,15 +24,23 @@
     />
   </div>
   <div class="input-group">
-    <label for="password">Password:</label>
+    <label [ngClass]="{ 'hidden-label': isEditProfile }" for="password"
+      >Password:</label
+    >
     <input
       #input
+      [ngClass]="{ 'edit-input': isEditProfile }"
       type="password"
       id="password"
       formControlName="password"
       [readOnly]="!isEditProfile"
     />
-    <img [src]="ShowPassUrl" alt="show" (click)="showPass()" />
+    <img
+      [ngClass]="{ 'show-pass': isEditProfile }"
+      [src]="ShowPassUrl"
+      alt="show"
+      (click)="showPass()"
+    />
   </div>
   <button
     id="sendProfile"

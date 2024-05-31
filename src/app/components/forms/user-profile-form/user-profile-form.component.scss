@@ -16,17 +16,39 @@ form {
     position: relative;
 
     label {
+      position: absolute;
+
       font-size: rem-calc(14);
+
+      transition: all 500ms ease;
+
+      &.hidden-label {
+        opacity: 0;
+
+        transform: rotate(-50deg) translate(-8px, -20px);
+      }
     }
 
     input {
       width: 100%;
       padding: 10px;
+      padding-left: 46px;
 
       outline: none;
 
+      transition: padding 500ms ease;
+
+      &.edit-input {
+        padding-left: 10px;
+      }
+
       &[type="password"] {
+        padding-left: 74px;
         padding-right: 24px;
+
+        &.edit-input {
+          padding-left: 10px;
+        }
       }
     }
 
@@ -36,6 +58,12 @@ form {
       right: 0;
 
       width: 0;
+
+      transition: width 500ms ease;
+
+      &.show-pass {
+        width: 24px;
+      }
     }
   }
 
