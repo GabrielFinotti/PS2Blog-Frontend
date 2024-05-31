@@ -14,7 +14,7 @@ header {
     margin: auto;
 
     h1 {
-      font-size: rem-calc(22);
+      font-size: rem-calc(26);
     }
 
     button {
@@ -94,10 +94,66 @@ header {
 
         opacity: 0;
 
-        transition: opacity 700ms ease;
+        transition: all 700ms ease;
       }
 
       z-index: 100000000;
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  header {
+    nav {
+      h1 {
+        font-size: rem-calc(34);
+      }
+
+      #navLinks {
+        a {
+          font-size: rem-calc(24);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1020px) {
+  header {
+    nav {
+      h1 {
+        flex: 1;
+      }
+
+      button {
+        display: none;
+      }
+
+      #navLinks {
+        display: flex;
+        justify-content: space-around;
+        flex: 2;
+
+        position: relative;
+        top: auto;
+        right: auto;
+
+        width: auto;
+        height: auto;
+
+        a {
+          border: 0;
+
+          display: inline;
+
+          font-size: rem-calc(22);
+          text-indent: 0;
+
+          padding: 10px;
+
+          opacity: 1;
+        }
+      }
     }
   }
 }

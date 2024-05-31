@@ -1,0 +1,75 @@
+@import "../../../scss/index.scss";
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 15px;
+
+  .cards {
+    border: 1px solid;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-column: span 8;
+
+    padding: 20px;
+
+    img {
+      border: 1px solid red;
+      border-radius: 20px;
+    }
+
+    .game-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .game-name {
+        font-size: rem-calc(16);
+      }
+
+      .game-size {
+        font-size: rem-calc(14);
+      }
+    }
+
+    a {
+      border: 1px solid;
+      border-radius: 5px;
+
+      color: black;
+      font-size: rem-calc(18);
+      text-align: center;
+      text-decoration-line: none;
+
+      width: 50%;
+      min-width: 110px;
+      padding: 10px 0;
+      margin: auto;
+
+      transition: transform 200ms ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  :host {
+    .cards {
+      grid-column: span 4;
+    }
+  }
+}
+
+@media (min-width: 1020px) {
+  :host {
+    .cards {
+      grid-column: span 2;
+    }
+  }
+}

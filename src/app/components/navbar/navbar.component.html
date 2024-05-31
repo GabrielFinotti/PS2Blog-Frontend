@@ -7,8 +7,8 @@
       <span class="line"></span>
     </button>
     <div [ngClass]="{ activated: isToggle }" id="navLinks">
-      <a routerLink="/">Home</a>
-      <a [routerLink]="['/account/user', 1]">Acount</a>
+      <a routerLink="/" (click)="onClick()">Home</a>
+      <a [routerLink]="['/account/user', 1]" (click)="onClick()">Acount</a>
     </div>
   </nav>
 </header>

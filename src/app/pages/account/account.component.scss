@@ -1,6 +1,11 @@
 @import "../../scss/index.scss";
 
 main {
+  section {
+    max-width: 1024px;
+    margin: auto;
+  }
+
   #user {
     display: flex;
     flex-direction: column;

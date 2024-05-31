@@ -17,6 +17,8 @@ export class NavbarComponent {
   }
 
   protected onClick() {
+    if (window.screenX >= 1020) return;
+
     this.isToggle = !this.isToggle;
   }
 }
