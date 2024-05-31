@@ -42,7 +42,7 @@ form {
         padding-left: 10px;
       }
 
-      &[type="password"] {
+      &#password {
         padding-left: 74px;
         padding-right: 24px;
 
@@ -109,5 +109,41 @@ form {
 
     width: 45px;
     padding: 2px;
+  }
+}
+
+@media (min-width: 760px) {
+  form {
+    max-width: 500px;
+    margin: auto;
+
+    .input-group {
+      label {
+        font-size: rem-calc(18);
+      }
+
+      input {
+        font-size: rem-calc(16);
+
+        padding-left: 60px;
+
+        &#password {
+          padding-left: 94px;
+          padding-right: 32px;
+        }
+      }
+
+      img {
+        top: 12%;
+
+        &.show-pass {
+          width: 30px;
+        }
+      }
+    }
+
+    #editProfile {
+      left: 46%;
+    }
   }
 }

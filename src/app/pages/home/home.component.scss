@@ -126,6 +126,16 @@ main {
           font-size: rem-calc(18);
         }
       }
+
+      #results {
+        &.show-results {
+          height: 55px;
+        }
+
+        p {
+          font-size: rem-calc(16);
+        }
+      }
     }
   }
 }

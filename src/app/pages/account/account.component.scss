@@ -74,3 +74,39 @@ main {
     }
   }
 }
+
+@media (min-width: 760px) {
+  main {
+    #user {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+
+      #profile {
+        flex: 2;
+
+        img {
+          width: 55%;
+        }
+
+        p {
+          font-size: rem-calc(22);
+        }
+      }
+
+      #bio {
+        flex: 4;
+
+        font-size: rem-calc(18);
+      }
+    }
+
+    #dataManager {
+      #toggleManager {
+        span {
+          font-size: rem-calc(20);
+        }
+      }
+    }
+  }
+}
