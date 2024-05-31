@@ -59,7 +59,9 @@ form {
 
       width: 0;
 
+
       transition: width 500ms ease;
+      cursor: pointer;
 
       &.show-pass {
         width: 24px;
@@ -74,6 +76,7 @@ form {
     overflow: hidden;
 
     transition: width 500ms ease;
+    cursor: pointer;
 
     &.disabled {
       width: 0;
@@ -99,6 +102,7 @@ form {
   overflow: hidden;
 
   transition: width 500ms ease;
+  cursor: pointer;
 
   &.editing {
     width: 0;

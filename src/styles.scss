@@ -16,4 +16,18 @@
 
 main {
   padding: 0 20px;
+
+  min-height: calc(100vh - 127px);
+}
+
+@media (min-width: 760px) {
+  main {
+    min-height: calc(100vh - 136px);
+  }
+}
+
+@media (min-width: 1020px) {
+  main {
+    min-height: calc(100vh - 142px);
+  }
 }
