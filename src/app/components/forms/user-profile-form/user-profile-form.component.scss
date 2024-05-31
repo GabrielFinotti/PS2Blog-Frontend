@@ -5,6 +5,8 @@ form {
   flex-direction: column;
   gap: 20px;
 
+  position: relative;
+
   .input-group {
     border-bottom: 1px solid;
 
@@ -23,7 +25,7 @@ form {
 
       outline: none;
 
-      &[type='password'] {
+      &[type="password"] {
         padding-right: 24px;
       }
     }
@@ -35,5 +37,49 @@ form {
 
       width: 0;
     }
+  }
+
+  #sendProfile {
+    width: 42px;
+    margin: auto;
+
+    overflow: hidden;
+
+    transition: width 500ms ease;
+
+    &.disabled {
+      width: 0;
+    }
+
+    img {
+      border-radius: 50%;
+      padding: 5px;
+
+      object-fit: cover;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+#editProfile {
+  width: 45px;
+
+  position: absolute;
+  left: 42%;
+  bottom: 0;
+
+  overflow: hidden;
+
+  transition: width 500ms ease;
+
+  &.editing {
+    width: 0;
+  }
+
+  img {
+    border-radius: 10px;
+
+    width: 45px;
+    padding: 2px;
   }
 }
