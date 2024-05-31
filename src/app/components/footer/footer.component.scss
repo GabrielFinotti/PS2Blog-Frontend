@@ -2,4 +2,24 @@
 
 footer {
   padding: 20px;
+
+  #copy {
+    max-width: 1024px;
+    margin: auto;
+
+    p {
+      font-size: rem-calc(14);
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  footer {
+    #copy {
+      p {
+        font-size: rem-calc(16);
+      }
+    }
+  }
 }
