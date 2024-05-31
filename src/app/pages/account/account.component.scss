@@ -1,5 +1,15 @@
 @import "../../scss/index.scss";
 
+@keyframes showImg {
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
 main {
   section {
     max-width: 1024px;
@@ -15,8 +25,11 @@ main {
       display: flex;
       flex-direction: column;
       align-items: center;
-
       gap: 10px;
+
+      scale: 0;
+
+      animation: showImg 1000ms ease forwards;
 
       img {
         border: 1px solid red;

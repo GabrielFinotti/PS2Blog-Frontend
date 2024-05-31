@@ -1,4 +1,8 @@
-<form [formGroup]="updateProfile" (ngSubmit)="submitProfile()">
+<form
+  [ngClass]="{ 'show-form': isShowForm }"
+  [formGroup]="updateProfile"
+  (ngSubmit)="submitProfile()"
+>
   <div class="input-group">
     <label [ngClass]="{ 'hidden-label': isEditProfile }" for="username"
       >User:</label

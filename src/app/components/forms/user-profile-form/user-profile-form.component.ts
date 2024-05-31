@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ShowPassword } from '../../../enums/show-password';
 import {
   FormBuilder,
@@ -15,10 +15,11 @@ import { NgClass } from '@angular/common';
   templateUrl: './user-profile-form.component.html',
   styleUrl: './user-profile-form.component.scss',
 })
-export class UserProfileFormComponent {
+export class UserProfileFormComponent implements OnInit {
   @ViewChild('input') private input!: ElementRef<HTMLInputElement>;
 
   protected ShowPassUrl!: string;
+  protected isShowForm!: boolean;
   protected isEditProfile!: boolean;
   protected updateProfile!: FormGroup;
 
@@ -31,6 +32,13 @@ export class UserProfileFormComponent {
 
     this.ShowPassUrl = ShowPassword.show;
     this.isEditProfile = false;
+    this.isShowForm = false;
+  }
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.isShowForm = true;
+    }, 1);
   }
 
   protected showPass() {

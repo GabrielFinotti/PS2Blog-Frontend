@@ -7,6 +7,16 @@ form {
 
   position: relative;
 
+  height: 0;
+
+  overflow: hidden;
+
+  transition: height 500ms ease;
+
+  &.show-form {
+    height: 213px;
+  }
+
   .input-group {
     border-bottom: 1px solid;
 
@@ -38,8 +48,12 @@ form {
 
       transition: padding 500ms ease;
 
+      cursor: not-allowed;
+
       &.edit-input {
         padding-left: 10px;
+
+        cursor: auto;
       }
 
       &#password {
@@ -58,7 +72,6 @@ form {
       right: 0;
 
       width: 0;
-
 
       transition: width 500ms ease;
       cursor: pointer;
@@ -120,6 +133,10 @@ form {
   form {
     max-width: 600px;
     margin: auto;
+
+    &.show-form {
+      height: 222px;
+    }
 
     .input-group {
       label {

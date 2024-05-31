@@ -5,6 +5,16 @@
   grid-template-columns: repeat(8, 1fr);
   gap: 15px;
 
+  @keyframes showCard {
+    50% {
+      scale: 1.1;
+    }
+
+    100% {
+      scale: 1;
+    }
+  }
+
   .cards {
     border: 1px solid;
     border-radius: 10px;
@@ -15,6 +25,10 @@
     grid-column: span 8;
 
     padding: 20px;
+
+    scale: 0;
+
+    animation: showCard 800ms ease forwards;
 
     img {
       border: 1px solid red;
@@ -65,7 +79,7 @@
 
       .game-info {
         .game-name {
-           font-size: rem-calc(20);
+          font-size: rem-calc(20);
         }
 
         .game-size {
