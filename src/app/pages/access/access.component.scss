@@ -6,14 +6,14 @@ main {
   justify-content: center;
   gap: 20px;
 
-  height: 100vh;
+  min-height: calc(100vh - 55px);
   padding: 20px;
 
   h1 {
     flex: 1;
 
-    line-height: 6;
     text-align: center;
+    line-height: 6;
   }
 
   p {
@@ -27,5 +27,11 @@ main {
 
       cursor: pointer;
     }
+  }
+}
+
+@media (min-width: 760px) {
+  main {
+    height: calc(100vh - 58px);
   }
 }

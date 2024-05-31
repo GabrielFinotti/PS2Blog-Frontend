@@ -72,17 +72,19 @@ form {
 
       outline: none;
 
-      &[type="password"] {
-        padding-right: 30px;
+      &#password {
+        padding-right: 35px;
       }
     }
 
     img {
       position: absolute;
-      top: 25%;
+      top: 18%;
       right: 5px;
 
       width: 22px;
+
+      cursor: pointer;
     }
   }
 
