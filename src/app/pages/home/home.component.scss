@@ -115,3 +115,31 @@ main {
     }
   }
 }
+
+@media (min-width: 760px) {
+  main {
+    #searchGames {
+      #search {
+        width: 105px;
+
+        input {
+          font-size: rem-calc(18);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1020px) {
+  main {
+    #searchGames {
+      #search {
+        width: 100px;
+
+        input {
+          font-size: rem-calc(16);
+        }
+      }
+    }
+  }
+}
