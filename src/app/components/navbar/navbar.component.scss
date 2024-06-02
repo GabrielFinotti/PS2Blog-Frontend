@@ -13,10 +13,27 @@ header {
     max-width: 1024px;
     margin: auto;
 
-    h1 {
-      font-size: rem-calc(26);
+    #logo {
+      display: flex;
+      align-items: center;
+      gap: 5px;
 
       cursor: pointer;
+
+      img {
+        width: 60px;
+      }
+
+      h1 {
+        font-size: rem-calc(26);
+        text-wrap: nowrap;
+
+        width: 50px;
+
+        overflow: hidden;
+
+        transition: width 850ms ease;
+      }
     }
 
     button {
@@ -107,8 +124,16 @@ header {
 @media (min-width: 760px) {
   header {
     nav {
-      h1 {
-        font-size: rem-calc(34);
+      #logo {
+        img {
+          width: 70px;
+        }
+
+        h1 {
+          font-size: rem-calc(34);
+
+          width: 100%;
+        }
       }
 
       #navLinks {
@@ -123,8 +148,14 @@ header {
 @media (min-width: 1020px) {
   header {
     nav {
-      h1 {
-        flex: 1;
+      #logo {
+        img {
+          width: 75px;
+        }
+
+        h1 {
+          flex: 1;
+        }
       }
 
       button {

@@ -1,6 +1,9 @@
 <header>
   <nav>
-    <h1 routerLink="/">PS2 BLOG</h1>
+    <div routerLink="/" id="logo">
+      <img src="../../../assets/imgs/ps2-logo.svg" alt="Logo" />
+      <h1>PS2 BLOG</h1>
+    </div>
     <button [ngClass]="{ 'active-nav': isToggle }" (click)="onClick()">
       <span class="line"></span>
       <span class="line"></span>

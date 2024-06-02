@@ -9,11 +9,11 @@ main {
   min-height: calc(100vh - 55px);
   padding: 20px;
 
-  h1 {
+  img {
     flex: 1;
 
-    text-align: center;
-    line-height: 6;
+    width: 45%;
+    margin: auto;
   }
 
   p {
@@ -33,5 +33,17 @@ main {
 @media (min-width: 760px) {
   main {
     height: calc(100vh - 58px);
+
+    img {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width: 1020px) {
+  main {
+    img {
+      width: 15%;
+    }
   }
 }
