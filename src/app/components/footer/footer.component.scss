@@ -1,6 +1,7 @@
 @import "../../scss/index.scss";
 
 footer {
+  background-color: $primary-bg-color;
   padding: 20px;
 
   #copy {
@@ -8,6 +9,7 @@ footer {
     margin: auto;
 
     p {
+      color: $tertiary-text-color;
       font-size: rem-calc(14);
       text-align: center;
     }
