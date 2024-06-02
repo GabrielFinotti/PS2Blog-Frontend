@@ -14,13 +14,9 @@
         routerLink="/"
         routerLinkActive="link-activated"
         [routerLinkActiveOptions]="{ exact: true }"
-        (click)="onClick()"
         >Home</a
       >
-      <a
-        [routerLink]="['/account/user', 1]"
-        routerLinkActive="link-activated"
-        (click)="onClick()"
+      <a [routerLink]="['/account/user', 1]" routerLinkActive="link-activated"
         >Acount</a
       >
     </div>
