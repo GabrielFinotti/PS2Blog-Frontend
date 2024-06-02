@@ -1,6 +1,6 @@
 {
-  "name": "ps2-blog",
-  "version": "0.0.0",
+  "name": "ps2blog-website",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
