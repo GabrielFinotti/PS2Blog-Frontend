@@ -15,18 +15,18 @@
 }
 
 main {
-  min-height: calc(100vh - 127px);
+  min-height: calc(100vh - 155px);
   padding: 0 20px;
 }
 
 @media (min-width: 760px) {
   main {
-    min-height: calc(100vh - 136px);
+    min-height: calc(100vh - 168px);
   }
 }
 
 @media (min-width: 1020px) {
   main {
-    min-height: calc(100vh - 142px);
+    min-height: calc(100vh - 173px);
   }
 }

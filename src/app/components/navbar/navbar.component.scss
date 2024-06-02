@@ -96,7 +96,7 @@ header {
       right: 0;
 
       width: 0;
-      height: calc(100vh - 72px);
+      height: calc(100vh - 100px);
 
       overflow: hidden;
 
@@ -152,6 +152,8 @@ header {
       }
 
       #navLinks {
+        height: calc(100vh - 110px);
+
         a {
           font-size: rem-calc(24);
         }
