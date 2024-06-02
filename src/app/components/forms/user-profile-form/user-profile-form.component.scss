@@ -1,6 +1,10 @@
 @import "../../../scss/index.scss";
 
 form {
+  background-color: rgba($secondary-bg-color, 0.4);
+  border: 2px solid $tertiay-bg-color;
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -8,18 +12,17 @@ form {
   position: relative;
 
   height: 0;
+  padding: 10px;
 
   overflow: hidden;
 
   transition: height 500ms ease;
 
   &.show-form {
-    height: 213px;
+    height: 243px;
   }
 
   .input-group {
-    border-bottom: 1px solid;
-
     display: flex;
     align-items: center;
 
@@ -28,7 +31,9 @@ form {
     label {
       position: absolute;
 
+      color: $tertiary-text-color;
       font-size: rem-calc(14);
+      font-weight: bold;
 
       transition: all 500ms ease;
 
@@ -40,9 +45,14 @@ form {
     }
 
     input {
+      background: none;
+      border-bottom: 1px solid $secondary-bg-color;
+
       width: 100%;
       padding: 10px;
       padding-left: 46px;
+
+      color: $tertiary-text-color;
 
       outline: none;
 
@@ -51,9 +61,15 @@ form {
       cursor: not-allowed;
 
       &.edit-input {
+        color: $tertiay-bg-color;
+
         padding-left: 10px;
 
         cursor: auto;
+
+        &:focus {
+          border-bottom: 1px solid $tertiay-bg-color;
+        }
       }
 
       &#password {
@@ -83,6 +99,8 @@ form {
   }
 
   #sendProfile {
+    background: none;
+
     width: 42px;
     margin: auto;
 
@@ -96,7 +114,9 @@ form {
     }
 
     img {
+      border: 2px solid $secondary-bg-color;
       border-radius: 50%;
+
       padding: 5px;
 
       object-fit: cover;
@@ -106,11 +126,13 @@ form {
 }
 
 #editProfile {
-  width: 45px;
+  background: none;
 
   position: absolute;
-  left: 45%;
-  bottom: 0;
+  left: 42%;
+  bottom: 8px;
+
+  width: 45px;
 
   overflow: hidden;
 
@@ -122,6 +144,7 @@ form {
   }
 
   img {
+    border: 2px solid $tertiay-bg-color;
     border-radius: 10px;
 
     width: 45px;
@@ -133,10 +156,6 @@ form {
   form {
     max-width: 600px;
     margin: auto;
-
-    &.show-form {
-      height: 222px;
-    }
 
     .input-group {
       label {
