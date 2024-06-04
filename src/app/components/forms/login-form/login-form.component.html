@@ -1,5 +1,8 @@
-<form [formGroup]="loginForm" (ngSubmit)="(undefined)">
-  <div class="input-group">
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+  <div
+    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
+    class="input-group"
+  >
     <label #label for="email">Email</label>
     <input
       #input
@@ -10,7 +13,16 @@
       (blur)="onBlur(0)"
     />
   </div>
-  <div class="input-group">
+  <p
+    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
+    class="info-input"
+  >
+    Enter a valid email!
+  </p>
+  <div
+    [ngClass]="{ invalid: invalidInput('password') || isInvalid['password'] }"
+    class="input-group"
+  >
     <label #label for="password">Password</label>
     <input
       #input
@@ -22,6 +34,12 @@
     />
     <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
   </div>
+  <p
+    [ngClass]="{ invalid: invalidInput('password') || isInvalid['password'] }"
+    class="info-input"
+  >
+    Password cannot be empty!
+  </p>
   <input
     [ngClass]="{ disabled: loginForm.invalid }"
     class="submit-form"
