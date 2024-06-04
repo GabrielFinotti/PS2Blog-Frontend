@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: AccessComponent,
   },
   {
-    path: 'account/user/:id',
+    path: 'account/user/:username',
     component: AccountComponent,
     children: [
       { path: 'profile', component: UserProfileFormComponent },

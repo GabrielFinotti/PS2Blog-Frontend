@@ -1,16 +1,28 @@
-<form [formGroup]="registerForm">
-  <div #div class="input-group hidden">
+<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  <div
+    #div
+    [ngClass]="{ invalid: invalidInput('username') || isInvalid['emptyUser'] }"
+    class="input-group hidden"
+  >
     <label #label for="user">User</label>
     <input
       #input
       id="user"
       type="text"
-      formControlName="user"
+      formControlName="username"
       (focus)="onFocus(0)"
       (blur)="onBlur(0)"
     />
+    <p>
+      Username must be a minimum of 5 and a maximum of 16 characters. And cannot
+      be empty!
+    </p>
   </div>
-  <div #div class="input-group">
+  <div
+    #div
+    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
+    class="input-group"
+  >
     <label #label for="email">Email</label>
     <input
       #input
@@ -20,8 +32,13 @@
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
     />
+    <p>Enter a valid email!</p>
   </div>
-  <div #div class="input-group">
+  <div
+    #div
+    [ngClass]="{ invalid: invalidInput('password') || isInvalid['emptyPass'] }"
+    class="input-group"
+  >
     <label #label for="password">Password</label>
     <input
       #input
@@ -32,8 +49,18 @@
       (blur)="onBlur(2)"
     />
     <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
+    <p>
+      Password must have a minimum of 8 and a maximum of 16 characters. And
+      cannot be empty!
+    </p>
   </div>
-  <div #div class="input-group hidden">
+  <div
+    #div
+    [ngClass]="{
+      invalid: invalidInput('confPassword') || isInvalid['confPassword']
+    }"
+    class="input-group hidden"
+  >
     <label #label for="confPassword">Confirm password</label>
     <input
       #input
@@ -43,6 +70,13 @@
       (focus)="onFocus(3)"
       (blur)="onBlur(3)"
     />
+    <p>
+      {{
+        isInvalid["confPassword"]
+          ? "Passwords must be the same!"
+          : "Can not be empty!"
+      }}
+    </p>
   </div>
   <input
     [ngClass]="{ disabled: registerForm.invalid }"

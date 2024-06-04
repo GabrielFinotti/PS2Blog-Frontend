@@ -12,8 +12,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ShowPassword } from '../../../enums/show-password';
 import { NgClass } from '@angular/common';
+import { ShowPassword } from '../../../enums/show-password';
+import { UserRegisterService } from '../../../services/userServices/register/user-register.service';
+import { UserRegister } from '../../../interfaces/user/user-register';
 
 @Component({
   selector: 'app-register-form',
@@ -33,16 +35,36 @@ export class RegisterFormComponent implements OnInit {
 
   protected showPassUrl!: string;
   protected registerForm!: FormGroup;
+  protected isInvalid!: Record<string, boolean>;
 
-  constructor(private formBuilder: FormBuilder, private render: Renderer2) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private render: Renderer2,
+    private userRegisterService: UserRegisterService
+  ) {
     this.registerForm = this.formBuilder.group({
-      user: ['', [Validators.required]],
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(16),
+        ],
+      ],
       email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.required]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(20),
+        ],
+      ],
       confPassword: ['', Validators.required],
     });
 
     this.showPassUrl = ShowPassword.show;
+    this.isInvalid = {};
   }
 
   ngOnInit(): void {
@@ -51,6 +73,8 @@ export class RegisterFormComponent implements OnInit {
         this.render.removeClass(div.nativeElement, 'hidden');
       });
     }, 2200);
+
+    this.registerForm.valueChanges.subscribe();
   }
 
   protected onFocus(index: number) {
@@ -81,5 +105,55 @@ export class RegisterFormComponent implements OnInit {
       this.showPassUrl = ShowPassword.show;
       this.inputs.toArray()[2].nativeElement.type = 'password';
     }
+  }
+
+  protected submitForm() {
+    if (this.registerForm.invalid) return;
+
+    const { username, email, password }: UserRegister = this.registerForm.value;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (username != username.trim()) {
+      this.isInvalid['emptyUser'] = true;
+      return;
+    } else {
+      this.isInvalid['emptyUser'] = false;
+    }
+    if (password != password.trim()) {
+      this.isInvalid['emptyPass'] = true;
+      return;
+    } else {
+      this.isInvalid['emptyPass'] = false;
+    }
+    if (password != this.registerForm.get('confPassword')?.value) {
+      this.isInvalid['confPassword'] = true;
+      return;
+    } else {
+      this.isInvalid['confPassword'] = false;
+    }
+    if (!emailRegex.test(email)) {
+      this.isInvalid['email'] = true;
+      return;
+    } else {
+      this.isInvalid['email'] = false;
+    }
+
+    const data: UserRegister = { username, email, password };
+
+    this.userRegisterService.userRegister(data).subscribe(
+      (res) => {
+        console.log(res);
+
+        this.registerForm.reset('');
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  protected invalidInput(controlName: string) {
+    const control = this.registerForm.get(controlName);
+    if (!control) return false;
+
+    return control.invalid && control.touched && control.dirty;
   }
 }

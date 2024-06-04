@@ -50,6 +50,26 @@ form {
       }
     }
 
+    &.invalid {
+      label {
+        color: red;
+      }
+
+      input {
+        border: 1px solid red;
+
+        color: red;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      p {
+        height: 34px;
+      }
+    }
+
     label {
       position: absolute;
       top: 25%;
@@ -93,6 +113,18 @@ form {
       width: 22px;
 
       cursor: pointer;
+    }
+
+    p {
+      color: red;
+      font-size: rem-calc(12);
+
+      height: 0;
+      padding-top: 5px;
+
+      overflow: hidden;
+
+      transition: all 500ms ease;
     }
   }
 
