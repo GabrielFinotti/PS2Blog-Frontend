@@ -13,11 +13,14 @@
       (focus)="onFocus(0)"
       (blur)="onBlur(0)"
     />
-    <p>
-      Username must be a minimum of 5 and a maximum of 16 characters. And cannot
-      be empty!
-    </p>
   </div>
+  <p
+    [ngClass]="{ invalid: invalidInput('username') || isInvalid['emptyUser'] }"
+    class="info-input"
+  >
+    Username must be a minimum of 5 and a maximum of 16 characters. And cannot
+    be empty!
+  </p>
   <div
     #div
     [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
@@ -32,8 +35,13 @@
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
     />
-    <p>Enter a valid email!</p>
   </div>
+  <p
+    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
+    class="info-input"
+  >
+    Enter a valid email!
+  </p>
   <div
     #div
     [ngClass]="{ invalid: invalidInput('password') || isInvalid['emptyPass'] }"
@@ -49,11 +57,14 @@
       (blur)="onBlur(2)"
     />
     <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
-    <p>
-      Password must have a minimum of 8 and a maximum of 16 characters. And
-      cannot be empty!
-    </p>
   </div>
+  <p
+    [ngClass]="{ invalid: invalidInput('password') || isInvalid['emptyPass'] }"
+    class="info-input"
+  >
+    Password must have a minimum of 8 and a maximum of 16 characters. And cannot
+    be empty!
+  </p>
   <div
     #div
     [ngClass]="{
@@ -70,14 +81,19 @@
       (focus)="onFocus(3)"
       (blur)="onBlur(3)"
     />
-    <p>
-      {{
-        isInvalid["confPassword"]
-          ? "Passwords must be the same!"
-          : "Can not be empty!"
-      }}
-    </p>
   </div>
+  <p
+    [ngClass]="{
+      invalid: invalidInput('confPassword') || isInvalid['confPassword']
+    }"
+    class="info-input"
+  >
+    {{
+      isInvalid["confPassword"]
+        ? "Passwords must be the same!"
+        : "Can not be empty!"
+    }}
+  </p>
   <input
     [ngClass]="{ disabled: registerForm.invalid }"
     class="submit-form"
