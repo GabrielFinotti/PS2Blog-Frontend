@@ -13,6 +13,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ShowPassword } from '../../../enums/show-password';
 import { UserLogin } from '../../../interfaces/user/user-login';
 import { UserAuthService } from '../../../services/userServices/auth/user-auth.service';
@@ -39,7 +40,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userAuthService: UserAuthService
+    private userAuthService: UserAuthService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
@@ -112,7 +114,9 @@ export class LoginFormComponent implements OnInit {
     this.userAuthService.userLogin(data).subscribe(
       (res) => {
         sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('user', res.username);
+        sessionStorage.setItem('username', res.username);
+
+        this.router.navigateByUrl('')
       },
       (err) => console.log(err)
     );

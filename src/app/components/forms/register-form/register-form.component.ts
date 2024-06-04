@@ -142,8 +142,6 @@ export class RegisterFormComponent implements OnInit {
 
     this.userRegisterService.userRegister(data).subscribe(
       (res) => {
-        console.log(res);
-
         this.registerForm.reset('');
       },
       (err) => console.log(err)
