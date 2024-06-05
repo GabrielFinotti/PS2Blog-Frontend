@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { NgClass } from '@angular/common';
 import { UserDataService } from '../../services/userServices/data/user-data.service';
 import { UserData } from '../../interfaces/user/user-data';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [RouterModule, RouterOutlet],
+  imports: [RouterModule, RouterOutlet, NgClass],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
 })

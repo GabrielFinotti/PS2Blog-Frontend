@@ -10,12 +10,18 @@
   </section>
   <section id="dataManager">
     <div id="toggleManager">
-      <span routerLink="profile" routerLinkActive="link-activated"
-        >Account Manager</span
+      <a
+        [ngClass]="{ disabled: !userData }"
+        [routerLink]="userData ? 'profile' : null"
+        routerLinkActive="link-activated"
+        >Account Manager</a
       >
       <span></span>
-      <span routerLink="favorite" routerLinkActive="link-activated"
-        >Favorite games</span
+      <a
+        [ngClass]="{ disabled: !userData }"
+        [routerLink]="userData ? 'favorite' : null"
+        routerLinkActive="link-activated"
+        >Favorite games</a
       >
     </div>
     <router-outlet></router-outlet>

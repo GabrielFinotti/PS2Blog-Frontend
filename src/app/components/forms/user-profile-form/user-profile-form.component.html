@@ -1,4 +1,5 @@
 <form
+  #form
   [ngClass]="{ 'show-form': isShowForm }"
   [formGroup]="updateProfile"
   (ngSubmit)="submitProfile()"
@@ -8,44 +9,77 @@
       >User:</label
     >
     <input
-      [ngClass]="{ 'edit-input': isEditProfile }"
+      [ngClass]="{
+        'edit-input': isEditProfile,
+        invalid: invalidInput('username') || isInvalid['username']
+      }"
       type="text"
       id="username"
-      formControlName="user"
+      [value]="userData ? userData.username : 'Not Found...'"
+      formControlName="username"
       [readOnly]="!isEditProfile"
     />
   </div>
+  <p
+    [ngClass]="{
+      'edit-input': isEditProfile,
+      invalid: invalidInput('username') || isInvalid['username']
+    }"
+    class="info-input"
+  >
+    Username must be a minimum of 5 and a maximum of 16 characters. And cannot
+    be empty!
+  </p>
   <div class="input-group">
     <label [ngClass]="{ 'hidden-label': isEditProfile }" for="email"
       >Email:</label
     >
     <input
-      [ngClass]="{ 'edit-input': isEditProfile }"
+      [ngClass]="{
+        'edit-input': isEditProfile,
+        invalid: invalidInput('email') || isInvalid['email']
+      }"
       type="email"
       id="email"
+      [value]="userData ? userData.email : 'Not Found...'"
       formControlName="email"
       [readOnly]="!isEditProfile"
     />
   </div>
+  <p
+    [ngClass]="{
+      'edit-input': isEditProfile,
+      invalid: invalidInput('email') || isInvalid['email']
+    }"
+    class="info-input"
+  >
+    Enter a valid Email!
+  </p>
   <div class="input-group">
-    <label [ngClass]="{ 'hidden-label': isEditProfile }" for="password"
-      >Password:</label
+    <label [ngClass]="{ 'hidden-label': isEditProfile }" for="inputBio"
+      >Bio:</label
     >
-    <input
-      #input
-      [ngClass]="{ 'edit-input': isEditProfile }"
-      type="password"
-      id="password"
-      formControlName="password"
+    <textarea
+      [ngClass]="{
+        'edit-input': isEditProfile,
+        invalid: invalidInput('bio') || isInvalid['bio']
+      }"
+      id="inputBio"
+      [value]="userData ? userData.bio : 'Not Found...'"
+      formControlName="bio"
       [readOnly]="!isEditProfile"
-    />
-    <img
-      [ngClass]="{ 'show-pass': isEditProfile }"
-      [src]="ShowPassUrl"
-      alt="show"
-      (click)="showPass()"
-    />
+      rows="1"
+    ></textarea>
   </div>
+  <p
+    [ngClass]="{
+      'edit-input': isEditProfile,
+      invalid: invalidInput('bio') || isInvalid['bio']
+    }"
+    class="info-input"
+  >
+    Bio can only have a maximum of 500 characters. and it cannot be empty!
+  </p>
   <button
     id="sendProfile"
     [ngClass]="{ disabled: updateProfile.invalid || !isEditProfile }"
@@ -55,9 +89,10 @@
     <img src="../../../../assets/icons/accept.icon.svg" alt="Send" />
   </button>
   <button
-    [ngClass]="{ editing: isEditProfile }"
+    [ngClass]="{ editing: isEditProfile, disabled: !userData }"
     id="editProfile"
     type="button"
+    [disabled]="!userData"
     (click)="editProfile()"
   >
     <img src="../../../../assets/icons/edit-icon.svg" alt="Edit" />

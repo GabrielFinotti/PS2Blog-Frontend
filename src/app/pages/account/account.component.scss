@@ -71,30 +71,36 @@ main {
       display: flex;
       justify-content: space-around;
 
-      span {
+      a {
         color: $tertiary-text-color;
         font-size: rem-calc(14);
+        text-decoration-line: none;
 
         padding: 5px;
 
+        transition: color ease 700ms;
         cursor: pointer;
 
-        transition: color ease 700ms;
+        &.disabled {
+          opacity: 0.5;
+
+          cursor: not-allowed;
+        }
 
         &.link-activated {
           color: $primary-text-color;
         }
+      }
 
-        &:nth-child(2) {
-          background-color: $tertiay-bg-color;
+      span {
+        background-color: $tertiay-bg-color;
 
-          display: block;
+        display: block;
 
-          width: 1px;
-          padding: 0;
+        width: 1px;
+        padding: 0;
 
-          cursor: none;
-        }
+        cursor: none;
       }
     }
   }
@@ -128,7 +134,7 @@ main {
 
     #dataManager {
       #toggleManager {
-        span {
+        a {
           font-size: rem-calc(20);
         }
       }
