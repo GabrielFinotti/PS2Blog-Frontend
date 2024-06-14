@@ -1,16 +1,35 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
   <div class="input-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" />
+    <label #label for="email">Email</label>
+    <input
+      #input
+      type="email"
+      id="email"
+      formControlName="email"
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+    />
   </div>
   <div class="input-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" />
+    <label #label for="password">Password</label>
+    <input
+      #input
+      type="password"
+      id="password"
+      formControlName="password"
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+    />
   </div>
   <div id="saveData">
     <label for="remember">Remember save</label>
-    <input type="checkbox" id="remember" />
+    <input type="checkbox" id="remember" formControlName="remember" />
     <span id="checkbox"></span>
   </div>
-  <input id="submit" type="submit" value="Load Save">
+  <input
+    id="submit"
+    type="submit"
+    value="Load Save"
+    [disabled]="loginForm.invalid"
+  />
 </form>

@@ -24,12 +24,10 @@ export class AccessComponent {
   public toggleForm() {
     if (this.isToggle) {
       this.isToggle = !this.isToggle;
-
       this.textForm = StringForm.registerForm;
       this.textToggle = StringForm.toggleLogin;
     } else {
       this.isToggle = !this.isToggle;
-      
       this.textForm = StringForm.loginForm;
       this.textToggle = StringForm.toggleResgister;
     }

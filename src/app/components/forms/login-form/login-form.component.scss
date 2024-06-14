@@ -32,6 +32,8 @@
         color: $primary-text-color;
         font-size: rem-calc(14);
         font-weight: bold;
+
+        transition: all 300ms ease;
       }
 
       input {
@@ -90,6 +92,8 @@
 
         width: 14px;
         height: 14px;
+
+        transition: all 300ms ease;
 
         z-index: -1;
       }

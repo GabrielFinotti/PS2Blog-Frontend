@@ -1,19 +1,53 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
   <div class="input-group">
-    <label for="username">Player</label>
-    <input type="text" id="username" />
+    <label #label for="username">Player name</label>
+    <input
+      #input
+      type="text"
+      id="username"
+      formControlName="username"
+      (focus)="onFocus(0)"
+      (blur)="onBlur(0)"
+    />
   </div>
   <div class="input-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" />
+    <label #label for="email">Email</label>
+    <input
+      #input
+      type="email"
+      id="email"
+      formControlName="email"
+      (focus)="onFocus(1)"
+      (blur)="onBlur(1)"
+    />
   </div>
   <div class="input-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" />
+    <label #label for="password">Password</label>
+    <input
+      #input
+      type="password"
+      id="password"
+      formControlName="password"
+      (focus)="onFocus(2)"
+      (blur)="onBlur(2)"
+    />
   </div>
   <div class="input-group">
-    <label for="confPassword">Confirm Password</label>
-    <input type="password" id="confPassword" />
+    <label #label for="confPassword">Confirm Password</label>
+    <input
+      #input
+      type="password"
+      id="confPassword"
+      formControlName="confPassword"
+      (focus)="onFocus(3)"
+      (blur)="onBlur(3)"
+    />
   </div>
-  <input id="submit" type="submit" value="Create Save" />
+  <input
+    #input
+    id="submit"
+    type="submit"
+    value="Create Save"
+    [disabled]="registerForm.invalid"
+  />
 </form>
