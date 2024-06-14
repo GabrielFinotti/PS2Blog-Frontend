@@ -1,0 +1,68 @@
+@import "../../../scss/index.scss";
+
+:host {
+  align-self: normal;
+  flex: 2;
+
+  form {
+    background-color: rgba($primary-bg-color, 74%);
+    backdrop-filter: blur(5px);
+    border: 1px solid $secondary-bg-color;
+    border-radius: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    max-width: 360px;
+    margin: auto;
+    padding: 20px;
+
+    .input-group {
+      position: relative;
+
+      width: 100%;
+
+      label {
+        position: absolute;
+        top: 30%;
+        left: 10px;
+
+        color: $primary-text-color;
+        font-size: rem-calc(14);
+        font-weight: bold;
+      }
+
+      input {
+        background-color: rgba($tertiary-bg-color, 3%);
+        border-radius: 15px;
+
+        color: $primary-text-color;
+        font-size: rem-calc(12);
+        font-weight: 100;
+
+        width: 100%;
+        padding: 8px 10px;
+
+        &:focus {
+          outline: 1px solid $secondary-bg-color;
+        }
+      }
+    }
+
+    #submit {
+      background-color: rgba($primary-bg-color, 88%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      color: $primary-text-color;
+      font-size: rem-calc(16);
+      font-weight: bold;
+
+      width: 50%;
+      padding: 8px 0;
+      padding-top: 12px;
+    }
+  }
+}
