@@ -1,8 +1,39 @@
+@font-face {
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Thin.woff);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Regular.woff);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Bold.woff);
+  font-weight: bold;
+}
+
 * {
   border: 0;
+
+  font-family: Manjari;
 
   margin: 0;
   padding: 0;
 
   box-sizing: border-box;
+}
+
+main {
+  background-image: url(./assets/imgs/Dragon.webp);
+  background-position: 45%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  min-height: 100vh;
+  padding: 20px;
 }
