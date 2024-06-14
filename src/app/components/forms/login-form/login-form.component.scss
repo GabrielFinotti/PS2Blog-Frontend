@@ -2,7 +2,7 @@
 
 :host {
   align-self: normal;
-  flex: 2;
+  flex: 1;
 
   form {
     background-color: rgba($primary-bg-color, 74%);
@@ -107,6 +107,8 @@
       width: 50%;
       padding: 8px 0;
       padding-top: 12px;
+
+      cursor: pointer;
     }
   }
 }
