@@ -27,13 +27,15 @@
   box-sizing: border-box;
 }
 
-main {
-  background-image: url(./assets/imgs/Dragon.webp);
+body {
+  background-image: url(./assets/imgs/background.webp);
   background-position: 45%;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
 
-  min-height: 100vh;
+main {
+  min-height: calc(100vh - 80px);
   padding: 20px;
 }

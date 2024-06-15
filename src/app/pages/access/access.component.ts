@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { LoginFormComponent } from '../../components/forms/login-form/login-form.component';
 import { RegisterFormComponent } from '../../components/forms/register-form/register-form.component';
 import { StringForm } from '../../enums/string-form';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-access',
   standalone: true,
-  imports: [LoginFormComponent, RegisterFormComponent],
+  imports: [LoginFormComponent, RegisterFormComponent, FooterComponent],
   templateUrl: './access.component.html',
   styleUrl: './access.component.scss',
 })
