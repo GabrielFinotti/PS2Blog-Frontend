@@ -1,0 +1,65 @@
+@import "../../../scss/index.scss";
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  gap: 20px;
+
+  .game-card {
+    background-color: rgba($secondary-bg-color, 20%);
+    backdrop-filter: blur(4px);
+    border: 2px solid $primary-bg-color;
+    border-radius: 20px;
+
+    grid-column: span 8;
+
+    padding: 20px;
+
+    .card-img {
+      background-color: rgba($primary-bg-color, 40%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      text-align: center;
+
+      padding: 40px 0;
+    }
+
+    .card-info {
+      padding: 10px 0;
+
+      .game-name {
+        color: $secondary-text-color;
+        font-size: rem-calc(14);
+        font-weight: normal;
+
+        padding-bottom: 5px;
+      }
+
+      .game-size {
+        color: $secondary-text-color;
+        font-size: rem-calc(12);
+        font-weight: 100;
+        text-decoration-line: underline;
+      }
+    }
+
+    .game-link {
+      background-color: rgba($primary-bg-color, 40%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      display: block;
+
+      color: $primary-text-color;
+      font-size: rem-calc(16);
+      font-weight: bold;
+      text-decoration: none;
+
+      width: max-content;
+      margin: auto;
+      padding: 15px 20px;
+      padding-bottom: 8px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../scss/index.scss";
+
+main {
+  #searchGames {
+    position: relative;
+
+    input {
+      background-color: rgba($secondary-bg-color, 20%);
+      backdrop-filter: blur(4px);
+      border: 2px solid $primary-bg-color;
+      border-radius: 20px;
+
+      color: $secondary-text-color;
+      font-size: rem-calc(12);
+      font-weight: bold;
+
+      width: 100%;
+      padding: 10px;
+      padding-right: 35px;
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+
+      &:focus {
+        border: 2px solid $primary-bg-color;
+
+        outline: none;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 16%;
+      right: 10px;
+    }
+  }
+
+  #gamesCards {
+    padding: 20px 0;
+  }
+}
