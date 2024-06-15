@@ -36,6 +36,8 @@ body {
 }
 
 main {
+  max-width: 1024px;
   min-height: calc(100vh - 80px);
+  margin: auto;
   padding: 20px;
 }

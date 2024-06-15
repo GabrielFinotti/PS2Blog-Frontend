@@ -1,8 +1,15 @@
 <main>
-  <div id="searchGames">
-    <input type="search" />
-    <img src="../../../assets/icons/search-icon.svg" alt="Search" />
-  </div>
+  <section id="search">
+    <div [ngClass]="{ 'show-search': isShow }" id="searchGames">
+      <input
+        type="search"
+        placeholder="Start your immersion"
+        (focus)="searchFocus()"
+        (blur)="searchBlur()"
+      />
+      <img src="../../../assets/icons/search-icon.svg" alt="Search" />
+    </div>
+  </section>
   <section id="gamesCards">
     <app-game-card></app-game-card>
   </section>

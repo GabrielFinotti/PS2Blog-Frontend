@@ -2,7 +2,7 @@
 
 :host {
   display: grid;
-  grid-template-columns: repeat(8,1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap: 20px;
 
   .game-card {
@@ -55,11 +55,34 @@
       font-size: rem-calc(16);
       font-weight: bold;
       text-decoration: none;
+      text-align: center;
 
-      width: max-content;
+      width: 50%;
       margin: auto;
-      padding: 15px 20px;
+      padding: 15px;
       padding-bottom: 8px;
+
+      transition: all 300ms ease;
+
+      &:hover {
+        transform: scale(1.12);
+      }
+    }
+  }
+
+  @media (min-width: 760px) {
+    .game-card {
+      grid-column: span 4;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .game-card {
+      grid-column: span 2;
+
+      .game-link {
+        width: 75%;
+      }
     }
   }
 }

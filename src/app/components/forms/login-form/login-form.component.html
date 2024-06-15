@@ -33,6 +33,7 @@
     <span id="checkbox"></span>
   </div>
   <input
+    [ngClass]="{ disabled: loginForm.invalid }"
     id="submit"
     type="submit"
     value="Load Save"

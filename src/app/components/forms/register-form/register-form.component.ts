@@ -12,11 +12,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { ShowPass } from '../../../enums/show-pass';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-register-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })

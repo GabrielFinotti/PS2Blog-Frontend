@@ -1,38 +1,61 @@
 @import "../../scss/index.scss";
 
 main {
-  #searchGames {
-    position: relative;
+  #search {
+    max-width: 400px;
+    margin: auto;
 
-    input {
-      background-color: rgba($secondary-bg-color, 20%);
-      backdrop-filter: blur(4px);
-      border: 2px solid $primary-bg-color;
-      border-radius: 20px;
+    #searchGames {
+      position: relative;
 
-      color: $secondary-text-color;
-      font-size: rem-calc(12);
-      font-weight: bold;
+      width: 76px;
+      margin: auto;
 
-      width: 100%;
-      padding: 10px;
-      padding-right: 35px;
+      transition: all 500ms ease;
 
-      &::-webkit-search-cancel-button {
-        display: none;
+      &.show-search {
+        width: 100%;
+
+        img {
+          transform: rotate(360deg);
+        }
       }
 
-      &:focus {
-        border: 2px solid $primary-bg-color;
+      input {
+        background-color: rgba($secondary-bg-color, 20%);
+        border: 1px solid $primary-bg-color;
+        backdrop-filter: blur(4px);
+        border-radius: 20px;
 
-        outline: none;
+        color: $secondary-text-color;
+        font-size: rem-calc(12);
+        font-weight: bold;
+
+        width: 100%;
+        padding: 10px;
+        padding-right: 35px;
+
+        &::placeholder {
+          color: $secondary-text-color;
+          font-weight: normal;
+        }
+
+        &::-webkit-search-cancel-button {
+          display: none;
+        }
+
+        &:focus {
+          outline: 1px solid $primary-bg-color;
+        }
       }
-    }
 
-    img {
-      position: absolute;
-      top: 16%;
-      right: 10px;
+      img {
+        position: absolute;
+        top: 16%;
+        right: 10px;
+
+        transition: all 500ms ease;
+      }
     }
   }
 

@@ -50,7 +50,7 @@
     />
   </div>
   <input
-    #input
+    [ngClass]="{ disabled: registerForm.invalid }"
     id="submit"
     type="submit"
     value="Create Save"
