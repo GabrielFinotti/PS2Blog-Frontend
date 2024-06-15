@@ -14,11 +14,17 @@
     <label #label for="password">Password</label>
     <input
       #input
-      type="password"
+      [type]="isShowPass ? 'text' : 'password'"
       id="password"
       formControlName="password"
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
+    />
+    <img
+      id="showPass"
+      [src]="imgShowPass"
+      alt="Show Pass"
+      (click)="showPass()"
     />
   </div>
   <div id="saveData">

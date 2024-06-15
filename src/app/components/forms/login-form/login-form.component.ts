@@ -11,6 +11,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ShowPass } from '../../../enums/show-pass';
 
 @Component({
   selector: 'app-login-form',
@@ -27,6 +28,8 @@ export class LoginFormComponent {
     ElementRef<HTMLLabelElement>
   >;
   protected loginForm!: FormGroup;
+  public isShowPass!: boolean;
+  public imgShowPass!: string;
 
   constructor(private formBuilder: FormBuilder, private render: Renderer2) {
     this.loginForm = this.formBuilder.group({
@@ -34,6 +37,9 @@ export class LoginFormComponent {
       password: ['', Validators.required],
       remember: [false],
     });
+
+    this.isShowPass = false;
+    this.imgShowPass = ShowPass.showPass;
   }
 
   public onFocus(index: number) {
@@ -53,6 +59,16 @@ export class LoginFormComponent {
         'top',
         '30%'
       );
+    }
+  }
+
+  public showPass() {
+    if (!this.isShowPass) {
+      this.imgShowPass = ShowPass.notShowPass;
+      this.isShowPass = true;
+    } else {
+      this.imgShowPass = ShowPass.showPass;
+      this.isShowPass = false;
     }
   }
 

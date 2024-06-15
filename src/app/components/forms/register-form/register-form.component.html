@@ -25,11 +25,17 @@
     <label #label for="password">Password</label>
     <input
       #input
-      type="password"
+      [type]="isShowPass ? 'text' : 'password'"
       id="password"
       formControlName="password"
       (focus)="onFocus(2)"
       (blur)="onBlur(2)"
+    />
+    <img
+      id="showPass"
+      [src]="imgShowPass"
+      alt="Show Pass"
+      (click)="showPass()"
     />
   </div>
   <div class="input-group">

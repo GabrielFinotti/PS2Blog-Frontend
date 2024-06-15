@@ -2,7 +2,6 @@
 
 :host {
   align-self: normal;
-  flex: 2;
 
   form {
     background-color: rgba($primary-bg-color, 74%);
@@ -47,9 +46,21 @@
         width: 100%;
         padding: 8px 10px;
 
+        &#password, &#confPassword {
+          padding-right: 30px;
+        }
+
         &:focus {
           outline: 1px solid $secondary-bg-color;
         }
+      }
+
+      #showPass {
+        position: absolute;
+        top: 16%;
+        right: 5px;
+
+        width: 20px;
       }
     }
 
