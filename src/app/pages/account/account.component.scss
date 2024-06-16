@@ -1,5 +1,35 @@
 @import "../../scss/index.scss";
 
+@keyframes showUserData {
+  50% {
+    scale: 1.2;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes showUserName {
+  to {
+    width: 100%;
+    padding: 10px 15px;
+    padding-bottom: 5px;
+
+    opacity: 1;
+  }
+}
+
+@keyframes showBio {
+  to {
+    height: 180px;
+    padding: 10px;
+
+    overflow-y: auto;
+    opacity: 1;
+  }
+}
+
 main {
   #userProfile {
     display: flex;
@@ -13,6 +43,10 @@ main {
       flex-direction: column;
       align-items: center;
       gap: 10px;
+
+      scale: 0;
+
+      animation: showUserData 800ms ease forwards;
 
       img {
         background-color: rgba($secondary-bg-color, 25%);
@@ -36,9 +70,15 @@ main {
         font-size: rem-calc(18);
         font-weight: normal;
         text-wrap: nowrap;
+        text-align: center;
 
-        padding: 10px 15px;
-        padding-bottom: 5px;
+        width: 0;
+        padding: 10px 0 5px 0;
+
+        overflow: hidden;
+        opacity: 0;
+
+        animation: showUserName 800ms 1000ms ease forwards;
       }
     }
 
@@ -54,11 +94,13 @@ main {
 
       width: 100%;
       max-width: 460px;
-      min-height: 140px;
-      max-height: 200px;
-      padding: 10px;
+      height: 0;
+      padding: 0;
 
-      overflow-y: auto;
+      overflow-y: hidden;
+      opacity: 0;
+
+      animation: showBio 800ms 1000ms ease forwards;
     }
   }
 
