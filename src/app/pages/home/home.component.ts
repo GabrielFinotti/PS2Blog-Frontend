@@ -3,13 +3,11 @@ import { NgClass } from '@angular/common';
 
 //Components
 import { GameCardComponent } from '../../components/cards/game-card/game-card.component';
-import { FooterComponent } from '../../components/footer/footer.component';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgClass, GameCardComponent, FooterComponent, NavbarComponent],
+  imports: [NgClass, GameCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

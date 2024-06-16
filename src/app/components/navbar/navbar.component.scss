@@ -1,5 +1,29 @@
 @import "../../scss/index.scss";
 
+@keyframes showNavMobile {
+  to {
+    height: 92px;
+    padding: 20px;
+
+    overflow: visible;
+  }
+}
+
+@keyframes showLogoDesktop {
+  to {
+    width: 288.47px;
+    padding: 10px;
+
+    opacity: 1;
+  }
+}
+
+@keyframes showNavDesktop {
+  to {
+    height: 100vh;
+  }
+}
+
 header {
   nav {
     background-color: rgba($primary-bg-color, 54%);
@@ -13,8 +37,11 @@ header {
 
     position: relative;
 
-    padding: 20px;
+    height: 0;
 
+    overflow: hidden;
+
+    animation: showNavMobile 800ms ease forwards;
     z-index: 1000000000000000000000;
 
     #logoMobile {
@@ -120,9 +147,13 @@ header {
       align-items: center;
       gap: 20px;
 
-      width: max-content;
+      width: 0;
       margin: auto;
-      padding: 10px;
+
+      overflow: hidden;
+      opacity: 0;
+
+      animation: showLogoDesktop 800ms ease forwards;
 
       img {
         width: 50px;
@@ -132,6 +163,7 @@ header {
         color: $primary-text-color;
         font-size: rem-calc(28);
         font-weight: 100;
+        text-wrap: nowrap;
 
         padding-top: 10px;
       }
@@ -146,8 +178,9 @@ header {
       top: 0;
       left: 20px;
 
-      height: 100vh;
+      height: 0;
 
+      animation: showNavDesktop 500ms 810ms ease forwards;
       z-index: 100000000000000;
 
       #linksDesktop {
@@ -161,11 +194,38 @@ header {
         align-items: center;
         justify-content: space-between;
 
-        height: 50vh;
-        padding: 10px;
-        padding-bottom: 2px;
+        height: 25vh;
+
+        overflow: hidden;
+
+        transition: all 450ms ease;
+
+        &:hover {
+          height: 50vh;
+        }
 
         a {
+          border-radius: 12px;
+
+          position: relative;
+
+          padding: 10px;
+          padding-bottom: 5px;
+
+          transition: all 400ms ease;
+
+          &:hover {
+            img {
+              filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);
+            }
+          }
+
+          &.activated {
+            img {
+              filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);
+            }
+          }
+
           img {
             width: 32px;
           }
