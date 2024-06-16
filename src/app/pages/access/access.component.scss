@@ -7,6 +7,8 @@ main {
   justify-content: center;
   gap: 20px;
 
+  min-height: calc(100vh - 80px);
+
   #logo {
     display: flex;
     flex-direction: column;
