@@ -29,7 +29,6 @@ header {
 
     #navLinksMobile {
       background-color: rgba($primary-bg-color, 90%);
-      border-left: 1px solid $secondary-bg-color;
       border-radius: 10px;
 
       position: absolute;
@@ -42,10 +41,13 @@ header {
       height: 100vh;
 
       opacity: 0;
+      overflow: hidden;
 
       transition: all 500ms ease;
 
       &.show-nav {
+        border-left: 1px solid $secondary-bg-color;
+
         width: 50%;
 
         opacity: 1;
