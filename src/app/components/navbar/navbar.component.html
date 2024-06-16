@@ -20,17 +20,21 @@
         />
       </div>
       <div id="linksMobile">
-        <a routerLink="/post" routerLinkActive="activated">Posts</a>
+        <a routerLink="/post" routerLinkActive="activated"
+          >Posts <img src="../../../assets/icons/posts-icon.svg" alt=""
+        /></a>
         <a
           routerLink=""
           routerLinkActive="activated"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
-        >
+          >Home <img src="../../../assets/icons/games-icon.svg" alt="" />
+        </a>
         <a [routerLink]="['/account', 'NoobNew']" routerLinkActive="activated"
-          >Account</a
-        >
-        <a routerLink="/community" routerLinkActive="activated">Community</a>
+          >Account <img src="../../../assets/icons/account-icon.svg" alt=""
+        /></a>
+        <a routerLink="/community" routerLinkActive="activated"
+          >Community <img src="../../../assets/icons/community-icon.svg" alt=""
+        /></a>
       </div>
     </div>
   </nav>

@@ -13,7 +13,7 @@ header {
 
     position: relative;
 
-    padding: 10px 20px;
+    padding: 20px;
 
     z-index: 1000000000000000000000;
 
@@ -39,6 +39,7 @@ header {
 
       width: 0;
       height: 100vh;
+      padding-top: 30px;
 
       opacity: 0;
       overflow: hidden;
@@ -56,9 +57,9 @@ header {
       #closeMenu {
         border-bottom: 1px solid $secondary-bg-color;
 
-        padding: 20px 20px 12px 0;
-
         margin-left: auto;
+        padding-right: 20px;
+        padding-bottom: 22px;
 
         img {
           width: 30px;
@@ -74,6 +75,10 @@ header {
         margin-left: auto;
 
         a {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
           color: $primary-text-color;
           font-size: rem-calc(18);
           font-weight: 100;
@@ -85,6 +90,15 @@ header {
             border-bottom: 2px solid $secondary-bg-color;
 
             font-weight: normal;
+          }
+
+          img {
+            position: relative;
+            bottom: 2px;
+
+            width: 22px;
+
+            filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(359deg) brightness(94%) contrast(117%);
           }
         }
       }
