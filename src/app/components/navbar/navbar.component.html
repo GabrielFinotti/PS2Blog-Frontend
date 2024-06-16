@@ -21,22 +21,48 @@
       </div>
       <div id="linksMobile">
         <a routerLink="/post" routerLinkActive="activated"
-          >Posts <img src="../../../assets/icons/posts-icon.svg" alt=""
+          >Posts <img src="../../../assets/icons/posts-icon.svg"
         /></a>
         <a
           routerLink=""
           routerLinkActive="activated"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Home <img src="../../../assets/icons/games-icon.svg" alt="" />
+          >Home <img src="../../../assets/icons/games-icon.svg" />
         </a>
         <a [routerLink]="['/account', 'NoobNew']" routerLinkActive="activated"
-          >Account <img src="../../../assets/icons/account-icon.svg" alt=""
+          >Account <img src="../../../assets/icons/account-icon.svg"
         /></a>
         <a routerLink="/community" routerLinkActive="activated"
-          >Community <img src="../../../assets/icons/community-icon.svg" alt=""
+          >Community <img src="../../../assets/icons/community-icon.svg"
         /></a>
       </div>
     </div>
   </nav>
-  <aside></aside>
+  <aside>
+    <div id="logoDesktop">
+      <img src="../../../assets/imgs/ps2-logo.svg" />
+      <p>PS2 BLOG</p>
+      <img src="../../../assets/imgs/ps2-logo.svg" />
+    </div>
+    <div id="navLinksDesktop">
+      <div id="linksDesktop">
+        <a routerLink="/post" routerLinkActive="activated">
+          <img src="../../../assets/icons/posts-icon.svg" alt="Posts" />
+        </a>
+        <a
+          routerLink=""
+          routerLinkActive="activated"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img src="../../../assets/icons/games-icon.svg" alt="Home" />
+        </a>
+        <a [routerLink]="['/account', 'NoobNew']" routerLinkActive="activated">
+          <img src="../../../assets/icons/account-icon.svg" alt="Account" />
+        </a>
+        <a routerLink="/community" routerLinkActive="activated">
+          <img src="../../../assets/icons/community-icon.svg" alt="Community" />
+        </a>
+      </div>
+    </div>
+  </aside>
 </header>

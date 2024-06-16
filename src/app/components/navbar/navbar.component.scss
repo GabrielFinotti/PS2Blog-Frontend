@@ -107,5 +107,78 @@ header {
 
   aside {
     display: none;
+
+    padding-top: 20px;
+
+    #logoDesktop {
+      background-color: rgba($primary-bg-color, 49%);
+      backdrop-filter: blur(4px);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 50px;
+
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      width: max-content;
+      margin: auto;
+      padding: 10px;
+
+      img {
+        width: 50px;
+      }
+
+      p {
+        color: $primary-text-color;
+        font-size: rem-calc(28);
+        font-weight: 100;
+
+        padding-top: 10px;
+      }
+    }
+
+    #navLinksDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      position: fixed;
+      top: 0;
+      left: 20px;
+
+      height: 100vh;
+
+      #linksDesktop {
+        background-color: rgba($secondary-bg-color, 35%);
+        backdrop-filter: blur(2px);
+        border: 2px solid $primary-bg-color;
+        border-radius: 100px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        height: 50vh;
+        padding: 10px;
+        padding-bottom: 2px;
+
+        a {
+          img {
+            width: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    nav {
+      display: none;
+    }
+
+    aside {
+      display: block;
+    }
   }
 }
