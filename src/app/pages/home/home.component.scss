@@ -62,4 +62,16 @@ main {
   #gamesCards {
     padding: 20px 0;
   }
+
+  @media (min-width: 1024px) {
+    #search {
+      #searchGames {
+        width: 80px;
+
+        input {
+          font-size: rem-calc(14);
+        }
+      }
+    }
+  }
 }

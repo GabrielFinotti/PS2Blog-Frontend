@@ -1,0 +1,95 @@
+@import "../../scss/index.scss";
+
+header {
+  nav {
+    background-color: rgba($primary-bg-color, 54%);
+    border-bottom: 1px solid $secondary-bg-color;
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+
+    padding: 10px 20px;
+
+    z-index: 1000000000000000000000;
+
+    #logoMobile {
+      width: 50px;
+    }
+
+    #openMenu {
+      width: 35px;
+
+      cursor: pointer;
+    }
+
+    #navLinksMobile {
+      background-color: rgba($primary-bg-color, 90%);
+      border-left: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      text-align: end;
+
+      width: 0;
+      height: 100vh;
+
+      opacity: 0;
+
+      transition: all 500ms ease;
+
+      &.show-nav {
+        width: 50%;
+
+        opacity: 1;
+      }
+
+      #closeMenu {
+        border-bottom: 1px solid $secondary-bg-color;
+
+        padding: 20px 20px 12px 0;
+
+        margin-left: auto;
+
+        img {
+          width: 30px;
+        }
+      }
+
+      #linksMobile {
+        display: flex;
+        flex-direction: column;
+
+        text-align: start;
+
+        margin-left: auto;
+
+        a {
+          color: $primary-text-color;
+          font-size: rem-calc(18);
+          font-weight: 100;
+          text-decoration: none;
+
+          padding: 10px;
+
+          &.activated {
+            border-bottom: 2px solid $secondary-bg-color;
+
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+
+  aside {
+    display: none;
+  }
+}

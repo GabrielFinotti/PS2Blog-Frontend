@@ -90,4 +90,18 @@
       }
     }
   }
+
+  @media (min-width: 1024px) {
+    form {
+      .input-group {
+        label {
+          font-size: rem-calc(16);
+        }
+
+        input {
+          font-size: rem-calc(14);
+        }
+      }
+    }
+  }
 }

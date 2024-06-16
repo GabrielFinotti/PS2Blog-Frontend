@@ -1,1 +1,38 @@
-<p>navbar works!</p>
+<header>
+  <nav>
+    <img
+      id="logoMobile"
+      src="../../../assets/imgs/ps2-logo-dark.svg"
+      alt="PS2 Blog"
+    />
+    <img
+      id="openMenu"
+      src="../../../assets/icons/open-menu.svg"
+      alt="Menu"
+      (click)="showNav()"
+    />
+    <div [ngClass]="{ 'show-nav': isShowNav }" id="navLinksMobile">
+      <div id="closeMenu">
+        <img
+          src="../../../assets/icons/close-menu.svg"
+          alt="Close Menu"
+          (click)="showNav()"
+        />
+      </div>
+      <div id="linksMobile">
+        <a routerLink="post" routerLinkActive="activated">Posts</a>
+        <a
+          routerLink=""
+          routerLinkActive="activated"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+        <a [routerLink]="['account', 'NoobNew']" routerLinkActive="activated"
+          >Account</a
+        >
+        <a routerLink="community" routerLinkActive="activated">Community</a>
+      </div>
+    </div>
+  </nav>
+  <aside></aside>
+</header>

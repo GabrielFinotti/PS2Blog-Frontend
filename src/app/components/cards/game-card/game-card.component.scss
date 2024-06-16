@@ -80,7 +80,19 @@
     .game-card {
       grid-column: span 2;
 
+      .card-info {
+        .game-name {
+          font-size: rem-calc(16);
+        }
+
+        .game-size {
+          font-size: rem-calc(14);
+        }
+      }
+
       .game-link {
+        font-size: rem-calc(18);
+
         width: 75%;
       }
     }
