@@ -73,5 +73,15 @@ main {
         }
       }
     }
+
+    #gamesCards {
+      padding-left: 76px;
+    }
+  }
+
+  @media (min-width: 1166px) {
+    #gamesCards {
+      padding-left: 0;
+    }
   }
 }

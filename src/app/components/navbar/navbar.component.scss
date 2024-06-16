@@ -148,6 +148,8 @@ header {
 
       height: 100vh;
 
+      z-index: 100000000000000;
+
       #linksDesktop {
         background-color: rgba($secondary-bg-color, 35%);
         backdrop-filter: blur(2px);
