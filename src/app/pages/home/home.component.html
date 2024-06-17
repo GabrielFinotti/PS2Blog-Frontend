@@ -1,16 +1,22 @@
 <main>
   <section id="search">
-    <div [ngClass]="{ 'show-search': isShow }" id="searchGames">
+    <form
+      [formGroup]="search"
+      [ngClass]="{ 'show-search': isShow }"
+      id="searchGames"
+      (ngSubmit)="searchGame()"
+    >
       <input
         type="search"
         placeholder="Start your immersion"
+        formControlName="game"
         (focus)="searchFocus()"
         (blur)="searchBlur()"
       />
       <img src="../../../assets/icons/search-icon.svg" alt="Search" />
-    </div>
+    </form>
   </section>
   <section id="gamesCards">
-    <app-game-card></app-game-card>
+    <app-game-card [list]="gameList"></app-game-card>
   </section>
 </main>

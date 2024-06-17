@@ -13,11 +13,13 @@ export class GamesListService {
     this.url = environment.API_URL;
   }
 
-  public getGamesList(token: string) {
+  public getGamesList(token: string, query: string) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get<GamesList>(`${this.url}/games`, { headers });
+    return this.http.get<GamesList>(`${this.url}/games${query}`, {
+      headers,
+    });
   }
 }
