@@ -1,21 +1,15 @@
 <main>
   <section id="userProfile">
     <div id="userData">
-      <img src="../../../assets/imgs/profile-image.svg" />
-      <p>Player Name</p>
+      <img
+        [src]="
+          player && player.image
+            ? player.image
+            : '../../../assets/imgs/profile-image.svg'
+        "
+      />
+      <p>{{ player ? player.username : "Player" }}</p>
     </div>
-    <p id="bio">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-      iure soluta atque sed. Hic voluptatem nulla dicta laborum atque
-      asperiores, amet, nihil sed tempora voluptates labore doloremque maiores,
-      quas minus possimus. Nisi sint, facilis ad sunt repellendus nulla dolores
-      dicta veniam unde. Vero accusamus, quam odit repellendus dolor laudantium
-      reiciendis, provident facilis alias doloremque assumenda mollitia eius
-      dolore sint nam cumque eligendi! Quo id corporis deleniti exercitationem
-      modi, molestiae facere non beatae ut? Harum accusantium explicabo quaerat
-      natus repudiandae. Itaque incidunt autem fugiat, dolor, impedit fuga
-      dolores labore cupiditate veniam consequuntur quae nisi odio. Quos autem
-      eum optio! Nisi, aperiam!
-    </p>
+    <p id="bio">{{ player ? player.bio : "Not Found..." }}</p>
   </section>
 </main>

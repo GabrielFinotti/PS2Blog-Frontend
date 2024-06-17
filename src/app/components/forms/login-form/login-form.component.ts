@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  OnInit,
   QueryList,
   Renderer2,
   ViewChildren,
@@ -14,6 +15,14 @@ import {
 import { ShowPass } from '../../../enums/show-pass';
 import { NgClass } from '@angular/common';
 
+//Services
+import { LoginService } from '../../../services/auth/user/login.service';
+
+//Interfaces
+import { UserLogin } from '../../../interfaces/user/user-login';
+import { Login } from '../../../interfaces/response/login';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login-form',
   standalone: true,
@@ -21,7 +30,7 @@ import { NgClass } from '@angular/common';
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   @ViewChildren('input') private inputs!: QueryList<
     ElementRef<HTMLInputElement>
   >;
@@ -32,7 +41,12 @@ export class LoginFormComponent {
   public isShowPass!: boolean;
   public imgShowPass!: string;
 
-  constructor(private formBuilder: FormBuilder, private render: Renderer2) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private render: Renderer2,
+    private loginService: LoginService,
+    private router: Router
+  ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -41,6 +55,18 @@ export class LoginFormComponent {
 
     this.isShowPass = false;
     this.imgShowPass = ShowPass.showPass;
+  }
+
+  ngOnInit(): void {
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+      token = sessionStorage.getItem('token');
+
+      if (token) this.router.navigateByUrl('');
+    } else {
+      this.router.navigateByUrl('');
+    }
   }
 
   public onFocus(index: number) {
@@ -86,9 +112,32 @@ export class LoginFormComponent {
     }
     if (!emailRegex.test(email)) return;
 
-    const data = {
+    const data: UserLogin = {
       email,
       password,
     };
+
+    this.loginService.userLogin(data).subscribe(
+      (res) => {
+        this.saveData(res);
+
+        this.router.navigateByUrl('');
+      },
+      (error) => {
+        console.log(error.error.message);
+      }
+    );
+  }
+
+  private saveData(data: Login) {
+    const isSave = this.loginForm.get('remember')?.value as boolean;
+
+    if (isSave) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('player', data.username);
+    } else {
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('player', data.username);
+    }
   }
 }

@@ -13,6 +13,8 @@ import {
 } from '@angular/forms';
 import { ShowPass } from '../../../enums/show-pass';
 import { NgClass } from '@angular/common';
+import { UserRegister } from '../../../interfaces/user/user-register';
+import { RegisterService } from '../../../services/auth/user/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -32,7 +34,11 @@ export class RegisterFormComponent {
   public isShowPass!: boolean;
   public imgShowPass!: string;
 
-  constructor(private formBuilder: FormBuilder, private render: Renderer2) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private render: Renderer2,
+    private registerService: RegisterService
+  ) {
     this.registerForm = this.formBuilder.group({
       username: [
         '',
@@ -108,10 +114,21 @@ export class RegisterFormComponent {
     if (confPassword != password) return;
     if (!emailRegex.test(email)) return;
 
-    const data = {
+    const data: UserRegister = {
       username,
       email,
       password,
     };
+
+    this.registerService.userRegister(data).subscribe(
+      (res) => {
+        console.log(res.message, res.data);
+
+        this.registerForm.reset();
+      },
+      (error) => {
+        console.log(error.error.message);
+      }
+    );
   }
 }

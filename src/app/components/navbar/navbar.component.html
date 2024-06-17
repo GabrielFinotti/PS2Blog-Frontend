@@ -29,7 +29,7 @@
           [routerLinkActiveOptions]="{ exact: true }"
           >Home <img src="../../../assets/icons/games-icon.svg" />
         </a>
-        <a [routerLink]="['/account', 'NoobNew']" routerLinkActive="activated"
+        <a [routerLink]="['/account', playerName]" routerLinkActive="activated"
           >Account <img src="../../../assets/icons/account-icon.svg"
         /></a>
         <a routerLink="/community" routerLinkActive="activated"
@@ -56,7 +56,7 @@
         >
           <img src="../../../assets/icons/games-icon.svg" alt="Home" />
         </a>
-        <a [routerLink]="['/account', 'NoobNew']" routerLinkActive="activated">
+        <a [routerLink]="['/account', playerName]" routerLinkActive="activated">
           <img src="../../../assets/icons/account-icon.svg" alt="Account" />
         </a>
         <a routerLink="/community" routerLinkActive="activated">
