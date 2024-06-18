@@ -67,14 +67,10 @@ export class HomeComponent implements OnInit {
 
     this.query = `?name=${game}`;
 
-    console.log(this.query);
-
     this.gamesListService
       .getGamesList(this.token, this.query)
       .subscribe((res) => {
         this.gameList = res;
-
-        this.search.reset();
       });
   }
 }

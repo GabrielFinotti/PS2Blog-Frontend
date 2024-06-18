@@ -1,4 +1,12 @@
-import { Component, Input, OnInit, Renderer2 } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  QueryList,
+  Renderer2,
+  ViewChildren,
+} from '@angular/core';
 import { GamesList } from '../../../interfaces/response/games-list';
 
 @Component({
@@ -8,10 +16,30 @@ import { GamesList } from '../../../interfaces/response/games-list';
   templateUrl: './game-card.component.html',
   styleUrl: './game-card.component.scss',
 })
-export class GameCardComponent implements OnInit {
+export class GameCardComponent implements AfterViewInit {
   @Input() public list!: GamesList;
+  @ViewChildren('card') private cards!: QueryList<ElementRef<HTMLDivElement>>;
 
   constructor(private render: Renderer2) {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    this.cards.changes.subscribe((res) => {
+      this.setClass();
+    });
+  }
+
+  private setClass() {
+    const cardsArray = this.cards.toArray();
+
+    let count = 250;
+
+    cardsArray.forEach((card) => {
+      this.render.removeClass(card.nativeElement, 'show-card');
+      setTimeout(() => {
+        this.render.addClass(card.nativeElement, 'show-card');
+      }, count);
+
+      count += 250;
+    });
+  }
 }
