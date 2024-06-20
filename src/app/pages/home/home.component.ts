@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 //Components
 import { GameCardComponent } from '../../components/cards/game-card/game-card.component';
 import { GamesListService } from '../../services/games/games-list.service';
-import { GamesList } from '../../interfaces/response/games-list';
 
 @Component({
   selector: 'app-home',
@@ -16,9 +15,14 @@ import { GamesList } from '../../interfaces/response/games-list';
 })
 export class HomeComponent implements OnInit {
   protected search!: FormGroup;
+  protected gameList!: Array<{ name: string; size: string; href: string }>;
   protected isShow!: boolean;
   protected query!: string;
-  protected gameList!: GamesList;
+  protected prevPage!: number | undefined;
+  protected nextPage!: number | undefined;
+  protected totalDocs!: number;
+  protected currentPage!: number;
+  private gameName!: string;
   private token!: string;
 
   constructor(
@@ -31,6 +35,7 @@ export class HomeComponent implements OnInit {
 
     this.isShow = false;
     this.query = '';
+    this.currentPage = 1;
   }
 
   ngOnInit(): void {
@@ -60,17 +65,43 @@ export class HomeComponent implements OnInit {
     this.isShow = false;
   }
 
-  public searchGame() {
-    let game = this.search.get('game')?.value as string;
+  protected searchGame() {
+    this.gameName = this.search.get('game')?.value as string;
 
-    if (!game) game = ' ';
+    if (!this.gameName) this.gameName = ' ';
 
-    this.query = `?name=${game}`;
+    this.query = `?name=${this.gameName}&page=${this.currentPage}`;
 
     this.gamesListService
       .getGamesList(this.token, this.query)
       .subscribe((res) => {
-        this.gameList = res;
+        this.gameList = res.gameList;
+        this.prevPage = res.prevPage;
+        this.nextPage = res.nextPage;
+        this.totalDocs = res.totalDocs;
       });
+  }
+
+  protected togglePage(page: number) {
+    this.currentPage = page;
+
+    this.searchGame();
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  protected pagination(): number[] {
+    if (this.totalDocs <= 20) {
+      return Array.from({ length: 1 }, (_, i) => 1);
+    }
+
+    const totalPages = Math.ceil(this.totalDocs / 20);
+    const startPage = Math.max(this.currentPage - 2, 1);
+    const endPage = Math.min(startPage + 2, totalPages);
+
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i
+    );
   }
 }

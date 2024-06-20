@@ -19,4 +19,27 @@
   <section id="gamesCards">
     <app-game-card [list]="gameList"></app-game-card>
   </section>
+  @if (totalDocs) {
+  <section id="pagination">
+    <img
+      [ngClass]="{ disabled: !prevPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Prev"
+      (click)="prevPage ? togglePage(prevPage) : undefined"
+    />
+    @for (page of pagination(); track $index) {
+    <span
+      [ngClass]="{ 'activated-page': currentPage == page }"
+      (click)="togglePage(page)"
+      >{{ page }}</span
+    >
+    }
+    <img
+      [ngClass]="{ disabled: !nextPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Next"
+      (click)="nextPage ? togglePage(nextPage) : undefined"
+    />
+  </section>
+  }
 </main>

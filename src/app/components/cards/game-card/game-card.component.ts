@@ -7,7 +7,6 @@ import {
   Renderer2,
   ViewChildren,
 } from '@angular/core';
-import { GamesList } from '../../../interfaces/response/games-list';
 
 @Component({
   selector: 'app-game-card',
@@ -17,7 +16,7 @@ import { GamesList } from '../../../interfaces/response/games-list';
   styleUrl: './game-card.component.scss',
 })
 export class GameCardComponent implements AfterViewInit {
-  @Input() public list!: GamesList;
+  @Input() public list!: Array<{ name: string; size: string; href: string }>;
   @ViewChildren('card') private cards!: QueryList<ElementRef<HTMLDivElement>>;
 
   constructor(private render: Renderer2) {}

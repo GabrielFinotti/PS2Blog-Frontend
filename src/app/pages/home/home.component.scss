@@ -63,6 +63,61 @@ main {
     padding: 20px 0;
   }
 
+  #pagination {
+    background-color: rgba($secondary-bg-color, 35%);
+    backdrop-filter: blur(4px);
+    border: 2px solid $primary-bg-color;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    width: max-content;
+    margin: auto;
+
+    padding: 5px 10px;
+
+    img {
+      cursor: pointer;
+
+      &:nth-last-child(1) {
+        transform: rotate(180deg) scaleY(-1);
+      }
+
+      &.disabled {
+        opacity: 0.5;
+
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      position: relative;
+      top: 2px;
+
+      font-size: rem-calc(16);
+
+      cursor: pointer;
+
+      &.activated-page {
+        color: $primary-text-color;
+      }
+    }
+  }
+
+  @media (min-width: 760px) {
+    #pagination {
+      img {
+        width: 25px;
+      }
+
+      span {
+        font-size: rem-calc(18);
+      }
+    }
+  }
+
   @media (min-width: 1024px) {
     #search {
       #searchGames {
