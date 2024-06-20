@@ -1,5 +1,12 @@
 @import "../../../scss/index.scss";
 
+@keyframes showCard {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
 :host {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -19,11 +26,7 @@
     opacity: 0;
 
     transition: all 350ms ease-out;
-
-    &.show-card {
-      scale: 1;
-      opacity: 1;
-    }
+    animation: showCard 250ms ease forwards;
 
     .card-img {
       background-color: rgba($primary-bg-color, 40%);
