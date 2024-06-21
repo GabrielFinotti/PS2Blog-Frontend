@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { GetProfile } from '../../interfaces/response/get-profile';
 import { GetProfileService } from '../../services/auth/user/get-profile.service';
+import { UpdateFormComponent } from '../../components/forms/update-form/update-form.component';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [],
+  imports: [UpdateFormComponent],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss',
 })

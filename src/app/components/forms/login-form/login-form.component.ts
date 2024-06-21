@@ -104,6 +104,7 @@ export class LoginFormComponent implements OnInit {
 
     const email = this.loginForm.get('email')?.value as string;
     const password = this.loginForm.get('password')?.value as string;
+    const isSave = this.loginForm.get('remember')?.value as boolean;
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -115,11 +116,12 @@ export class LoginFormComponent implements OnInit {
     const data: UserLogin = {
       email,
       password,
+      save: isSave,
     };
 
     this.loginService.userLogin(data).subscribe(
       (res) => {
-        this.saveData(res);
+        this.saveData(res, isSave);
 
         this.router.navigateByUrl('');
       },
@@ -129,9 +131,7 @@ export class LoginFormComponent implements OnInit {
     );
   }
 
-  private saveData(data: Login) {
-    const isSave = this.loginForm.get('remember')?.value as boolean;
-
+  private saveData(data: Login, isSave: boolean) {
     if (isSave) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('player', data.username);

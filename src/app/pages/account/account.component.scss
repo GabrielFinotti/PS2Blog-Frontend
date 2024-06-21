@@ -31,6 +31,10 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   #userProfile {
     display: flex;
     flex-direction: column;
@@ -82,7 +86,7 @@ main {
       }
     }
 
-    #bio {
+    #apresentation {
       background-color: rgba($primary-bg-color, 40%);
       backdrop-filter: blur(4px);
       border: 1px solid $secondary-bg-color;
@@ -102,6 +106,10 @@ main {
 
       animation: showBio 800ms 1000ms ease forwards;
     }
+  }
+
+  #updateProfile {
+    padding-top: 20px;
   }
 
   @media (min-width: 760px) {
