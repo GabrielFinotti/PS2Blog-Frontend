@@ -1,12 +1,22 @@
 <main>
   <section id="userProfile">
     <div id="userData">
-      <img
-        [src]="
-          player && player.image
-            ? player.image
-            : '../../../assets/imgs/profile-image.svg'
-        "
+      <label for="image" title="Click to change your image">
+        <img
+          [src]="
+            player && player.image
+              ? player.image
+              : '../../../assets/imgs/profile-image.svg'
+          "
+        />
+      </label>
+      <input
+        #input
+        type="file"
+        id="image"
+        accept="image/png, image/jpg, image/jpeg, image/gif"
+        hidden
+        (change)="updateProfileImg()"
       />
       <p>{{ player ? player.username : "Player" }}</p>
     </div>

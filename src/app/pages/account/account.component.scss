@@ -52,16 +52,19 @@ main {
 
       animation: showUserData 800ms ease forwards;
 
-      img {
-        background-color: rgba($secondary-bg-color, 25%);
-        backdrop-filter: blur(4px);
-        border: 2px solid $primary-bg-color;
-        border-radius: 50%;
+      label {
+        img {
+          background-color: rgba($secondary-bg-color, 25%);
+          backdrop-filter: blur(4px);
+          border: 2px solid $primary-bg-color;
+          border-radius: 50%;
 
-        width: 115px;
+          width: 115px;
 
-        object-fit: cover;
-        aspect-ratio: 1/1;
+          object-fit: cover;
+          aspect-ratio: 1/1;
+          cursor: pointer;
+        }
       }
 
       p {
@@ -118,8 +121,10 @@ main {
       justify-content: space-evenly;
 
       #userData {
-        img {
-          width: 150px;
+        label {
+          img {
+            width: 150px;
+          }
         }
 
         p {
