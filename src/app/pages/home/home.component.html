@@ -1,27 +1,68 @@
 <main>
-  <section id="searchGames">
-    <div [ngClass]="{ 'show-search': isShowSearch }" id="search">
+  <section id="search">
+    <form
+      [formGroup]="search"
+      [ngClass]="{ 'show-search': isShow }"
+      id="searchGames"
+      (ngSubmit)="searchGame()"
+    >
       <input
         type="search"
-        placeholder="Start the immersion..."
-        (focus)="showSearch()"
-        (blur)="showSearch()"
+        placeholder="Start your immersion"
+        formControlName="game"
+        (focus)="searchFocus()"
+        (blur)="searchBlur()"
       />
       <img src="../../../assets/icons/search-icon.svg" alt="Search" />
-    </div>
-    <div [ngClass]="{ 'show-results': false }" id="results">
-      <p>Pages - 4</p>
-      <p>Games - 80</p>
-    </div>
+    </form>
   </section>
-  <section id="gamesCards">
-    <app-games-cards></app-games-cards>
-  </section>
+  @if (totalDocs) {
   <section id="pagination">
-    <img src="../../../assets/icons/arrow-icon.svg" alt="Before" />
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
-    <img src="../../../assets/icons/arrow-icon.svg" alt="After" />
+    <img
+      [ngClass]="{ disabled: !prevPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Prev"
+      (click)="prevPage ? togglePage(prevPage) : undefined"
+    />
+    @for (page of pagination(); track $index) {
+    <span
+      [ngClass]="{ 'activated-page': currentPage == page }"
+      (click)="togglePage(page)"
+      >{{ page }}</span
+    >
+    }
+    <img
+      [ngClass]="{ disabled: !nextPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Next"
+      (click)="nextPage ? togglePage(nextPage) : undefined"
+    />
   </section>
+  }
+  <section id="gamesCards">
+    <app-game-card [list]="gameList"></app-game-card>
+  </section>
+  @if (totalDocs) {
+  <section id="pagination">
+    <img
+      [ngClass]="{ disabled: !prevPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Prev"
+      (click)="prevPage ? togglePage(prevPage) : undefined"
+    />
+    @for (page of pagination(); track $index) {
+    <span
+      [ngClass]="{ 'activated-page': currentPage == page }"
+      (click)="togglePage(page)"
+      >{{ page }}</span
+    >
+    }
+    <img
+      [ngClass]="{ disabled: !nextPage }"
+      src="../../../assets/icons/pagination-icon.svg"
+      alt="Next"
+      (click)="nextPage ? togglePage(nextPage) : undefined"
+    />
+  </section>
+  }
 </main>

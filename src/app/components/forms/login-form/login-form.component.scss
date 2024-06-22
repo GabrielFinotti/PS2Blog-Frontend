@@ -1,120 +1,218 @@
 @import "../../../scss/index.scss";
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+@keyframes showForm {
+  50% {
+    scale: 1.15;
+  }
 
-  max-width: 400px;
-  margin: auto;
+  100% {
+    scale: 1;
+  }
+}
 
-  .input-group {
-    align-self: normal;
+@keyframes showLabels {
+  to {
+    opacity: 1;
 
-    position: relative;
+    transform: rotate(0) translate(0, 0);
+  }
+}
 
-    &.invalid {
+@keyframes showInputs {
+  to {
+    width: 100%;
+    padding: 8px 10px;
+  }
+}
+
+@keyframes showInputPass {
+  to {
+    width: 100%;
+    padding: 8px 10px;
+    padding-right: 30px;
+  }
+}
+
+@keyframes showOthers {
+  to {
+    opacity: 1;
+  }
+}
+
+:host {
+  align-self: normal;
+
+  form {
+    background-color: rgba($primary-bg-color, 74%);
+    backdrop-filter: blur(4px);
+    border: 1px solid $secondary-bg-color;
+    border-radius: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    max-width: 360px;
+    margin: auto;
+    padding: 20px;
+
+    scale: 0;
+
+    animation: showForm 800ms ease forwards;
+
+    .input-group {
+      position: relative;
+
+      width: 100%;
+
       label {
-        color: red;
+        position: absolute;
+        top: 30%;
+        left: 10px;
+
+        color: $primary-text-color;
+        font-size: rem-calc(14);
+        font-weight: bold;
+
+        opacity: 0;
+
+        transition: all 300ms ease;
+        transform: rotate(-40deg) translate(-10px, -40px);
+        animation: showLabels 500ms 1610ms ease forwards;
       }
 
       input {
-        border: 1px solid red;
+        background-color: rgba($tertiary-bg-color, 3%);
+        border-radius: 15px;
 
-        color: red;
+        display: block;
+
+        color: $primary-text-color;
+        font-size: rem-calc(12);
+        font-weight: 100;
+
+        width: 0;
+        margin: auto;
+        padding: 0;
+
+        animation: showInputs 800ms 810ms ease forwards;
+
+        &#password {
+          padding-right: 0;
+
+          animation: showInputPass 800ms 810ms ease forwards;
+        }
 
         &:focus {
-          outline: none;
+          outline: 1px solid $secondary-bg-color;
         }
       }
-    }
 
-    label {
-      position: absolute;
-      top: 25%;
-      left: 10px;
+      #showPass {
+        position: absolute;
+        top: 16%;
+        right: 5px;
 
-      color: $primary-text-color;
-      font-size: rem-calc(16);
+        width: 20px;
 
-      transition: all 300ms ease;
-      z-index: 1;
-    }
-
-    input {
-      background-color: rgba($primary-bg-color, 0.2);
-      backdrop-filter: blur(3px);
-      border-radius: 0 15px;
-
-      color: $primary-text-color;
-      font-size: rem-calc(16);
-      letter-spacing: 1px;
-
-      width: 100%;
-      padding: 10px;
-
-      outline: none;
-
-      transition: all 300ms ease;
-
-      &#password {
-        padding-right: 35px;
-      }
-
-      &:focus {
-        outline: 1px solid $tertiay-bg-color;
+        opacity: 0;
+        animation: showOthers 700ms 810ms ease forwards;
       }
     }
 
-    img {
-      position: absolute;
-      top: 18%;
-      right: 5px;
+    #saveData {
+      display: flex;
+      align-items: center;
+      align-self: flex-end;
+      gap: 8px;
 
-      width: 22px;
+      position: relative;
 
       cursor: pointer;
+      opacity: 0;
+
+      animation: showOthers 700ms 810ms ease forwards;
+
+      label {
+        color: $primary-text-color;
+        font-size: rem-calc(12);
+
+        cursor: pointer;
+      }
+
+      input {
+        opacity: 0;
+
+        cursor: pointer;
+
+        &:checked ~ span {
+          background-color: $secondary-bg-color;
+          border-color: $primary-bg-color;
+        }
+      }
+
+      span {
+        background: transparent;
+        border: 1px solid $secondary-bg-color;
+        border-radius: 50%;
+
+        position: absolute;
+        top: -1px;
+        right: 0;
+
+        width: 14px;
+        height: 14px;
+
+        transition: all 300ms ease;
+
+        z-index: -1;
+      }
+    }
+
+    #submit {
+      background-color: rgba($primary-bg-color, 88%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      color: $primary-text-color;
+      font-size: rem-calc(16);
+      font-weight: bold;
+
+      width: 50%;
+      padding: 8px 0;
+      padding-top: 12px;
+
+      cursor: pointer;
+      overflow: hidden;
+
+      transition: all 500ms ease;
+
+      &.disabled {
+        width: 0;
+
+        opacity: 0;
+      }
     }
   }
 
-  .info-input {
-    align-self: self-start;
+  @media (min-width: 1024px) {
+    form {
+      .input-group {
+        label {
+          font-size: rem-calc(16);
+        }
 
-    color: red;
-    font-size: rem-calc(14);
+        input {
+          font-size: rem-calc(14);
+        }
+      }
 
-    height: 0;
-
-    overflow: hidden;
-
-    transition: all 300ms ease;
-
-    &.invalid {
-      height: 25px;
-    }
-  }
-
-  .submit-form {
-    background-color: $secondary-bg-color;
-    border-radius: 5px;
-
-    color: $primary-text-color;
-    font-size: rem-calc(16);
-
-    width: 50%;
-    padding: 12px 0;
-
-    overflow: hidden;
-    cursor: pointer;
-
-    transition: all ease 1000ms;
-
-    &.disabled {
-      width: 0;
-      padding: 12px 0;
-
-      cursor: not-allowed;
+      #saveData {
+        label {
+          font-size: rem-calc(14);
+        }
+      }
     }
   }
 }

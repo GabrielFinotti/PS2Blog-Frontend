@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  OnInit,
   QueryList,
   Renderer2,
   ViewChildren,
@@ -12,10 +11,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ShowPass } from '../../../enums/show-pass';
 import { NgClass } from '@angular/common';
-import { ShowPassword } from '../../../enums/show-password';
-import { UserRegisterService } from '../../../services/userServices/register/user-register.service';
 import { UserRegister } from '../../../interfaces/user/user-register';
+import { RegisterService } from '../../../services/auth/user/register.service';
 
 @Component({
   selector: 'app-register-form',
@@ -24,23 +23,21 @@ import { UserRegister } from '../../../interfaces/user/user-register';
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.scss',
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterFormComponent {
   @ViewChildren('input') private inputs!: QueryList<
     ElementRef<HTMLInputElement>
   >;
   @ViewChildren('label') private labels!: QueryList<
     ElementRef<HTMLLabelElement>
   >;
-  @ViewChildren('div') private divs!: QueryList<ElementRef<HTMLDivElement>>;
-
-  protected showPassUrl!: string;
   protected registerForm!: FormGroup;
-  protected isInvalid!: Record<string, boolean>;
+  public isShowPass!: boolean;
+  public imgShowPass!: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userRegisterService: UserRegisterService
+    private registerService: RegisterService
   ) {
     this.registerForm = this.formBuilder.group({
       username: [
@@ -51,7 +48,7 @@ export class RegisterFormComponent implements OnInit {
           Validators.maxLength(16),
         ],
       ],
-      email: ['', [Validators.email, Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: [
         '',
         [
@@ -63,95 +60,75 @@ export class RegisterFormComponent implements OnInit {
       confPassword: ['', Validators.required],
     });
 
-    this.showPassUrl = ShowPassword.show;
-    this.isInvalid = {};
+    this.isShowPass = false;
+    this.imgShowPass = ShowPass.showPass;
   }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.divs.forEach((div) => {
-        this.render.removeClass(div.nativeElement, 'hidden');
-      });
-    }, 2200);
-
-    this.registerForm.valueChanges.subscribe();
-  }
-
-  protected onFocus(index: number) {
-    if (this.inputs.toArray()[index].nativeElement.value.length === 0) {
+  public onFocus(index: number) {
+    if (this.inputs.toArray()[index].nativeElement) {
       this.render.setStyle(
         this.labels.toArray()[index].nativeElement,
         'top',
-        '-18px'
+        '-14px'
       );
     }
   }
 
-  protected onBlur(index: number) {
-    if (this.inputs.toArray()[index].nativeElement.value.length === 0) {
+  public onBlur(index: number) {
+    if (this.inputs.toArray()[index].nativeElement.value === '') {
       this.render.setStyle(
         this.labels.toArray()[index].nativeElement,
         'top',
-        '25%'
+        '30%'
       );
     }
   }
 
-  protected isShowPassword() {
-    if (this.showPassUrl === ShowPassword.show) {
-      this.showPassUrl = ShowPassword.hidden;
-      this.inputs.toArray()[2].nativeElement.type = 'text';
+  public showPass() {
+    if (!this.isShowPass) {
+      this.imgShowPass = ShowPass.notShowPass;
+      this.isShowPass = true;
     } else {
-      this.showPassUrl = ShowPassword.show;
-      this.inputs.toArray()[2].nativeElement.type = 'password';
+      this.imgShowPass = ShowPass.showPass;
+      this.isShowPass = false;
     }
   }
 
-  protected submitForm() {
+  protected submit() {
     if (this.registerForm.invalid) return;
 
-    const { username, email, password }: UserRegister = this.registerForm.value;
+    const username = this.registerForm.get('username')?.value as string;
+    const email = this.registerForm.get('email')?.value as string;
+    const password = this.registerForm.get('password')?.value as string;
+    const confPassword = this.registerForm.get('confPassword')?.value as string;
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (username != username.trim()) {
-      this.isInvalid['emptyUser'] = true;
+    if (
+      username != username.trim() ||
+      password != password.trim() ||
+      confPassword != confPassword.trim() ||
+      email != email.trim()
+    ) {
       return;
-    } else {
-      this.isInvalid['emptyUser'] = false;
     }
-    if (password != password.trim()) {
-      this.isInvalid['emptyPass'] = true;
-      return;
-    } else {
-      this.isInvalid['emptyPass'] = false;
-    }
-    if (password != this.registerForm.get('confPassword')?.value) {
-      this.isInvalid['confPassword'] = true;
-      return;
-    } else {
-      this.isInvalid['confPassword'] = false;
-    }
-    if (!emailRegex.test(email)) {
-      this.isInvalid['email'] = true;
-      return;
-    } else {
-      this.isInvalid['email'] = false;
-    }
+    if (confPassword != password) return;
+    if (!emailRegex.test(email)) return;
 
-    const data: UserRegister = { username, email, password };
+    const data: UserRegister = {
+      username,
+      email,
+      password,
+    };
 
-    this.userRegisterService.userRegister(data).subscribe(
+    this.registerService.userRegister(data).subscribe(
       (res) => {
-        this.registerForm.reset('');
+        console.log(res.message, res.data);
+
+        this.registerForm.reset();
       },
-      (err) => console.log(err)
+      (error) => {
+        console.log(error.error.message);
+      }
     );
-  }
-
-  protected invalidInput(controlName: string) {
-    const control = this.registerForm.get(controlName);
-    if (!control) return false;
-
-    return control.invalid && control.touched && control.dirty;
   }
 }

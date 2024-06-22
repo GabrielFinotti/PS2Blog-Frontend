@@ -1,14 +1,15 @@
 <main>
-  <div id="container">
+  <div id="logo">
     <img src="../../../assets/imgs/ps2-logo.svg" alt="Logo" />
-    @if(isFormLogin) {
-    <app-login-form></app-login-form>
-    } @else {
-    <app-register-form></app-register-form>
-    }
+  </div>
+  @if (!isToggle) {
+  <app-login-form></app-login-form>
+  } @else {
+  <app-register-form></app-register-form>
+  }
+  <div id="toggleForm">
     <p>
-      {{ typeForm }}
-      <span (click)="toggleForm()">{{ spanForm }}</span>
+      {{ textForm }}<span (click)="toggleForm()">{{ textToggle }}</span>
     </p>
   </div>
 </main>

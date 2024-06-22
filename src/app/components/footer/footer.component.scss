@@ -1,26 +1,50 @@
 @import "../../scss/index.scss";
 
 footer {
-  background-color: $primary-bg-color;
+  background-color: rgba($primary-bg-color, 64%);
+  backdrop-filter: blur(4px);
+  border-top: 1px solid $secondary-bg-color;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
   padding: 20px;
 
-  #copy {
-    max-width: 1024px;
-    margin: auto;
+  p {
+    color: $primary-text-color;
+    font-size: rem-calc(12);
 
-    p {
-      color: $tertiary-text-color;
-      font-size: rem-calc(14);
-      text-align: center;
+    span {
+      font-weight: bold;
     }
   }
-}
 
-@media (min-width: 760px) {
-  footer {
-    #copy {
-      p {
-        font-size: rem-calc(16);
+  #links {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    align-self: normal;
+    gap: 10px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      color: $primary-text-color;
+      font-size: rem-calc(10);
+      font-weight: 100;
+      text-decoration: none;
+      text-wrap: nowrap;
+
+      img {
+        position: relative;
+        bottom: 1px;
       }
     }
   }

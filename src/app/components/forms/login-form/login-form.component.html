@@ -1,50 +1,42 @@
-<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
-  <div
-    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
-    class="input-group"
-  >
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <div class="input-group">
     <label #label for="email">Email</label>
     <input
       #input
-      id="email"
       type="email"
+      id="email"
       formControlName="email"
       (focus)="onFocus(0)"
       (blur)="onBlur(0)"
     />
   </div>
-  <p
-    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
-    class="info-input"
-  >
-    Enter a valid email!
-  </p>
-  <div
-    [ngClass]="{ invalid: invalidInput('password') || isInvalid['password'] }"
-    class="input-group"
-  >
+  <div class="input-group">
     <label #label for="password">Password</label>
     <input
       #input
+      [type]="isShowPass ? 'text' : 'password'"
       id="password"
-      type="password"
       formControlName="password"
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
     />
-    <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
+    <img
+      id="showPass"
+      [src]="imgShowPass"
+      alt="Show Pass"
+      (click)="showPass()"
+    />
   </div>
-  <p
-    [ngClass]="{ invalid: invalidInput('password') || isInvalid['password'] }"
-    class="info-input"
-  >
-    Password cannot be empty!
-  </p>
+  <div id="saveData">
+    <label for="remember">Remember save</label>
+    <input type="checkbox" id="remember" formControlName="remember" />
+    <span id="checkbox"></span>
+  </div>
   <input
     [ngClass]="{ disabled: loginForm.invalid }"
-    class="submit-form"
+    id="submit"
     type="submit"
-    value="Load save"
+    value="Load Save"
     [disabled]="loginForm.invalid"
   />
 </form>

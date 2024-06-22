@@ -1,0 +1,113 @@
+@import "../../../scss/index.scss";
+
+@keyframes showCard {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+
+  .game-card {
+    background-color: rgba($secondary-bg-color, 20%);
+    backdrop-filter: blur(4px);
+    border: 2px solid $primary-bg-color;
+    border-radius: 20px;
+
+    grid-column: span 8;
+
+    padding: 20px;
+
+    scale: 0;
+    opacity: 0;
+
+    transition: all 350ms ease-out;
+    animation: showCard 250ms ease forwards;
+
+    .card-img {
+      background-color: rgba($primary-bg-color, 40%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      text-align: center;
+
+      padding: 40px 0;
+    }
+
+    .card-info {
+      padding: 10px 0;
+
+      .game-name {
+        color: $secondary-text-color;
+        font-size: rem-calc(14);
+        font-weight: normal;
+
+        padding-bottom: 5px;
+      }
+
+      .game-size {
+        color: $secondary-text-color;
+        font-size: rem-calc(12);
+        font-weight: 100;
+        text-decoration-line: underline;
+      }
+    }
+
+    .game-link {
+      background-color: rgba($primary-bg-color, 40%);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
+
+      display: block;
+
+      color: $primary-text-color;
+      font-size: rem-calc(16);
+      font-weight: bold;
+      text-decoration: none;
+      text-align: center;
+
+      width: 50%;
+      margin: auto;
+      padding: 15px;
+      padding-bottom: 8px;
+
+      transition: all 300ms ease;
+
+      &:hover {
+        transform: scale(1.12);
+      }
+    }
+  }
+
+  @media (min-width: 760px) {
+    .game-card {
+      grid-column: span 4;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .game-card {
+      grid-column: span 2;
+
+      .card-info {
+        .game-name {
+          font-size: rem-calc(16);
+        }
+
+        .game-size {
+          font-size: rem-calc(14);
+        }
+      }
+
+      .game-link {
+        font-size: rem-calc(18);
+
+        width: 75%;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@if (list) { @for (game of list; track $index) {
+<div #card class="game-card">
+  <div class="card-img">
+    <img src="../../../../assets/imgs/image-game.svg" [alt]="game.name" />
+  </div>
+  <div class="card-info">
+    <p class="game-name">{{ game.name }}</p>
+    <p class="game-size">Size: {{ game.size }}</p>
+  </div>
+  <a [href]="game.href" class="game-link">Download</a>
+</div>
+} }

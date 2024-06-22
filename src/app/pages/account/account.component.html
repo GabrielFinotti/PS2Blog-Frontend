@@ -1,29 +1,28 @@
 <main>
-  <section id="user">
-    <div id="profile">
-      <img src="../../../assets/imgs/user-logo.svg" alt="Profile" />
-      <p>{{ userData ? userData.username : "Player" }}</p>
+  <section id="userProfile">
+    <div id="userData">
+      <label for="image" title="Click to change your image">
+        <img
+          [src]="
+            player && player.image
+              ? player.image
+              : '../../../assets/imgs/profile-image.svg'
+          "
+        />
+      </label>
+      <input
+        #input
+        type="file"
+        id="image"
+        accept="image/png, image/jpg, image/jpeg, image/gif"
+        hidden
+        (change)="updateProfileImg()"
+      />
+      <p>{{ player ? player.username : "Player" }}</p>
     </div>
-    <p id="bio">
-      {{ userData ? userData.bio : "Not Found..." }}
-    </p>
+    <p id="apresentation">{{ player ? player.bio : "Not Found..." }}</p>
   </section>
-  <section id="dataManager">
-    <div id="toggleManager">
-      <a
-        [ngClass]="{ disabled: !userData }"
-        [routerLink]="userData ? 'profile' : null"
-        routerLinkActive="link-activated"
-        >Account Manager</a
-      >
-      <span></span>
-      <a
-        [ngClass]="{ disabled: !userData }"
-        [routerLink]="userData ? 'favorite' : null"
-        routerLinkActive="link-activated"
-        >Favorite games</a
-      >
-    </div>
-    <router-outlet></router-outlet>
+  <section id="updateProfile">
+    <app-update-form></app-update-form>
   </section>
 </main>

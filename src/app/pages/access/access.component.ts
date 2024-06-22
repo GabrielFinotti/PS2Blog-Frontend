@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-
-//Components
 import { LoginFormComponent } from '../../components/forms/login-form/login-form.component';
 import { RegisterFormComponent } from '../../components/forms/register-form/register-form.component';
+import { StringForm } from '../../enums/string-form';
 
-//Enums
-import { IsFormLogin } from '../../enums/is-form-login';
 
 @Component({
   selector: 'app-access',
@@ -15,25 +12,25 @@ import { IsFormLogin } from '../../enums/is-form-login';
   styleUrl: './access.component.scss',
 })
 export class AccessComponent {
-  protected isFormLogin!: boolean;
-  protected typeForm!: string;
-  protected spanForm!: string;
+  public isToggle!: boolean;
+  public textForm!: string;
+  public textToggle!: string;
 
   constructor() {
-    this.isFormLogin = true;
-    this.typeForm = IsFormLogin.isRegister;
-    this.spanForm = IsFormLogin.spanRegister;
+    this.isToggle = false;
+    this.textForm = StringForm.loginForm;
+    this.textToggle = StringForm.toggleResgister;
   }
 
-  protected toggleForm() {
-    this.isFormLogin = !this.isFormLogin;
-
-    if (this.isFormLogin) {
-      this.typeForm = IsFormLogin.isRegister;
-      this.spanForm = IsFormLogin.spanRegister;
+  public toggleForm() {
+    if (this.isToggle) {
+      this.isToggle = !this.isToggle;
+      this.textForm = StringForm.registerForm;
+      this.textToggle = StringForm.toggleLogin;
     } else {
-      this.typeForm = IsFormLogin.isLogin;
-      this.spanForm = IsFormLogin.spanLogin;
+      this.isToggle = !this.isToggle;
+      this.textForm = StringForm.loginForm;
+      this.textToggle = StringForm.toggleResgister;
     }
   }
 }

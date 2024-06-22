@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -13,10 +12,16 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ShowPassword } from '../../../enums/show-password';
+import { ShowPass } from '../../../enums/show-pass';
+import { NgClass } from '@angular/common';
+
+//Services
+import { LoginService } from '../../../services/auth/user/login.service';
+
+//Interfaces
 import { UserLogin } from '../../../interfaces/user/user-login';
-import { UserAuthService } from '../../../services/userServices/auth/user-auth.service';
+import { Login } from '../../../interfaces/response/login';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -32,101 +37,107 @@ export class LoginFormComponent implements OnInit {
   @ViewChildren('label') private labels!: QueryList<
     ElementRef<HTMLLabelElement>
   >;
-
-  protected showPassUrl!: string;
   protected loginForm!: FormGroup;
-  protected isInvalid!: Record<string, boolean>;
+  public isShowPass!: boolean;
+  public imgShowPass!: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private render: Renderer2,
-    private userAuthService: UserAuthService,
+    private loginService: LoginService,
     private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      remember: [false],
     });
 
-    this.showPassUrl = ShowPassword.show;
-    this.isInvalid = {};
+    this.isShowPass = false;
+    this.imgShowPass = ShowPass.showPass;
   }
 
   ngOnInit(): void {
-    this.loginForm.valueChanges.subscribe();
-  }
+    let token = localStorage.getItem('token');
 
-  protected onFocus(index: number) {
-    if (this.inputs.toArray()[index].nativeElement.value.length === 0) {
-      this.render.setStyle(
-        this.labels.toArray()[index].nativeElement,
-        'top',
-        '-18px'
-      );
-    }
-  }
+    if (!token) {
+      token = sessionStorage.getItem('token');
 
-  protected onBlur(index: number) {
-    if (this.inputs.toArray()[index].nativeElement.value.length === 0) {
-      this.render.setStyle(
-        this.labels.toArray()[index].nativeElement,
-        'top',
-        '25%'
-      );
-    }
-  }
-
-  protected isShowPassword() {
-    if (this.showPassUrl === ShowPassword.show) {
-      this.showPassUrl = ShowPassword.hidden;
-      this.inputs.toArray()[1].nativeElement.type = 'text';
+      if (token) this.router.navigateByUrl('');
     } else {
-      this.showPassUrl = ShowPassword.show;
-      this.inputs.toArray()[1].nativeElement.type = 'password';
+      this.router.navigateByUrl('');
     }
   }
 
-  protected submitForm() {
+  public onFocus(index: number) {
+    if (this.inputs.toArray()[index].nativeElement) {
+      this.render.setStyle(
+        this.labels.toArray()[index].nativeElement,
+        'top',
+        '-14px'
+      );
+    }
+  }
+
+  public onBlur(index: number) {
+    if (this.inputs.toArray()[index].nativeElement.value === '') {
+      this.render.setStyle(
+        this.labels.toArray()[index].nativeElement,
+        'top',
+        '30%'
+      );
+    }
+  }
+
+  public showPass() {
+    if (!this.isShowPass) {
+      this.imgShowPass = ShowPass.notShowPass;
+      this.isShowPass = true;
+    } else {
+      this.imgShowPass = ShowPass.showPass;
+      this.isShowPass = false;
+    }
+  }
+
+  protected submit() {
     if (this.loginForm.invalid) return;
 
-    const { email, password }: UserLogin = this.loginForm.value;
+    const email = this.loginForm.get('email')?.value as string;
+    const password = this.loginForm.get('password')?.value as string;
+    const isSave = this.loginForm.get('remember')?.value as boolean;
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!emailRegex.test(email)) {
-      this.isInvalid['email'] = true;
+    if (email != email.trim() || password != password.trim()) {
       return;
-    } else {
-      this.isInvalid['email'] = false;
     }
-
-    if (password != password.trim()) {
-      this.isInvalid['password'] = true;
-      return;
-    } else {
-      this.isInvalid['password'] = false;
-    }
+    if (!emailRegex.test(email)) return;
 
     const data: UserLogin = {
       email,
       password,
+      save: isSave,
     };
 
-    this.userAuthService.userLogin(data).subscribe(
+    this.loginService.userLogin(data).subscribe(
       (res) => {
-        sessionStorage.setItem('token', res.token);
-        sessionStorage.setItem('username', res.username);
+        this.saveData(res, isSave);
 
-        this.router.navigateByUrl('')
+        this.router.navigateByUrl('');
       },
-      (err) => console.log(err)
+      (error) => {
+        console.log(error.error.message);
+      }
     );
   }
 
-  protected invalidInput(controlName: string) {
-    const control = this.loginForm.get(controlName);
-
-    if (!control) return false;
-
-    return control.invalid && control.dirty && control.touched;
+  private saveData(data: Login, isSave: boolean) {
+    if (isSave) {
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('player', data.username);
+    } else {
+      sessionStorage.setItem('token', data.token);
+      sessionStorage.setItem('player', data.username);
+    }
   }
 }

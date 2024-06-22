@@ -1,6 +1,6 @@
 @import "../../scss/index.scss";
 
-@keyframes showImg {
+@keyframes showUserData {
   50% {
     scale: 1.2;
   }
@@ -10,20 +10,39 @@
   }
 }
 
-main {
-  background-color: $primary-bg-color;
+@keyframes showUserName {
+  to {
+    width: 100%;
+    padding: 10px 15px;
+    padding-bottom: 5px;
 
-  section {
-    max-width: 1024px;
-    margin: auto;
+    opacity: 1;
   }
+}
 
-  #user {
+@keyframes showBio {
+  to {
+    height: 180px;
+    padding: 10px;
+
+    overflow-y: auto;
+    opacity: 1;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  #userProfile {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 
-    #profile {
+    #userData {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,112 +50,90 @@ main {
 
       scale: 0;
 
-      animation: showImg 1000ms ease forwards;
+      animation: showUserData 800ms ease forwards;
 
-      img {
-        background-color: $secondary-bg-color;
-        border: 2px solid $tertiay-bg-color;
-        border-radius: 50%;
+      label {
+        img {
+          background-color: rgba($secondary-bg-color, 25%);
+          backdrop-filter: blur(4px);
+          border: 2px solid $primary-bg-color;
+          border-radius: 50%;
 
-        width: 50%;
+          width: 115px;
 
-        object-fit: cover;
-        aspect-ratio: 1/1;
+          object-fit: cover;
+          aspect-ratio: 1/1;
+          cursor: pointer;
+        }
       }
 
       p {
-        color: $primary-text-color;
-        font-size: rem-calc(20);
+        background-color: rgba($secondary-bg-color, 40%);
+        backdrop-filter: blur(4px);
+        border: 1px solid $primary-bg-color;
+        border-radius: 10px;
+
+        color: $secondary-text-color;
+        font-size: rem-calc(18);
+        font-weight: normal;
+        text-wrap: nowrap;
+        text-align: center;
+
+        width: 0;
+        padding: 10px 0 5px 0;
+
+        overflow: hidden;
+        opacity: 0;
+
+        animation: showUserName 800ms 1000ms ease forwards;
       }
     }
 
-    #bio {
-      color: $tertiary-text-color;
-      font-size: rem-calc(16);
+    #apresentation {
+      background-color: rgba($primary-bg-color, 40%);
+      backdrop-filter: blur(4px);
+      border: 1px solid $secondary-bg-color;
+      border-radius: 10px;
 
-      max-height: 100px;
+      color: $primary-text-color;
+      font-size: rem-calc(14);
+      font-weight: 100;
 
-      overflow-y: auto;
-    }
-  }
+      width: 100%;
+      max-width: 460px;
+      height: 0;
+      padding: 0;
 
-  #dataManager {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+      overflow-y: hidden;
+      opacity: 0;
 
-    padding: 20px 0;
-
-    #toggleManager {
-      display: flex;
-      justify-content: space-around;
-
-      a {
-        color: $tertiary-text-color;
-        font-size: rem-calc(14);
-        text-decoration-line: none;
-
-        padding: 5px;
-
-        transition: color ease 700ms;
-        cursor: pointer;
-
-        &.disabled {
-          opacity: 0.5;
-
-          cursor: not-allowed;
-        }
-
-        &.link-activated {
-          color: $primary-text-color;
-        }
-      }
-
-      span {
-        background-color: $tertiay-bg-color;
-
-        display: block;
-
-        width: 1px;
-        padding: 0;
-
-        cursor: none;
-      }
+      animation: showBio 800ms 1000ms ease forwards;
     }
   }
-}
 
-@media (min-width: 760px) {
-  main {
-    #user {
+  #updateProfile {
+    padding-top: 20px;
+  }
+
+  @media (min-width: 760px) {
+    #userProfile {
       flex-direction: row;
-      align-items: center;
-      gap: 0;
+      justify-content: space-evenly;
 
-      #profile {
-        flex: 2;
-
-        img {
-          width: 55%;
+      #userData {
+        label {
+          img {
+            width: 150px;
+          }
         }
 
         p {
-          font-size: rem-calc(22);
+          font-size: rem-calc(20);
         }
       }
 
       #bio {
-        flex: 4;
-
-        font-size: rem-calc(18);
-      }
-    }
-
-    #dataManager {
-      #toggleManager {
-        a {
-          font-size: rem-calc(20);
-        }
+        font-size: rem-calc(16);
       }
     }
   }

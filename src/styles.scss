@@ -1,32 +1,58 @@
+@import "./app/scss/index.scss";
+
 @font-face {
-  font-family: Comfortaa;
-  src: url(./assets/fonts/Comfortaa-VariableFont_wght.woff);
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Thin.woff);
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Regular.woff);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Manjari;
+  src: url(./assets/fonts/Manjari-Bold.woff);
+  font-weight: bold;
 }
 
 * {
   border: 0;
 
+  font-family: Manjari;
+
   margin: 0;
   padding: 0;
-
-  font-family: Comfortaa;
 
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  background-color: rgba($primary-bg-color, 25%);
+  backdrop-filter: blur(2px);
+  border-radius: 50px;
+
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba($secondary-bg-color, 38%);
+  border-radius: 50px;
+}
+
+body {
+  background-image: url(./assets/imgs/background.webp);
+  background-position: 45%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 main {
-  min-height: calc(100vh - 155px);
-  padding: 0 20px;
-}
-
-@media (min-width: 760px) {
-  main {
-    min-height: calc(100vh - 168px);
-  }
-}
-
-@media (min-width: 1020px) {
-  main {
-    min-height: calc(100vh - 173px);
-  }
+  max-width: 1024px;
+  min-height: calc(100vh - 172px);
+  margin: auto;
+  padding: 20px;
 }

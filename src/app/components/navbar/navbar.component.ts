@@ -5,34 +5,37 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgClass, RouterModule],
+  imports: [RouterModule, NgClass],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
-  protected isToggle!: boolean;
-  protected username!: string | undefined;
+  protected isShowNav!: boolean;
+  protected playerName!: string | undefined;
 
   constructor() {
-    this.isToggle = false;
-    this.username = undefined;
+    this.isShowNav = false;
   }
 
   ngOnInit(): void {
-    this.setUsername();
+    let player = localStorage.getItem('player');
+
+    if (!player) {
+      player = sessionStorage.getItem('player');
+
+      if (player) {
+        this.playerName = player;
+        return;
+      }
+    } else {
+      this.playerName = player;
+      return;
+    }
+
+    this.playerName = undefined;
   }
 
-  protected onClick() {
-    if (window.screenX >= 1020) return;
-
-    this.isToggle = !this.isToggle;
-  }
-
-  private setUsername() {
-    const username = sessionStorage.getItem('username');
-
-    if (!username) return;
-
-    this.username = username;
+  public showNav() {
+    this.isShowNav = !this.isShowNav;
   }
 }

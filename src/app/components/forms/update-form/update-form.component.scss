@@ -1,0 +1,113 @@
+@import "../../../scss/index.scss";
+
+@keyframes showForm {
+  to {
+    width: 100%;
+    padding: 10px;
+
+    opacity: 1;
+  }
+}
+
+form {
+  background-color: rgba($primary-bg-color, 50%);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid $secondary-bg-color;
+
+  width: 0;
+  margin: auto;
+
+  overflow: hidden;
+  opacity: 0;
+
+  animation: showForm 800ms 1500ms ease forwards;
+
+  .input-group {
+    padding: 10px 0;
+
+    label {
+      display: block;
+
+      color: $primary-text-color;
+      font-size: rem-calc(14);
+      font-weight: normal;
+
+      padding-left: 5px;
+    }
+
+    input,
+    textarea {
+      background-color: rgba($secondary-bg-color, 25%);
+      border: 1px solid $primary-bg-color;
+      border-radius: 10px;
+
+      font-size: rem-calc(12);
+      font-weight: normal;
+
+      width: 100%;
+      padding: 8px 10px;
+
+      &:focus {
+        outline: 1px solid $primary-bg-color;
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  #submit {
+    background-color: rgba($primary-bg-color, 88%);
+    border: 1px solid $secondary-bg-color;
+    border-radius: 10px;
+
+    display: block;
+
+    color: $primary-text-color;
+    font-size: rem-calc(16);
+    font-weight: bold;
+
+    width: 50%;
+    margin: auto;
+    padding: 8px 0;
+    padding-top: 14px;
+
+    cursor: pointer;
+    overflow: hidden;
+
+    transition: all 500ms ease;
+
+    &.disabled {
+      width: 0;
+
+      opacity: 0;
+
+      cursor: not-allowed;
+    }
+  }
+
+  @media (min-width: 760px) {
+    #submit {
+      width: 30%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .input-group {
+      label {
+        font-size: rem-calc(16);
+      }
+
+      input,
+      textarea {
+        font-size: rem-calc(14);
+      }
+    }
+
+    #submit {
+      width: 25%;
+    }
+  }
+}

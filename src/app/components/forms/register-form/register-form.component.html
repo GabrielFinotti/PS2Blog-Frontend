@@ -1,102 +1,57 @@
-<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
-  <div
-    #div
-    [ngClass]="{ invalid: invalidInput('username') || isInvalid['emptyUser'] }"
-    class="input-group hidden"
-  >
-    <label #label for="user">User</label>
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+  <div class="input-group">
+    <label #label for="username">Player name</label>
     <input
       #input
-      id="user"
       type="text"
+      id="username"
       formControlName="username"
       (focus)="onFocus(0)"
       (blur)="onBlur(0)"
     />
   </div>
-  <p
-    [ngClass]="{ invalid: invalidInput('username') || isInvalid['emptyUser'] }"
-    class="info-input"
-  >
-    Username must be a minimum of 5 and a maximum of 16 characters. And cannot
-    be empty!
-  </p>
-  <div
-    #div
-    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
-    class="input-group"
-  >
+  <div class="input-group">
     <label #label for="email">Email</label>
     <input
       #input
-      id="email"
       type="email"
+      id="email"
       formControlName="email"
       (focus)="onFocus(1)"
       (blur)="onBlur(1)"
     />
   </div>
-  <p
-    [ngClass]="{ invalid: invalidInput('email') || isInvalid['email'] }"
-    class="info-input"
-  >
-    Enter a valid email!
-  </p>
-  <div
-    #div
-    [ngClass]="{ invalid: invalidInput('password') || isInvalid['emptyPass'] }"
-    class="input-group"
-  >
+  <div class="input-group">
     <label #label for="password">Password</label>
     <input
       #input
+      [type]="isShowPass ? 'text' : 'password'"
       id="password"
-      type="password"
       formControlName="password"
       (focus)="onFocus(2)"
       (blur)="onBlur(2)"
     />
-    <img [src]="showPassUrl" alt="Show" (click)="isShowPassword()" />
+    <img
+      id="showPass"
+      [src]="imgShowPass"
+      alt="Show Pass"
+      (click)="showPass()"
+    />
   </div>
-  <p
-    [ngClass]="{ invalid: invalidInput('password') || isInvalid['emptyPass'] }"
-    class="info-input"
-  >
-    Password must have a minimum of 8 and a maximum of 16 characters. And cannot
-    be empty!
-  </p>
-  <div
-    #div
-    [ngClass]="{
-      invalid: invalidInput('confPassword') || isInvalid['confPassword']
-    }"
-    class="input-group hidden"
-  >
-    <label #label for="confPassword">Confirm password</label>
+  <div class="input-group">
+    <label #label for="confPassword">Confirm Password</label>
     <input
       #input
-      id="confPassword"
       type="password"
+      id="confPassword"
       formControlName="confPassword"
       (focus)="onFocus(3)"
       (blur)="onBlur(3)"
     />
   </div>
-  <p
-    [ngClass]="{
-      invalid: invalidInput('confPassword') || isInvalid['confPassword']
-    }"
-    class="info-input"
-  >
-    {{
-      isInvalid["confPassword"]
-        ? "Passwords must be the same!"
-        : "Can not be empty!"
-    }}
-  </p>
   <input
     [ngClass]="{ disabled: registerForm.invalid }"
-    class="submit-form"
+    id="submit"
     type="submit"
     value="Create Save"
     [disabled]="registerForm.invalid"

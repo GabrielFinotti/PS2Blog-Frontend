@@ -1,19 +1,19 @@
 @import "../../scss/index.scss";
 
 main {
-  background-color: rgba($primary-bg-color, 1);
-
-  #searchGames {
-    max-width: 650px;
+  #search {
+    max-width: 400px;
     margin: auto;
 
-    #search {
+    padding-bottom: 20px;
+
+    #searchGames {
       position: relative;
 
-      width: 95px;
+      width: 76px;
       margin: auto;
 
-      transition: all 600ms ease;
+      transition: all 500ms ease;
 
       &.show-search {
         width: 100%;
@@ -24,162 +24,121 @@ main {
       }
 
       input {
-        background-color: rgba($secondary-bg-color, 0.4);
-        border-radius: 8px;
+        background-color: rgba($secondary-bg-color, 20%);
+        border: 1px solid $primary-bg-color;
+        backdrop-filter: blur(4px);
+        border-radius: 20px;
 
-        color: $primary-text-color;
-        font-size: rem-calc(14);
-        letter-spacing: 2px;
+        color: $secondary-text-color;
+        font-size: rem-calc(12);
+        font-weight: bold;
 
         width: 100%;
         padding: 10px;
         padding-right: 35px;
 
         &::placeholder {
-          color: $primary-text-color;
-          opacity: 0.5;
-        }
-
-        &:focus {
-          outline: 2px solid $tertiay-bg-color;
-
-          &::placeholder {
-            opacity: 1;
-          }
-
-          & ~ img {
-            opacity: 1;
-          }
+          color: $secondary-text-color;
+          font-weight: normal;
         }
 
         &::-webkit-search-cancel-button {
           display: none;
         }
+
+        &:focus {
+          outline: 1px solid $primary-bg-color;
+        }
       }
 
       img {
         position: absolute;
-        top: 15%;
+        top: 16%;
         right: 10px;
 
-        width: 25px;
-
-        opacity: 0.5;
-
-        transition: transform 600ms ease;
-        cursor: pointer;
-      }
-    }
-
-    #results {
-      border-left: 1px solid $tertiay-bg-color;
-
-      position: relative;
-      left: 8px;
-
-      height: 0;
-
-      overflow: hidden;
-
-      transition: all 300ms ease;
-
-      &.show-results {
-        height: 45px;
-      }
-
-      p {
-        color: $primary-text-color;
-        font-size: rem-calc(12);
-
-        padding: 5px;
+        transition: all 500ms ease;
       }
     }
   }
 
   #gamesCards {
     padding: 20px 0;
-
-    max-width: 1024px;
-    margin: auto;
   }
 
   #pagination {
-    background-color: rgba($secondary-bg-color, 1);
-    border: 2px solid $tertiay-bg-color;
+    background-color: rgba($secondary-bg-color, 35%);
+    backdrop-filter: blur(4px);
+    border: 2px solid $primary-bg-color;
     border-radius: 10px;
 
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 5px;
+    gap: 15px;
 
     width: max-content;
     margin: auto;
-    padding: 0 5px;
 
-    cursor: pointer;
+    padding: 5px 10px;
 
     img {
-      width: 25px;
+      cursor: pointer;
 
-      transform: scaleY(-1);
+      &:nth-last-child(1) {
+        transform: rotate(180deg) scaleY(-1);
+      }
 
-      &:nth-child(1) {
-        transform: scale(-1, -1);
+      &.disabled {
+        opacity: 0.5;
+
+        cursor: not-allowed;
       }
     }
 
     span {
-      color: $seconday-text-color;
-      font-size: rem-calc(20);
+      position: relative;
+      top: 2px;
 
-      padding: 5px 10px;
+      font-size: rem-calc(16);
 
-      &:nth-child(2) {
-        border-left: 2px solid $tertiay-bg-color;
-      }
+      cursor: pointer;
 
-      &:nth-last-child(2) {
-        border-right: 2px solid $tertiay-bg-color;
+      &.activated-page {
+        color: $primary-text-color;
       }
     }
   }
-}
 
-@media (min-width: 760px) {
-  main {
-    #searchGames {
-      #search {
-        width: 105px;
-
-        input {
-          font-size: rem-calc(18);
-        }
+  @media (min-width: 760px) {
+    #pagination {
+      img {
+        width: 25px;
       }
 
-      #results {
-        &.show-results {
-          height: 55px;
-        }
-
-        p {
-          font-size: rem-calc(16);
-        }
+      span {
+        font-size: rem-calc(18);
       }
     }
   }
-}
 
-@media (min-width: 1020px) {
-  main {
-    #searchGames {
-      #search {
-        width: 100px;
+  @media (min-width: 1024px) {
+    #search {
+      #searchGames {
+        width: 86px;
 
         input {
           font-size: rem-calc(16);
         }
       }
+    }
+
+    #gamesCards {
+      padding-left: 76px;
+    }
+  }
+
+  @media (min-width: 1166px) {
+    #gamesCards {
+      padding-left: 0;
     }
   }
 }

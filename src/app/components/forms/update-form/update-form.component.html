@@ -1,0 +1,21 @@
+<form [formGroup]="updateForm" (ngSubmit)="submit()">
+  <div class="input-group">
+    <label for="username">Player</label>
+    <input id="username" type="text" formControlName="username" />
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" />
+  </div>
+  <div class="input-group">
+    <label for="bio">Bio</label>
+    <textarea id="bio" rows="5" formControlName="bio"></textarea>
+  </div>
+  <input
+    [ngClass]="{ disabled: updateForm.invalid }"
+    id="submit"
+    type="submit"
+    value="Update Save"
+    [disabled]="updateForm.invalid"
+  />
+</form>

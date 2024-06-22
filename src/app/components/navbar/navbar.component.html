@@ -1,28 +1,68 @@
 <header>
   <nav>
-    <div routerLink="/" id="logo">
-      <img src="../../../assets/imgs/ps2-logo.svg" alt="Logo" />
-      <h1>PS2 BLOG</h1>
-    </div>
-    <button [ngClass]="{ 'active-nav': isToggle }" (click)="onClick()">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </button>
-    <div [ngClass]="{ activated: isToggle }" id="navLinks">
-      <a
-        routerLink="/"
-        routerLinkActive="link-activated"
-        [routerLinkActiveOptions]="{ exact: true }"
-        (click)="onClick()"
-        >Home</a
-      >
-      <a
-        [routerLink]="['/account/user', username]"
-        routerLinkActive="link-activated"
-        (click)="onClick()"
-        >Acount</a
-      >
+    <img
+      id="logoMobile"
+      src="../../../assets/imgs/ps2-logo-dark.svg"
+      alt="PS2 Blog"
+    />
+    <img
+      id="openMenu"
+      src="../../../assets/icons/open-menu.svg"
+      alt="Menu"
+      (click)="showNav()"
+    />
+    <div [ngClass]="{ 'show-nav': isShowNav }" id="navLinksMobile">
+      <div id="closeMenu">
+        <img
+          src="../../../assets/icons/close-menu.svg"
+          alt="Close Menu"
+          (click)="showNav()"
+        />
+      </div>
+      <div id="linksMobile" (click)="showNav()">
+        <a routerLink="/post" routerLinkActive="activated"
+          >Posts <img src="../../../assets/icons/posts-icon.svg"
+        /></a>
+        <a
+          routerLink=""
+          routerLinkActive="activated"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home <img src="../../../assets/icons/games-icon.svg" />
+        </a>
+        <a [routerLink]="['/account', playerName]" routerLinkActive="activated"
+          >Account <img src="../../../assets/icons/account-icon.svg"
+        /></a>
+        <a routerLink="/community" routerLinkActive="activated"
+          >Community <img src="../../../assets/icons/community-icon.svg"
+        /></a>
+      </div>
     </div>
   </nav>
+  <aside>
+    <div id="logoDesktop">
+      <img src="../../../assets/imgs/ps2-logo.svg" />
+      <p>PS2 BLOG</p>
+      <img src="../../../assets/imgs/ps2-logo.svg" />
+    </div>
+    <div id="navLinksDesktop">
+      <div id="linksDesktop">
+        <a routerLink="/post" routerLinkActive="activated">
+          <img src="../../../assets/icons/posts-icon.svg" alt="Posts" />
+        </a>
+        <a
+          routerLink=""
+          routerLinkActive="activated"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <img src="../../../assets/icons/games-icon.svg" alt="Home" />
+        </a>
+        <a [routerLink]="['/account', playerName]" routerLinkActive="activated">
+          <img src="../../../assets/icons/account-icon.svg" alt="Account" />
+        </a>
+        <a routerLink="/community" routerLinkActive="activated">
+          <img src="../../../assets/icons/community-icon.svg" alt="Community" />
+        </a>
+      </div>
+    </div>
+  </aside>
 </header>
