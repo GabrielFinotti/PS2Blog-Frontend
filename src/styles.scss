@@ -48,6 +48,19 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+
+  &::-webkit-scrollbar {
+    background-color: $primary-bg-color;
+    backdrop-filter: blur(2px);
+    border-radius: 0px;
+
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary-bg-color;
+    border-radius: 50px;
+  }
 }
 
 main {
