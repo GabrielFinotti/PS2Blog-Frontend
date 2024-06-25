@@ -26,10 +26,16 @@ export const routes: Routes = [
     component: AccountComponent,
     canActivate: [routerAccessGuard],
   },
-  { path: 'post', component: PostComponent, canActivate: [routerAccessGuard] },
+  {
+    path: 'post',
+    component: PostComponent,
+    redirectTo: '',
+    canActivate: [routerAccessGuard],
+  },
   {
     path: 'community',
     component: CommunityComponent,
+    redirectTo: '',
     canActivate: [routerAccessGuard],
   },
   { path: '**', redirectTo: '' },

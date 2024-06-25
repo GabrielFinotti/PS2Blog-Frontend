@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
 
   protected searchGame() {
     this.gameName = this.search.get('game')?.value as string;
+    this.currentPage = 1;
 
     if (!this.gameName) this.gameName = ' ';
 
@@ -85,14 +86,23 @@ export class HomeComponent implements OnInit {
   protected togglePage(page: number) {
     this.currentPage = page;
 
-    this.searchGame();
+    this.query = `?name=${this.gameName}&page=${this.currentPage}`;
+
+    this.gamesListService
+      .getGamesList(this.token, this.query)
+      .subscribe((res) => {
+        this.gameList = res.gameList;
+        this.prevPage = res.prevPage;
+        this.nextPage = res.nextPage;
+        this.totalDocs = res.totalDocs;
+      });
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   protected pagination(): number[] {
     if (this.totalDocs <= 20) {
-      return Array.from({ length: 1 }, (_, i) => 1);
+      return Array.from({ length: 1 }, (_) => 1);
     }
 
     const totalPages = Math.ceil(this.totalDocs / 20);
