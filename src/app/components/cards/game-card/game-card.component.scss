@@ -26,7 +26,10 @@
     opacity: 0;
 
     transition: all 350ms ease-out;
-    animation: showCard 250ms ease forwards;
+
+    &.show-card {
+      animation: showCard 350ms ease forwards;
+    }
 
     .card-img {
       background-color: rgba($primary-bg-color, 40%);
